@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export interface MixMenuContextProps<T = unknown> {
   activeFirstLevelMenuKey: string;
@@ -28,7 +28,17 @@ export function useMixMenuContext<T = unknown>() {
   const context = useContext(MixMenuContext);
 
   if (!context) {
-    throw new Error('useMixMenu must be used within a MixMenuContext');
+    // 返回默认值而不是抛出错误或打印警告，这样UI仍然可以渲染
+    return {
+      activeFirstLevelMenuKey: '',
+      allMenus: [],
+      childLevelMenus: [],
+      firstLevelMenu: [],
+      isActiveFirstLevelMenuHasChildren: false,
+      route: {} as Router.Route<T>,
+      selectKey: [],
+      setActiveFirstLevelMenuKey: () => {}
+    } as MixMenuContextProps<T>;
   }
 
   return context as MixMenuContextProps<T>;

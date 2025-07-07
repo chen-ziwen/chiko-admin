@@ -1,6 +1,7 @@
 import { AdminLayout, LAYOUT_SCROLL_EL_ID, type LayoutMode } from '@chiko-admin/layout';
-import { configResponsive } from 'ahooks';
-import { Suspense } from 'react';
+import { configResponsive, useResponsive } from 'ahooks';
+import type { FC } from 'react';
+import { Suspense, memo, useLayoutEffect } from 'react';
 
 import {
   LAYOUT_MODE_HORIZONTAL,
@@ -8,8 +9,9 @@ import {
   LAYOUT_MODE_VERTICAL,
   LAYOUT_MODE_VERTICAL_MIX
 } from '@/constants/common';
-// import { useMixMenuContext } from '@/features/menu';
+import { useMixMenuContext } from '@/features/menu';
 import MenuProvider from '@/features/menu/MenuProvider';
+import { useAppDispatch, useAppSelector } from '@/hooks/useStore';
 import {
   LayoutContent,
   LayoutFooter,
@@ -34,7 +36,136 @@ configResponsive({
   small: 640
 });
 
-const BasicLayout = () => {
+interface LayoutWithMenuContextProps {
+  fullContent: boolean;
+  headerHeight: number;
+  isHorizontalMix: boolean;
+  isMobile: boolean;
+  isVerticalMix: boolean;
+  layoutMode: LayoutMode;
+  mixSiderFixed: boolean;
+  siderCollapse: boolean;
+  siderCollapsedWidth: number;
+  siderVisible: boolean;
+  siderWidth: number;
+  themeSettings: any; // 可以替换为实际的 themeSettings 类型
+  updateSiderCollapse: () => void;
+}
+
+const LayoutWithMenuContextComponent: FC<LayoutWithMenuContextProps> = props => {
+  const {
+    fullContent,
+    headerHeight,
+    isMobile,
+    isHorizontalMix,
+    isVerticalMix,
+    layoutMode,
+    mixSiderFixed,
+    siderCollapse,
+    siderCollapsedWidth,
+    siderVisible,
+    siderWidth,
+    themeSettings,
+    updateSiderCollapse
+  } = props;
+
+  const { isActiveFirstLevelMenuHasChildren, childLevelMenus } = useMixMenuContext();
+
+  function getAdjustedSiderWidth() {
+    const { reverseHorizontalMix } = themeSettings.layout;
+    const { mixChildMenuWidth, width } = themeSettings.sider;
+
+    if (isHorizontalMix && reverseHorizontalMix) {
+      return isActiveFirstLevelMenuHasChildren ? width : 0;
+    }
+
+    let w = siderWidth;
+
+    if (isVerticalMix && mixSiderFixed && childLevelMenus.length) {
+      w += mixChildMenuWidth;
+    }
+
+    return w;
+  }
+
+  function getAdjustedSiderCollapsedWidth() {
+    const { reverseHorizontalMix } = themeSettings.layout;
+    const { collapsedWidth, mixChildMenuWidth } = themeSettings.sider;
+
+    if (isHorizontalMix && reverseHorizontalMix) {
+      return isActiveFirstLevelMenuHasChildren ? collapsedWidth : 0;
+    }
+
+    let w = siderCollapsedWidth;
+
+    if (isVerticalMix && mixSiderFixed && childLevelMenus.length) {
+      w += mixChildMenuWidth;
+    }
+
+    return w;
+  }
+
+  const adjustedSiderWidth = getAdjustedSiderWidth();
+  const adjustedSiderCollapsedWidth = getAdjustedSiderCollapsedWidth();
+
+  return (
+    <AdminLayout
+      fixedFooter={themeSettings.footer.fixed}
+      fixedTop={themeSettings.fixedHeaderAndTab}
+      Footer={<LayoutFooter />}
+      footerHeight={themeSettings.footer.height}
+      footerVisible={themeSettings.footer.visible}
+      fullContent={fullContent}
+      headerHeight={headerHeight}
+      isMobile={isMobile}
+      mode={layoutMode}
+      rightFooter={themeSettings.footer.right}
+      scrollElId={LAYOUT_SCROLL_EL_ID}
+      scrollMode={themeSettings.layout.scrollMode}
+      siderCollapse={siderCollapse}
+      siderCollapsedWidth={adjustedSiderCollapsedWidth}
+      siderVisible={siderVisible}
+      siderWidth={adjustedSiderWidth}
+      Tab={<LayoutTabbar />}
+      tabHeight={themeSettings.tab.height}
+      tabVisible={themeSettings.tab.visible}
+      updateSiderCollapse={updateSiderCollapse}
+      Header={
+        <LayoutHeader
+          isMobile={isMobile}
+          mode={themeSettings.layout.mode}
+          reverse={themeSettings.layout.reverseHorizontalMix}
+          siderWidth={themeSettings.sider.width}
+        />
+      }
+      Sider={
+        <LayoutSider
+          headerHeight={themeSettings.header.height}
+          inverted={themeSettings.sider.inverted}
+          isHorizontalMix={isHorizontalMix}
+          isVerticalMix={isVerticalMix}
+          siderCollapse={siderCollapse}
+        />
+      }
+    >
+      <LayoutContent />
+
+      <LayoutMenu
+        mode={themeSettings.layout.mode}
+        reverse={themeSettings.layout.reverseHorizontalMix}
+      />
+
+      <Suspense fallback={null}>
+        <ThemeDrawer />
+      </Suspense>
+    </AdminLayout>
+  );
+};
+
+const LayoutWithMenuContext = memo(LayoutWithMenuContextComponent);
+LayoutWithMenuContext.displayName = 'LayoutWithMenuContext';
+
+const BasicLayout: FC = () => {
   const dispatch = useAppDispatch();
 
   const themeSettings = useAppSelector(getThemeSettings);
@@ -57,23 +188,9 @@ const BasicLayout = () => {
   const isMobile = !responsive.sm;
 
   function getSiderWidth() {
-    // const { reverseHorizontalMix } = themeSettings.layout;
+    const { mixWidth, width } = themeSettings.sider;
 
-    const { mixChildMenuWidth, mixWidth, width } = themeSettings.sider;
-
-    // if (isHorizontalMix && reverseHorizontalMix) {
-    //   return isActiveFirstLevelMenuHasChildren ? width : 0;
-    // }
-
-    let w = isVerticalMix || isHorizontalMix ? mixWidth : width;
-
-    // if (isVerticalMix && mixSiderFixed && childLevelMenus.length) {
-    //   w += mixChildMenuWidth;
-    // }
-
-    if (isVerticalMix && mixSiderFixed) {
-      w += mixChildMenuWidth;
-    }
+    const w = isVerticalMix || isHorizontalMix ? mixWidth : width;
 
     return w;
   }
@@ -81,21 +198,9 @@ const BasicLayout = () => {
   const siderWidth = getSiderWidth();
 
   function getSiderCollapsedWidth() {
-    // const { reverseHorizontalMix } = themeSettings.layout;
-    const { collapsedWidth, mixChildMenuWidth, mixCollapsedWidth } = themeSettings.sider;
+    const { collapsedWidth, mixCollapsedWidth } = themeSettings.sider;
 
-    // if (isHorizontalMix && reverseHorizontalMix) {
-    //   return isActiveFirstLevelMenuHasChildren ? collapsedWidth : 0;
-    // }
-
-    let w = isVerticalMix || isHorizontalMix ? mixCollapsedWidth : collapsedWidth;
-
-    // if (isVerticalMix && mixSiderFixed && childLevelMenus.length) {
-    //   w += mixChildMenuWidth;
-    // }
-    if (isVerticalMix && mixSiderFixed) {
-      w += mixChildMenuWidth;
-    }
+    const w = isVerticalMix || isHorizontalMix ? mixCollapsedWidth : collapsedWidth;
 
     return w;
   }
@@ -114,56 +219,21 @@ const BasicLayout = () => {
 
   return (
     <MenuProvider>
-      <AdminLayout
-        fixedFooter={themeSettings.footer.fixed}
-        fixedTop={themeSettings.fixedHeaderAndTab}
-        Footer={<LayoutFooter />}
-        footerHeight={themeSettings.footer.height}
-        footerVisible={themeSettings.footer.visible}
+      <LayoutWithMenuContext
         fullContent={fullContent}
         headerHeight={themeSettings.header.height}
+        isHorizontalMix={isHorizontalMix}
         isMobile={isMobile}
-        mode={layoutMode as LayoutMode}
-        rightFooter={themeSettings.footer.right}
-        scrollElId={LAYOUT_SCROLL_EL_ID}
-        scrollMode={themeSettings.layout.scrollMode}
+        isVerticalMix={isVerticalMix}
+        layoutMode={layoutMode as LayoutMode}
+        mixSiderFixed={mixSiderFixed}
         siderCollapse={siderCollapse}
         siderCollapsedWidth={siderCollapsedWidth}
         siderVisible={siderVisible}
         siderWidth={siderWidth}
-        Tab={<LayoutTabbar />}
-        tabHeight={themeSettings.tab.height}
-        tabVisible={themeSettings.tab.visible}
+        themeSettings={themeSettings}
         updateSiderCollapse={updateSiderCollapse}
-        Header={
-          <LayoutHeader
-            isMobile={isMobile}
-            mode={themeSettings.layout.mode}
-            reverse={themeSettings.layout.reverseHorizontalMix}
-            siderWidth={themeSettings.sider.width}
-          />
-        }
-        Sider={
-          <LayoutSider
-            headerHeight={themeSettings.header.height}
-            inverted={themeSettings.sider.inverted}
-            isHorizontalMix={isHorizontalMix}
-            isVerticalMix={isVerticalMix}
-            siderCollapse={siderCollapse}
-          />
-        }
-      >
-        <LayoutContent />
-
-        <LayoutMenu
-          mode={themeSettings.layout.mode}
-          reverse={themeSettings.layout.reverseHorizontalMix}
-        />
-
-        <Suspense fallback={null}>
-          <ThemeDrawer />
-        </Suspense>
-      </AdminLayout>
+      />
     </MenuProvider>
   );
 };

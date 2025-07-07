@@ -12,9 +12,15 @@ import { filterRoutesToMenus, getActiveFirstLevelMenuKey, getSelectKey } from '.
 import { MixMenuContext } from './menuContext';
 
 function getBaseChildrenRoutes(rs: RouteObject[]) {
-  const baseRoutes = rs[0].children;
+  // 查找根路由('/')的children
+  const rootRoute = rs.find(route => route.path === '/');
 
-  return baseRoutes || [];
+  if (!rootRoute || !rootRoute.children) {
+    // 无法找到根路由或根路由没有子路由，返回空数组
+    return [];
+  }
+
+  return rootRoute.children;
 }
 
 const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
@@ -69,7 +75,7 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
     setActiveFirstLevelMenuKey: changeActiveFirstLevelMenuKey
   };
 
-  return <MixMenuContext value={mixMenuContext}>{children}</MixMenuContext>;
+  return <MixMenuContext.Provider value={mixMenuContext}>{children}</MixMenuContext.Provider>;
 };
 
 export default MenuProvider;

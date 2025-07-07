@@ -3,6 +3,31 @@ import type { RouteObject } from 'react-router-dom';
 import BeyondHiding from '@/components/BeyondHiding';
 import { $t } from '@/locales';
 
+/** 处理路由的子节点，创建菜单项 */
+function processRouteNode(route: RouteObject): App.Global.Menu[] {
+  // 如果节点不隐藏在菜单中
+  if (!route.handle?.hideInMenu) {
+    // 创建菜单节点
+    const newNode = getGlobalMenuByBaseRoute(route);
+
+    // 如果存在 children，则递归处理子路由
+    if (route.children && route.children.length) {
+      const filteredChildren = filterRoutesToMenus(route.children);
+
+      if (filteredChildren?.length) {
+        newNode.children = filteredChildren;
+      }
+    }
+
+    return [newNode];
+  } else if (route.children && route.children.length) {
+    // 如果当前节点被隐藏但有子节点，则递归处理子节点
+    return filterRoutesToMenus(route.children);
+  }
+
+  return [];
+}
+
 /**
  * Get global menus by auth routes
  *
@@ -15,24 +40,10 @@ export function filterRoutesToMenus(routes: RouteObject[]) {
   const menus: App.Global.Menu[] = [];
 
   for (const route of sortedRoutes) {
-    // 如果节点存在 path（注意：这里假设空字符串或 undefined 均视为无 path）
-
-    if (route.path && !route.handle?.hideInMenu) {
-      // 如果存在 children，则递归处理
-      const newNode = getGlobalMenuByBaseRoute(route);
-
-      if (route.children && route.children.length) {
-        const filteredChildren = filterRoutesToMenus(route.children);
-
-        if (filteredChildren?.length) {
-          newNode.children = filteredChildren;
-        }
-      }
-      menus.push(newNode);
-    } else if (route.children && route.children.length) {
-      // 如果当前节点没有 path，但有 children，则递归处理 children，
-      menus.push(...filterRoutesToMenus(route.children));
-      // 如果既没有 path 也没有 children，则该节点直接被过滤掉
+    // 只处理有path且不是index路由的路由
+    if (!(route.index || !route.path)) {
+      const routeMenus = processRouteNode(route);
+      menus.push(...routeMenus);
     }
   }
 
@@ -77,14 +88,24 @@ export function getGlobalMenuByBaseRoute(route: RouteObject): App.Global.Menu {
 
   const label = i18nKey ? $t(i18nKey) : title;
 
+  // 使用默认图标，如果没有提供
+  let iconComponent = null;
+  if (icon) {
+    try {
+      iconComponent = (
+        <SvgIcon
+          icon={icon}
+          localIcon={localIcon}
+          style={{ fontSize: '20px' }}
+        />
+      );
+    } catch {
+      // 捕获错误但不打印日志
+    }
+  }
+
   const menu: App.Global.Menu = {
-    icon: (
-      <SvgIcon
-        icon={icon}
-        localIcon={localIcon}
-        style={{ fontSize: '20px' }}
-      />
-    ),
+    icon: iconComponent as any,
     key: path || '',
     label: <BeyondHiding title={label} />,
     title: label
@@ -110,39 +131,71 @@ export function getActiveFirstLevelMenuKey(route: App.Global.TabRoute) {
   return `/${firstLevelRouteName}`;
 }
 
+/** 检查菜单路径是否匹配并添加子菜单 */
+function checkAndAddMenu(menu: App.Global.Menu, newMenu: App.Global.Menu, menuPath: string[]): boolean {
+  const menuKeyParts = menu.key.split('/');
+
+  // 如果路径前缀不匹配，直接返回false
+  if (menuKeyParts[1] !== menuPath[1]) {
+    return false;
+  }
+
+  // 初始化children数组（如果需要）
+  if (!menu.children) {
+    menu.children = [];
+  }
+
+  // 处理完全匹配的情况
+  if (menuPath.length === 3) {
+    menu.children.push(newMenu);
+    return true;
+  }
+
+  // 处理部分匹配，递归检查子菜单
+  return findAndMergeParent(menu.children, menuPath.slice(1));
+}
+
+/** 在菜单数组中查找并合并父级菜单 */
+function findAndMergeParent(currentMenus: App.Global.Menu[], menuPath: string[]): boolean {
+  for (const menu of currentMenus) {
+    if (checkAndAddMenu(menu, null as any, menuPath)) {
+      return true;
+    }
+  }
+  return false;
+}
+
 export function mergeMenus(menus: App.Global.Menu[], newMenus: App.Global.Menu[]) {
   newMenus.forEach(newMenu => {
     const newMenuKey = newMenu.key.split('/'); // 分割路径
 
-    function findAndMergeParent(currentMenus: App.Global.Menu[], menuPath: string[]): boolean {
+    // 定义特定于当前newMenu的findAndMergeParent函数
+    const findParentForCurrentMenu = (currentMenus: App.Global.Menu[]): boolean => {
       for (const menu of currentMenus) {
-        // 判断当前菜单的路径是否匹配，使用 startsWith 来判断路径的前缀
         const menuKeyParts = menu.key.split('/');
 
-        // 如果路径的前缀一致，进一步递归查找子菜单
-        if (menuKeyParts[1] === menuPath[1]) {
-          // 如果匹配到父级菜单的路径并且这个菜单没有 children，则初始化 children
+        // 如果路径前缀匹配
+        if (menuKeyParts[1] === newMenuKey[1]) {
+          // 初始化children数组（如果需要）
           if (!menu.children) {
             menu.children = [];
           }
 
-          // 如果 newMenu 的路径和当前菜单的路径匹配，递归查找它的子菜单
-          if (menuPath.length === 3) {
-            // 如果路径已完全匹配，将 newMenu 添加到子菜单中
+          // 完全匹配的情况
+          if (newMenuKey.length === 3) {
             menu.children.push(newMenu);
-
             return true;
           }
 
-          // 如果路径部分匹配，递归检查当前菜单的 children
-          return findAndMergeParent(menu.children || [], menuPath.slice(1));
+          // 部分匹配，递归检查子菜单
+          return findParentForCurrentMenu(menu.children);
         }
       }
       return false;
-    }
+    };
 
-    // 如果没有找到父级，将 newMenu 直接添加到 menus
-    if (!findAndMergeParent(menus, newMenuKey)) {
+    // 如果没有找到父级，将newMenu直接添加到menus
+    if (!findParentForCurrentMenu(menus)) {
       menus.push(newMenu);
     }
   });
