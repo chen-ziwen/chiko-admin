@@ -1,9 +1,8 @@
 import type { MenuInfo } from 'rc-menu/lib/interface';
 import type { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useMixMenuContext } from '@/features/menu';
-// import { useRouter } from '@/features/router';
+import { useRouter } from '@/features/router';
 import { getThemeSettings } from '@/stores/modules';
 
 interface Props {
@@ -19,7 +18,7 @@ const HorizontalMenu: FC<Props> = memo(({ mode }) => {
 
   const { allMenus, childLevelMenus, firstLevelMenu, selectKey, setActiveFirstLevelMenuKey } = useMixMenuContext();
 
-  const navigate = useNavigate();
+  const { navigate } = useRouter();
 
   const selectedKeys = mode === '3' ? [`/${selectKey[0].split('/')[1]}`] : selectKey;
 

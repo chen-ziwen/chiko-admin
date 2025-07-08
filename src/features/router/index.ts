@@ -1,4 +1,6 @@
 export * from './RouterProvider';
-// export * from './routes';
+
 export * from './useRoute';
+export * from './routerContext';
+export * from './router';
 export * from './query';

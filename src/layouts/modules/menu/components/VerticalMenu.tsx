@@ -1,9 +1,9 @@
 import { SimpleScrollbar } from '@chiko-admin/layout';
 import type { MenuProps } from 'antd';
 import type { MenuInfo } from 'rc-menu/lib/interface';
-import { useNavigate } from 'react-router-dom';
 
 import { useMixMenuContext } from '@/features/menu';
+import { useRouter } from '@/features/router';
 import { getSiderCollapse, getThemeSettings } from '@/stores/modules';
 
 interface LevelKeysProps {
@@ -47,7 +47,7 @@ const VerticalMenu = memo(() => {
 
   const themeSettings = useAppSelector(getThemeSettings);
 
-  const navigate = useNavigate();
+  const { navigate } = useRouter();
 
   const isMix = themeSettings.layout.mode.includes('mix');
 

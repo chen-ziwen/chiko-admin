@@ -1,7 +1,6 @@
 import { useEmit, useOn } from '@chiko-admin/hooks';
-import { useNavigate } from 'react-router-dom';
 
-import { useRoute } from '@/features/router';
+import { useRoute, useRouter } from '@/features/router';
 import {
   addTab,
   changeTabLabel,
@@ -47,7 +46,7 @@ export function useTabActions() {
 
   const _tabIds = tabs.map(tab => tab.id);
 
-  const navigate = useNavigate();
+  const { navigate } = useRouter();
 
   const activeTabId = useAppSelector(selectActiveTabId);
 

@@ -28,17 +28,7 @@ export function useMixMenuContext<T = unknown>() {
   const context = useContext(MixMenuContext);
 
   if (!context) {
-    // 返回默认值而不是抛出错误或打印警告，这样UI仍然可以渲染
-    return {
-      activeFirstLevelMenuKey: '',
-      allMenus: [],
-      childLevelMenus: [],
-      firstLevelMenu: [],
-      isActiveFirstLevelMenuHasChildren: false,
-      route: {} as Router.Route<T>,
-      selectKey: [],
-      setActiveFirstLevelMenuKey: () => {}
-    } as MixMenuContextProps<T>;
+    throw new Error('useMixMenu must be used within a MixMenuContext');
   }
 
   return context as MixMenuContextProps<T>;

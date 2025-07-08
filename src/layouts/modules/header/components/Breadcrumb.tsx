@@ -4,9 +4,9 @@ import type { MenuItemType } from 'antd/es/menu/interface';
 import type { MenuInfo } from 'rc-menu/lib/interface';
 import type { ReactElement } from 'react';
 import { cloneElement } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useMixMenuContext } from '@/features/menu';
+import { useRouter } from '@/features/router';
 
 import { getBreadcrumbsByRoute } from './breadcrumbShared';
 
@@ -22,7 +22,7 @@ function BreadcrumbContent({ icon, label }: { readonly icon: ReactElement; reado
 const GlobalBreadcrumb: FC<Omit<BreadcrumbProps, 'items'>> = props => {
   const { allMenus: menus, route } = useMixMenuContext();
 
-  const navigate = useNavigate();
+  const { navigate } = useRouter();
 
   const breadcrumb = getBreadcrumbsByRoute(route, menus);
 

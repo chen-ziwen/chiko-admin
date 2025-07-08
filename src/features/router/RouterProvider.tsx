@@ -1,7 +1,12 @@
 import { RouterProvider as Provider } from 'react-router-dom';
 
-import routes from '@/router';
+import { reactRouter } from './router';
+import { RouterContext } from './routerContext';
 
 export const RouterProvider = () => {
-  return <Provider router={routes} />;
+  return (
+    <RouterContext value={reactRouter}>
+      <Provider router={reactRouter.router} />
+    </RouterContext>
+  );
 };

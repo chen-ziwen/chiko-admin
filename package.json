@@ -9,7 +9,6 @@
     "ci:publish": "pnpm publish -r",
     "cleanup": "cka clean",
     "cz": "git-cz",
-    "dev": "vite",
     "docs:build": "pnpm -F @chiko-admin/docs build",
     "docs:clear": "pnpm -F @chiko-admin/docs clear",
     "docs:serve": "pnpm -F @chiko-admin/docs serve",
@@ -18,6 +17,7 @@
     "lint:fix": "eslint --fix",
     "prepare": "husky",
     "preview": "vite preview",
+    "start": "vite",
     "test": "vite --mode test",
     "upk": "cka update-pkg"
   },

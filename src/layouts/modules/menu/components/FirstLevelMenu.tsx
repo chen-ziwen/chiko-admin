@@ -2,9 +2,9 @@ import { transformColorWithOpacity } from '@chiko-admin/color';
 import { SimpleScrollbar } from '@chiko-admin/layout';
 import clsx from 'clsx';
 import { cloneElement } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { MenuToggler, useMixMenuContext } from '@/features/menu';
+import { useRouter } from '@/features/router';
 import { ThemeContext } from '@/features/theme';
 import { getSiderCollapse, getThemeSettings } from '@/stores/modules';
 
@@ -35,7 +35,7 @@ function MixMenuItem(Props: MixMenuItemProps) {
 
   const themeSettings = useAppSelector(getThemeSettings);
 
-  const navigate = useNavigate();
+  const { navigate } = useRouter();
 
   const { darkMode } = useContext(ThemeContext);
 

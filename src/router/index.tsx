@@ -14,7 +14,7 @@ const PersonalCenter = lazy(() => import('@/pages/personal/center'));
 const PersonalSettings = lazy(() => import('@/pages/personal/settings'));
 
 // 先这么写让内容先展示 后续会补上权限路由逻辑
-const routes = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/login',
     handle: {
@@ -129,4 +129,4 @@ const routes = createBrowserRouter([
   }
 ]);
 
-export default routes;
+export default router;

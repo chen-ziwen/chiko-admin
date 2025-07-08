@@ -1,8 +1,8 @@
 import type { FC, PropsWithChildren } from 'react';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import type { RouteObject } from 'react-router-dom';
 
-import routes from '@/router';
+import reactRouter from '@/router';
 import { selectActiveFirstLevelMenuKey, setActiveFirstLevelMenuKey } from '@/stores/modules';
 
 import { useLang } from '../lang';
@@ -34,9 +34,9 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
 
   // 获取根路由的子路由
   const menus = useMemo(
-    () => filterRoutesToMenus(getBaseChildrenRoutes(routes.routes)),
+    () => filterRoutesToMenus(getBaseChildrenRoutes(reactRouter.routes)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [routes.routes, locale]
+    [reactRouter.routes, locale]
   );
 
   const firstLevelMenu = menus.map(menu => {
@@ -55,15 +55,15 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
     dispatch(setActiveFirstLevelMenuKey(routeKey));
   }
 
-  // 当路由变化时自动更新activeFirstLevelMenuKey
-  useEffect(() => {
-    if (route && route.pathname) {
-      const currentFirstLevelKey = getActiveFirstLevelMenuKey(route);
-      if (currentFirstLevelKey !== activeFirstLevelMenuKey) {
-        dispatch(setActiveFirstLevelMenuKey(currentFirstLevelKey));
-      }
-    }
-  }, [route, route?.pathname, dispatch, activeFirstLevelMenuKey]);
+  // // 当路由变化时自动更新activeFirstLevelMenuKey
+  // useEffect(() => {
+  //   if (route && route.pathname) {
+  //     const currentFirstLevelKey = getActiveFirstLevelMenuKey(route);
+  //     if (currentFirstLevelKey !== activeFirstLevelMenuKey) {
+  //       dispatch(setActiveFirstLevelMenuKey(currentFirstLevelKey));
+  //     }
+  //   }
+  // }, [route, route?.pathname, dispatch, activeFirstLevelMenuKey]);
 
   const mixMenuContext = {
     activeFirstLevelMenuKey,
