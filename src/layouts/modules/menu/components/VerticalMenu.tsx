@@ -71,21 +71,14 @@ const VerticalMenu = memo(() => {
 
     const currentOpenKey = keys.find(key => !stateOpenKeys.includes(key));
 
-    // open
     if (currentOpenKey && themeSettings.isOnlyExpandCurrentParentMenu) {
       const repeatIndex = keys
         .filter(key => key !== currentOpenKey)
         .findIndex(key => levelKeys[key] === levelKeys[currentOpenKey]);
-
       setStateOpenKeys(
-        keys
-          // remove repeat key
-          .filter((_, index) => index !== repeatIndex)
-          // remove current level all child
-          .filter(key => levelKeys[key] <= levelKeys[currentOpenKey])
+        keys.filter((_, index) => index !== repeatIndex).filter(key => levelKeys[key] <= levelKeys[currentOpenKey])
       );
     } else {
-      // // close
       setStateOpenKeys(keys);
     }
   };

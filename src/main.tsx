@@ -4,7 +4,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import ErrorPage from '@/components/ErrorBoundary.tsx';
 
 import 'virtual:uno.css';
-import './index.css';
+import 'virtual:svg-icons-register';
+import '@/styles/css/global.css';
 import App from './App.tsx';
 import { setupI18n } from './locales/index.ts';
 

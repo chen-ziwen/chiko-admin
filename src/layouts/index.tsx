@@ -31,10 +31,7 @@ import {
   setSiderCollapse
 } from '@/stores/modules';
 
-// 响应式配置跟 bootstrap 是一致的
-configResponsive({
-  small: 640
-});
+configResponsive({ small: 640 });
 
 interface LayoutWithMenuContextProps {
   fullContent: boolean;
@@ -185,7 +182,7 @@ const BasicLayout: FC = () => {
     ? LAYOUT_MODE_VERTICAL
     : LAYOUT_MODE_HORIZONTAL;
 
-  const isMobile = !responsive.sm;
+  const isMobile = !responsive.small;
 
   function getSiderWidth() {
     const { mixWidth, width } = themeSettings.sider;

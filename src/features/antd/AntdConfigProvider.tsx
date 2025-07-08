@@ -1,10 +1,12 @@
 import type { WatermarkProps } from 'antd';
 import type { PropsWithChildren } from 'react';
 
-// import { themeColors } from "@/features/theme";
 import { useLang } from '@/features/lang';
-// import { useTheme } from '@/features/theme';
+import { useThemeSettings } from '@/features/theme';
+import { getAntdTheme, setupThemeVarsToHtml } from '@/features/theme/shared';
+import { useTheme } from '@/features/theme/themeContext';
 import { antdLocales } from '@/locales/antd';
+import { themeColors } from '@/stores/modules';
 
 const WATERMARK_CONFIG = {
   font: {
@@ -17,21 +19,40 @@ const WATERMARK_CONFIG = {
   zIndex: 9999
 } satisfies WatermarkProps;
 
-// function useAntdTheme() {}
+function useAntdTheme() {
+  const themeSettings = useThemeSettings();
+
+  const colors = useAppSelector(themeColors);
+
+  const { darkMode } = useTheme();
+
+  const antdTheme = getAntdTheme(colors, darkMode, themeSettings.tokens);
+
+  useEffect(() => {
+    setupThemeVarsToHtml(colors, themeSettings.tokens, themeSettings.recommendColor);
+    localStg.set('themeColor', colors.primary);
+  }, [colors, themeSettings]);
+
+  return { antdTheme, watermarkText: themeSettings.watermark.text, watermarkVisible: themeSettings.watermark.visible };
+}
 
 function AntdConfig({ children }: PropsWithChildren) {
   const { locale } = useLang();
 
+  const { antdTheme, watermarkText, watermarkVisible } = useAntdTheme();
+
   return (
     <AConfigProvider
       button={{ classNames: { icon: 'text-icon align-1px' } }}
-      card={{ styles: { body: { flex: 1, overflow: 'hidden', padding: '12px 16px' } } }}
       locale={antdLocales[locale]}
-      theme={{}}
+      theme={antdTheme}
+      card={{
+        styles: { body: { flex: 1, overflow: 'hidden', padding: '12px 16px' } }
+      }}
     >
       <AWatermark
         className="h-full"
-        // content={ } 后续再处理 可以在配置中自定义水印文字
+        content={watermarkVisible ? watermarkText || 'chiko' : ''}
         {...WATERMARK_CONFIG}
       >
         {children}

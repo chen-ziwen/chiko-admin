@@ -34,7 +34,7 @@ function processRouteNode(route: RouteObject): App.Global.Menu[] {
  * @param routes Auth routes
  */
 export function filterRoutesToMenus(routes: RouteObject[]) {
-  // 先根据 handle?.order 对路由做排序
+  // 支持路由排序功能 通过 handle?.order 属性
   const sortedRoutes = sortRoutesByOrder(routes);
 
   const menus: App.Global.Menu[] = [];

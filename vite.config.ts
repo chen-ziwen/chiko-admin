@@ -26,8 +26,8 @@ export default defineConfig(configEnv => {
       }
     },
     server: {
-      open: true,
-      port: 520,
+      // open: true,
+      port: 5210,
       warmup: {
         clientFiles: ['./index.html', './src/{pages,components}/*']
       }

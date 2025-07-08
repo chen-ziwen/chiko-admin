@@ -19,6 +19,7 @@ const routes = createBrowserRouter([
     path: '/login',
     handle: {
       title: '登录',
+      icon: 'material-symbols-light:login',
       constant: true
     }
   },
@@ -33,14 +34,23 @@ const routes = createBrowserRouter([
         index: true,
         element: <Navigate to={import.meta.env.VITE_ROUTE_HOME} />
       },
-      { path: 'home', Component: Home, handle: { title: '首页', fixedIndexInTab: 0, keepAlive: true, icon: 'home' } },
+      {
+        path: 'home',
+        Component: Home,
+        handle: {
+          title: '首页',
+          fixedIndexInTab: 0,
+          keepAlive: true,
+          icon: 'material-symbols-light:home'
+        }
+      },
       {
         path: 'system',
-        handle: { title: '系统管理', icon: 'setting' },
+        handle: { title: '系统管理', icon: 'hugeicons:align-box-top-center' },
         children: [
           {
             path: 'user',
-            handle: { title: '用户管理', icon: 'user' },
+            handle: { title: '用户管理', icon: 'hugeicons:align-box-top-center' },
             children: [
               {
                 path: 'list',
@@ -49,7 +59,7 @@ const routes = createBrowserRouter([
                     <UserList />
                   </Suspense>
                 ),
-                handle: { title: '用户列表', icon: 'user', keepAlive: true }
+                handle: { title: '用户列表', icon: 'hugeicons:align-box-top-center', keepAlive: true }
               },
               {
                 path: 'profile',
@@ -58,7 +68,7 @@ const routes = createBrowserRouter([
                     <UserProfile />
                   </Suspense>
                 ),
-                handle: { title: '用户详情', icon: 'profile', hideInMenu: true }
+                handle: { title: '用户详情', icon: 'hugeicons:align-box-top-center', hideInMenu: true }
               }
             ]
           },
@@ -69,7 +79,7 @@ const routes = createBrowserRouter([
                 <RoleManagement />
               </Suspense>
             ),
-            handle: { title: '角色管理', icon: 'team', keepAlive: true }
+            handle: { title: '角色管理', icon: 'hugeicons:align-box-top-center', keepAlive: true }
           },
           {
             path: 'permission',
@@ -78,7 +88,7 @@ const routes = createBrowserRouter([
                 <PermissionManagement />
               </Suspense>
             ),
-            handle: { title: '权限管理', icon: 'safety', keepAlive: true }
+            handle: { title: '权限管理', icon: 'hugeicons:align-box-top-center', keepAlive: true }
           },
           {
             path: 'settings',
@@ -87,13 +97,13 @@ const routes = createBrowserRouter([
                 <SystemSettings />
               </Suspense>
             ),
-            handle: { title: '系统设置', icon: 'setting', keepAlive: true }
+            handle: { title: '系统设置', icon: 'hugeicons:align-box-top-center', keepAlive: true }
           }
         ]
       },
       {
         path: 'personal',
-        handle: { title: '个人中心', icon: 'user' },
+        handle: { title: '个人中心', icon: 'hugeicons:align-box-top-center' },
         children: [
           {
             path: 'center',
@@ -102,7 +112,7 @@ const routes = createBrowserRouter([
                 <PersonalCenter />
               </Suspense>
             ),
-            handle: { title: '个人主页', icon: 'home', keepAlive: true }
+            handle: { title: '个人主页', icon: 'hugeicons:align-box-top-center', keepAlive: true }
           },
           {
             path: 'settings',
@@ -111,7 +121,7 @@ const routes = createBrowserRouter([
                 <PersonalSettings />
               </Suspense>
             ),
-            handle: { title: '个人设置', icon: 'setting', keepAlive: true }
+            handle: { title: '个人设置', icon: 'hugeicons:align-box-top-center', keepAlive: true }
           }
         ]
       }

@@ -32,6 +32,7 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const activeFirstLevelMenuKey = useAppSelector(selectActiveFirstLevelMenuKey);
 
+  // 获取根路由的子路由
   const menus = useMemo(
     () => filterRoutesToMenus(getBaseChildrenRoutes(routes.routes)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
