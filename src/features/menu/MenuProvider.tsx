@@ -2,11 +2,10 @@ import type { FC, PropsWithChildren } from 'react';
 import { useMemo } from 'react';
 import type { RouteObject } from 'react-router-dom';
 
-import reactRouter from '@/router';
 import { selectActiveFirstLevelMenuKey, setActiveFirstLevelMenuKey } from '@/stores/modules';
 
 import { useLang } from '../lang';
-import { useRoute } from '../router';
+import { useRoute, useRouter } from '../router';
 
 import { filterRoutesToMenus, getActiveFirstLevelMenuKey, getSelectKey } from './MenuUtil';
 import { MixMenuContext } from './menuContext';
@@ -26,6 +25,8 @@ function getBaseChildrenRoutes(rs: RouteObject[]) {
 const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
   const route = useRoute();
 
+  const router = useRouter();
+
   const dispatch = useAppDispatch();
 
   const { locale } = useLang();
@@ -34,9 +35,9 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
 
   // 获取根路由的子路由
   const menus = useMemo(
-    () => filterRoutesToMenus(getBaseChildrenRoutes(reactRouter.routes)),
+    () => filterRoutesToMenus(getBaseChildrenRoutes(router.router.routes)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [reactRouter.routes, locale]
+    [router.router.routes, locale]
   );
 
   const firstLevelMenu = menus.map(menu => {
@@ -46,24 +47,13 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
 
   const childLevelMenus = menus.find(menu => menu.key === activeFirstLevelMenuKey)?.children as App.Global.Menu[];
 
-  const selectKey = route ? getSelectKey(route) : [];
+  const selectKey = getSelectKey(route);
 
   /** - 可以手动指定菜单或者是默认当前路由的一级菜单 */
   function changeActiveFirstLevelMenuKey(key?: string) {
-    const routeKey = key || (route ? getActiveFirstLevelMenuKey(route) : '');
-
-    dispatch(setActiveFirstLevelMenuKey(routeKey));
+    const routeKey = key || getActiveFirstLevelMenuKey(route);
+    dispatch(setActiveFirstLevelMenuKey(routeKey || ''));
   }
-
-  // // 当路由变化时自动更新activeFirstLevelMenuKey
-  // useEffect(() => {
-  //   if (route && route.pathname) {
-  //     const currentFirstLevelKey = getActiveFirstLevelMenuKey(route);
-  //     if (currentFirstLevelKey !== activeFirstLevelMenuKey) {
-  //       dispatch(setActiveFirstLevelMenuKey(currentFirstLevelKey));
-  //     }
-  //   }
-  // }, [route, route?.pathname, dispatch, activeFirstLevelMenuKey]);
 
   const mixMenuContext = {
     activeFirstLevelMenuKey,
@@ -71,12 +61,12 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
     childLevelMenus: childLevelMenus || [],
     firstLevelMenu,
     isActiveFirstLevelMenuHasChildren: activeFirstLevelMenuKey ? Boolean(childLevelMenus) : false,
-    route: route || ({} as Router.Route),
+    route,
     selectKey,
     setActiveFirstLevelMenuKey: changeActiveFirstLevelMenuKey
   };
 
-  return <MixMenuContext.Provider value={mixMenuContext}>{children}</MixMenuContext.Provider>;
+  return <MixMenuContext value={mixMenuContext}>{children}</MixMenuContext>;
 };
 
 export default MenuProvider;

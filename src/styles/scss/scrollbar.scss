@@ -22,3 +22,7 @@
     border-radius: 10px;
   }
 }
+
+#__SCROLL_EL_ID__ {
+  @include scrollbar();
+}

@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <Navigate to={import.meta.env.VITE_ROUTE_HOME} />
       },
       {
-        path: 'home',
+        path: '/home',
         Component: Home,
         handle: {
           title: '首页',

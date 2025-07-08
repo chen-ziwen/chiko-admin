@@ -9,10 +9,8 @@ const isDev = import.meta.env.DEV;
 
 const { Text, Title } = Typography;
 
-const theme = localStg.get('themeColor') || '#646cff';
+const theme = localStg.get('themeColor') || '#17DC45';
 const ErrorPage = ({ error, resetErrorBoundary }: FallbackProps) => {
-  // 可以在这里根据不同的业务逻辑处理错误或者上报给日志服务
-
   return (
     <div className="size-full min-h-520px flex-col-center gap-16px overflow-hidden">
       <div className="text-primary flex text-400px">
