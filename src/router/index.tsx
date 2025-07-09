@@ -13,7 +13,6 @@ const SystemSettings = lazy(() => import('@/pages/system/settings'));
 const PersonalCenter = lazy(() => import('@/pages/personal/center'));
 const PersonalSettings = lazy(() => import('@/pages/personal/settings'));
 
-// 先这么写让内容先展示 后续会补上权限路由逻辑
 const router = createBrowserRouter([
   {
     path: '/login',
@@ -50,7 +49,10 @@ const router = createBrowserRouter([
         children: [
           {
             path: 'user',
-            handle: { title: '用户管理', icon: 'hugeicons:align-box-top-center' },
+            handle: {
+              title: '用户管理',
+              icon: 'hugeicons:align-box-top-center'
+            },
             children: [
               {
                 path: 'list',
@@ -59,7 +61,11 @@ const router = createBrowserRouter([
                     <UserList />
                   </Suspense>
                 ),
-                handle: { title: '用户列表', icon: 'hugeicons:align-box-top-center', keepAlive: true }
+                handle: {
+                  title: '用户列表',
+                  icon: 'hugeicons:align-box-top-center',
+                  keepAlive: true
+                }
               },
               {
                 path: 'profile',
@@ -68,7 +74,11 @@ const router = createBrowserRouter([
                     <UserProfile />
                   </Suspense>
                 ),
-                handle: { title: '用户详情', icon: 'hugeicons:align-box-top-center', hideInMenu: true }
+                handle: {
+                  title: '用户详情',
+                  icon: 'hugeicons:align-box-top-center',
+                  hideInMenu: true
+                }
               }
             ]
           },
@@ -79,7 +89,11 @@ const router = createBrowserRouter([
                 <RoleManagement />
               </Suspense>
             ),
-            handle: { title: '角色管理', icon: 'hugeicons:align-box-top-center', keepAlive: true }
+            handle: {
+              title: '角色管理',
+              icon: 'hugeicons:align-box-top-center',
+              keepAlive: true
+            }
           },
           {
             path: 'permission',
@@ -88,7 +102,11 @@ const router = createBrowserRouter([
                 <PermissionManagement />
               </Suspense>
             ),
-            handle: { title: '权限管理', icon: 'hugeicons:align-box-top-center', keepAlive: true }
+            handle: {
+              title: '权限管理',
+              icon: 'hugeicons:align-box-top-center',
+              keepAlive: true
+            }
           },
           {
             path: 'settings',
@@ -97,7 +115,12 @@ const router = createBrowserRouter([
                 <SystemSettings />
               </Suspense>
             ),
-            handle: { title: '系统设置', icon: 'hugeicons:align-box-top-center', keepAlive: true }
+            handle: {
+              title: '系统设置',
+              icon: 'hugeicons:align-box-top-center',
+              keepAlive: true,
+              key: 'system-settings'
+            }
           }
         ]
       },
@@ -112,7 +135,11 @@ const router = createBrowserRouter([
                 <PersonalCenter />
               </Suspense>
             ),
-            handle: { title: '个人主页', icon: 'hugeicons:align-box-top-center', keepAlive: true }
+            handle: {
+              title: '个人主页',
+              icon: 'hugeicons:align-box-top-center',
+              keepAlive: true
+            }
           },
           {
             path: 'settings',
@@ -121,7 +148,12 @@ const router = createBrowserRouter([
                 <PersonalSettings />
               </Suspense>
             ),
-            handle: { title: '个人设置', icon: 'hugeicons:align-box-top-center', keepAlive: true }
+            handle: {
+              title: '个人设置',
+              icon: 'hugeicons:align-box-top-center',
+              keepAlive: true,
+              key: 'personal-settings'
+            }
           }
         ]
       }

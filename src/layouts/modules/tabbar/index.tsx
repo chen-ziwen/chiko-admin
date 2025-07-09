@@ -60,7 +60,7 @@ export const LayoutTabbar = () => {
   }
 
   return (
-    <DarkModeContainer className="shadow-tab size-full flex-y-center px-16px">
+    <DarkModeContainer className="size-full flex-y-center px-16px shadow-tab">
       <div
         className="h-full flex-1-hidden"
         ref={bsWrapper}

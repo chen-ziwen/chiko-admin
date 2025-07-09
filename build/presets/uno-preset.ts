@@ -1,8 +1,5 @@
 // @unocss-include
-
-// import type { Preset } from '@unocss/core';
 import { definePreset } from '@unocss/core';
-// import type { Theme } from '@unocss/preset-wind3';
 
 export default definePreset(() => ({
   name: 'preset-chiko-admin',

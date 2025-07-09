@@ -5,10 +5,8 @@ import { LangSwitch } from '@/features/lang';
 import { MenuToggler } from '@/features/menu';
 import { ThemeSchemaSwitch } from '@/features/theme';
 
-// import GlobalLogo from '../GlobalLogo';
-// import GlobalSearch from '../global-search/GlobalSearch';
-
-import GlobalBreadcrumb from './components/Breadcrumb';
+import LayoutBreadcrumb from './components/Breadcrumb';
+import Logo from './components/Logo';
 import ThemeButton from './components/ThemeButton';
 import UserAvatar from './components/UserAvatar';
 
@@ -42,7 +40,7 @@ const HEADER_PROPS_CONFIG: Record<UnionKey.ThemeLayoutMode, App.Global.HeaderPro
   }
 };
 
-export const LayoutHeader: FC<Props> = memo(({ isMobile, mode, reverse }) => {
+export const LayoutHeader: FC<Props> = memo(({ isMobile, mode, reverse, siderWidth }) => {
   const [isFullscreen, { toggleFullscreen }] = useFullscreen(document.body);
 
   const { showLogo, showMenu, showMenuToggler } = HEADER_PROPS_CONFIG[mode];
@@ -50,13 +48,13 @@ export const LayoutHeader: FC<Props> = memo(({ isMobile, mode, reverse }) => {
   const showToggler = reverse ? true : showMenuToggler;
 
   return (
-    <DarkModeContainer className="shadow-header h-full flex-y-center px-12px">
-      {showLogo &&
-        // <GlobalLogo
-        //   className="h-full"
-        //   style={{ width: `${siderWidth}px` }}
-        // />
-        null}
+    <DarkModeContainer className="h-full flex-y-center px-12px shadow-header">
+      {showLogo && (
+        <Logo
+          className="h-full"
+          style={{ width: `${siderWidth}px` }}
+        />
+      )}
       <div>{reverse ? true : showMenuToggler}</div>
 
       {showToggler && <MenuToggler />}
@@ -65,12 +63,10 @@ export const LayoutHeader: FC<Props> = memo(({ isMobile, mode, reverse }) => {
         className="h-full flex-y-center flex-1-hidden"
         id={GLOBAL_HEADER_MENU_ID}
       >
-        {!isMobile && !showMenu && <GlobalBreadcrumb className="ml-12px" />}
+        {!isMobile && !showMenu && <LayoutBreadcrumb className="ml-12px" />}
       </div>
 
       <div className="h-full flex-y-center justify-end">
-        {/* <GlobalSearch /> */}
-
         {!isMobile && (
           <FullScreen
             className="px-12px"

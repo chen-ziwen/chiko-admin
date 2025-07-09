@@ -70,7 +70,7 @@ const VerticalMix = memo(() => {
             className="flex-y-center justify-between px-12px"
             style={{ height: `${themeSettings.header.height}px` }}
           >
-            <h2 className="text-primary text-16px font-bold">{t('system.title')}</h2>
+            <h2 className="text-16px text-primary font-bold">{t('system.title')}</h2>
             <PinToggler
               className={classNames({ 'text-white:88 !hover:text-white': siderInverted })}
               pin={mixSiderFixed}

@@ -9,11 +9,11 @@ const isDev = import.meta.env.DEV;
 
 const { Text, Title } = Typography;
 
-const theme = localStg.get('themeColor') || '#17DC45';
+const theme = localStg.get('themeColor') || '#F59E0B';
 const ErrorPage = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
     <div className="size-full min-h-520px flex-col-center gap-16px overflow-hidden">
-      <div className="text-primary flex text-400px">
+      <div className="flex text-400px text-primary">
         <SvgIcon localIcon="error" />
       </div>
       {isDev ? <Text code>{error.message}</Text> : <Title level={3}>{$t('common.errorHint')}</Title>}

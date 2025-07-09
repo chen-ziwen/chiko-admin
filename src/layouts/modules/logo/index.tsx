@@ -17,9 +17,9 @@ export const LayoutLogo: FC<Props> = memo(({ className, showTitle = true, ...pro
       to={import.meta.env.VITE_ROUTE_HOME}
       {...props}
     >
-      <AppLogo className="text-primary text-32px" />
+      <AppLogo className="text-32px text-primary" />
       <h2
-        className="text-primary pl-8px text-16px font-bold transition duration-300 ease-in-out"
+        className="pl-8px text-16px text-primary font-bold transition duration-300 ease-in-out"
         style={{ display: showTitle ? 'block' : 'none' }}
       >
         {t('system.title')}

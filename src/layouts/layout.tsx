@@ -147,12 +147,11 @@ export const LayoutComponent = () => {
         />
       }
     >
-      <LayoutContent />
-
       <LayoutMenu
         mode={themeSettings.layout.mode}
         reverse={themeSettings.layout.reverseHorizontalMix}
       />
+      <LayoutContent />
 
       <Suspense fallback={null}>
         <ThemeDrawer />

@@ -15,7 +15,7 @@ const SettingItem: FC<Props> = ({ children, className, label, show = true, suffi
   return (
     <div className={clsx('w-full flex-y-center justify-between', className)}>
       <div>
-        <span className="text-base-text pr-8px">{label}</span>
+        <span className="pr-8px text-base-text">{label}</span>
         {suffix}
       </div>
       {children}

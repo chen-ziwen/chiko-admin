@@ -84,7 +84,7 @@ function sortRouteByOrder(route: RouteObject) {
 export function getGlobalMenuByBaseRoute(route: RouteObject): App.Global.Menu {
   const { path } = route;
 
-  const { i18nKey, icon = import.meta.env.VITE_MENU_ICON, localIcon, title } = route.handle ?? {};
+  const { i18nKey, icon = import.meta.env.VITE_MENU_ICON, localIcon, title, key } = route.handle ?? {};
 
   const label = i18nKey ? $t(i18nKey) : title;
 
@@ -106,7 +106,7 @@ export function getGlobalMenuByBaseRoute(route: RouteObject): App.Global.Menu {
 
   const menu: App.Global.Menu = {
     icon: iconComponent as any,
-    key: path || '',
+    key: key || path || '',
     label: <BeyondHiding title={label} />,
     title: label
   };

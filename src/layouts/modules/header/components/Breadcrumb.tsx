@@ -19,7 +19,7 @@ function BreadcrumbContent({ icon, label }: { readonly icon: ReactElement; reado
   );
 }
 
-const GlobalBreadcrumb: FC<Omit<BreadcrumbProps, 'items'>> = props => {
+const LayoutBreadcrumb: FC<Omit<BreadcrumbProps, 'items'>> = props => {
   const { allMenus: menus, route } = useMixMenuContext();
 
   const { navigate } = useRouter();
@@ -60,4 +60,4 @@ const GlobalBreadcrumb: FC<Omit<BreadcrumbProps, 'items'>> = props => {
   );
 };
 
-export default GlobalBreadcrumb;
+export default LayoutBreadcrumb;

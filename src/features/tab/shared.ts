@@ -55,26 +55,31 @@ export function getTabByRoute(route: Router.Route) {
 
   let fixedIndex = fixedIndexInTab;
 
-  if (pathname === import.meta.env.VITE_ROUTE_HOME) {
+  // 确保路径规范化，防止重复的 /home 标签
+  const normalizedPath = pathname === '/' ? import.meta.env.VITE_ROUTE_HOME : pathname;
+
+  if (normalizedPath === import.meta.env.VITE_ROUTE_HOME) {
     fixedIndex = 0;
   }
 
-  // Get icon and localIcon from getRouteIcons function
   const { icon, localIcon } = getRouteIcons(route);
+
+  // 使用规范化的路径作为 ID，确保唯一性
+  const tabId = handle.multiTab ? fullPath : normalizedPath;
 
   const tab: App.Global.Tab = {
     fixedIndex,
     fullPath,
     i18nKey,
     icon,
-    id: handle.multiTab ? fullPath : pathname,
+    id: tabId,
     keepAlive,
     label: title,
     localIcon,
     newLabel: '',
     oldLabel: i18nKey || title,
     routeKey: id as LastLevelRouteKey,
-    routePath: pathname as RouteMap[LastLevelRouteKey]
+    routePath: normalizedPath as RouteMap[LastLevelRouteKey]
   };
 
   return tab;
