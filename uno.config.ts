@@ -4,6 +4,8 @@ import transformerDirectives from '@unocss/transformer-directives';
 import transformerVariantGroup from '@unocss/transformer-variant-group';
 import { defineConfig } from '@unocss/vite';
 
+import { themeVars } from './src/theme/vars';
+
 export default defineConfig<Theme>({
   content: {
     pipeline: {
@@ -11,8 +13,10 @@ export default defineConfig<Theme>({
     }
   },
   presets: [presetWind3({ dark: 'class' }), presetChikoAdmin()],
+  rules: [[/^h-calc\((.*)\)$/, ([, d]) => ({ height: `calc(${d})px` })]],
   shortcuts: { 'card-wrapper': 'rd-8px shadow-sm' },
   theme: {
+    ...themeVars,
     fontSize: {
       icon: '1.125rem',
       'icon-large': '1.5rem',

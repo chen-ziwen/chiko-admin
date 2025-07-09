@@ -51,6 +51,7 @@ function navigator() {
   }
 
   return {
+    router,
     back,
     forward,
     go,
@@ -58,7 +59,6 @@ function navigator() {
     navigate,
     navigateUp,
     push,
-    router,
     reload,
     replace
   };
