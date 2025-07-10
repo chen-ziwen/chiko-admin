@@ -2,9 +2,9 @@ import { Suspense, lazy } from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@/pages';
-import Home from '@/pages/home';
 
 // 懒加载路由组件
+const Home = lazy(() => import('@/pages/home'));
 const UserList = lazy(() => import('@/pages/system/user/list'));
 const UserProfile = lazy(() => import('@/pages/system/user/profile'));
 const RoleManagement = lazy(() => import('@/pages/system/role'));
@@ -25,9 +25,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     Component: AppLayout,
-    handle: {
-      title: '首页'
-    },
     children: [
       {
         index: true,
@@ -35,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/home',
-        Component: Home,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </Suspense>
+        ),
         handle: {
           title: '首页',
           fixedIndexInTab: 0,
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
         }
       },
       {
-        path: 'system',
+        path: '/system',
         handle: { title: '系统管理', icon: 'hugeicons:align-box-top-center' },
         children: [
           {
@@ -109,7 +110,7 @@ const router = createBrowserRouter([
             }
           },
           {
-            path: 'settings',
+            path: 'system-settings',
             element: (
               <Suspense fallback={<div>Loading...</div>}>
                 <SystemSettings />
@@ -118,14 +119,13 @@ const router = createBrowserRouter([
             handle: {
               title: '系统设置',
               icon: 'hugeicons:align-box-top-center',
-              keepAlive: true,
-              key: 'system-settings'
+              keepAlive: true
             }
           }
         ]
       },
       {
-        path: 'personal',
+        path: '/personal',
         handle: { title: '个人中心', icon: 'hugeicons:align-box-top-center' },
         children: [
           {
@@ -142,7 +142,7 @@ const router = createBrowserRouter([
             }
           },
           {
-            path: 'settings',
+            path: 'personal-settings',
             element: (
               <Suspense fallback={<div>Loading...</div>}>
                 <PersonalSettings />
@@ -151,8 +151,7 @@ const router = createBrowserRouter([
             handle: {
               title: '个人设置',
               icon: 'hugeicons:align-box-top-center',
-              keepAlive: true,
-              key: 'personal-settings'
+              keepAlive: true
             }
           }
         ]

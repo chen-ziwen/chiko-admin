@@ -1,7 +1,4 @@
 import { createRoot } from 'react-dom/client';
-import { ErrorBoundary } from 'react-error-boundary';
-
-import ErrorPage from '@/components/ErrorBoundary.tsx';
 
 import 'virtual:uno.css';
 import 'virtual:svg-icons-register';
@@ -18,11 +15,7 @@ function startup() {
 
   const root = createRoot(container);
 
-  root.render(
-    <ErrorBoundary fallbackRender={ErrorPage}>
-      <App />
-    </ErrorBoundary>
-  );
+  root.render(<App />);
 }
 
 startup();

@@ -13,7 +13,7 @@ export default defineConfig<Theme>({
     }
   },
   presets: [presetWind3({ dark: 'class' }), presetChikoAdmin()],
-  rules: [[/^h-calc\((.*)\)$/, ([, d]) => ({ height: `calc(${d})px` })]],
+  rules: [['scrollbar-none', { 'scrollbar-width': 'none' }]],
   shortcuts: { 'card-wrapper': 'rd-8px shadow-sm' },
   theme: {
     ...themeVars,

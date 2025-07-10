@@ -4,15 +4,23 @@ import BeyondHiding from '@/components/BeyondHiding';
 import { $t } from '@/locales';
 
 /** 处理路由的子节点，创建菜单项 */
-function processRouteNode(route: RouteObject): App.Global.Menu[] {
+function processRouteNode(route: RouteObject, parentPath: string = ''): App.Global.Menu[] {
   // 如果节点不隐藏在菜单中
   if (!route.handle?.hideInMenu) {
     // 创建菜单节点
     const newNode = getGlobalMenuByBaseRoute(route);
 
+    // 如果有父路径，确保当前路由的key是完整路径
+    if (parentPath && !route.handle?.key) {
+      const currentPath = route.path || '';
+      // 避免重复的斜杠
+      const separator = parentPath.endsWith('/') || currentPath.startsWith('/') ? '' : '/';
+      newNode.key = `${parentPath}${separator}${currentPath}`;
+    }
+
     // 如果存在 children，则递归处理子路由
     if (route.children && route.children.length) {
-      const filteredChildren = filterRoutesToMenus(route.children);
+      const filteredChildren = filterRoutesToMenus(route.children, newNode.key);
 
       if (filteredChildren?.length) {
         newNode.children = filteredChildren;
@@ -22,7 +30,7 @@ function processRouteNode(route: RouteObject): App.Global.Menu[] {
     return [newNode];
   } else if (route.children && route.children.length) {
     // 如果当前节点被隐藏但有子节点，则递归处理子节点
-    return filterRoutesToMenus(route.children);
+    return filterRoutesToMenus(route.children, parentPath);
   }
 
   return [];
@@ -32,8 +40,9 @@ function processRouteNode(route: RouteObject): App.Global.Menu[] {
  * Get global menus by auth routes
  *
  * @param routes Auth routes
+ * @param parentPath 父路由路径
  */
-export function filterRoutesToMenus(routes: RouteObject[]) {
+export function filterRoutesToMenus(routes: RouteObject[], parentPath: string = '') {
   // 支持路由排序功能 通过 handle?.order 属性
   const sortedRoutes = sortRoutesByOrder(routes);
 
@@ -42,7 +51,7 @@ export function filterRoutesToMenus(routes: RouteObject[]) {
   for (const route of sortedRoutes) {
     // 只处理有path且不是index路由的路由
     if (!(route.index || !route.path)) {
-      const routeMenus = processRouteNode(route);
+      const routeMenus = processRouteNode(route, parentPath);
       menus.push(...routeMenus);
     }
   }
@@ -104,9 +113,12 @@ export function getGlobalMenuByBaseRoute(route: RouteObject): App.Global.Menu {
     }
   }
 
+  // 确保 key 是完整路径，而不仅仅是路径的最后一部分
+  const fullPath = key || (path && path.startsWith('/') ? path : `/${path}`);
+
   const menu: App.Global.Menu = {
     icon: iconComponent as any,
-    key: key || path || '',
+    key: fullPath,
     label: <BeyondHiding title={label} />,
     title: label
   };

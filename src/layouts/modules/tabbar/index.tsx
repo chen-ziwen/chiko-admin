@@ -62,7 +62,7 @@ export const LayoutTabbar = () => {
   return (
     <DarkModeContainer className="size-full flex-y-center px-16px shadow-tab">
       <div
-        className="h-full flex-1-hidden"
+        className="h-full flex-1 overflow-x-auto overflow-y-hidden scrollbar-none"
         ref={bsWrapper}
       >
         <BetterScroll

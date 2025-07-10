@@ -1,3 +1,6 @@
+import { ErrorBoundary } from 'react-error-boundary';
+
+import ErrorPage from '@/components/ErrorBoundary';
 import { AntdAppProvider, AntdConfigProvider } from '@/features/antd';
 import { LangProvider } from '@/features/lang';
 import { RouterProvider } from '@/features/router';
@@ -8,19 +11,21 @@ import { LazyAnimate } from './features/animate';
 
 function App() {
   return (
-    <StoreProvider>
-      <ThemeProvider>
-        <LangProvider>
-          <AntdAppProvider>
-            <AntdConfigProvider>
-              <LazyAnimate>
-                <RouterProvider />
-              </LazyAnimate>
-            </AntdConfigProvider>
-          </AntdAppProvider>
-        </LangProvider>
-      </ThemeProvider>
-    </StoreProvider>
+    <ErrorBoundary fallbackRender={ErrorPage}>
+      <StoreProvider>
+        <ThemeProvider>
+          <LangProvider>
+            <AntdAppProvider>
+              <AntdConfigProvider>
+                <LazyAnimate>
+                  <RouterProvider />
+                </LazyAnimate>
+              </AntdConfigProvider>
+            </AntdAppProvider>
+          </LangProvider>
+        </ThemeProvider>
+      </StoreProvider>
+    </ErrorBoundary>
   );
 }
 
