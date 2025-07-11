@@ -51,30 +51,25 @@ export function getRouteIcons(route: Router.Route) {
 export function getTabByRoute(route: Router.Route) {
   const { fullPath, handle = {} as Router.RouteHandle, id, pathname } = route;
 
-  const { fixedIndexInTab = undefined, i18nKey = undefined, keepAlive = false, title = '' } = handle;
+  const { fixedIndexInTab, i18nKey, keepAlive = false, title } = handle;
 
   let fixedIndex = fixedIndexInTab;
 
-  // 检查是否是首页路径（/ 或 /home）
   const isHomePath = pathname === '/' || pathname === import.meta.env.VITE_ROUTE_HOME;
 
-  // 统一首页路径为 VITE_ROUTE_HOME
   const normalizedPath = isHomePath ? import.meta.env.VITE_ROUTE_HOME : pathname;
 
-  // 如果是首页，设置固定索引
   if (isHomePath) {
     fixedIndex = 0;
   }
 
   const { icon, localIcon } = getRouteIcons(route);
 
-  // 使用规范化的路径作为 ID，确保唯一性
-  // 对于首页特殊处理，确保无论是 / 还是 /home 都使用相同的 ID
   const tabId = handle.multiTab ? fullPath : normalizedPath;
 
   const tab: App.Global.Tab = {
     fixedIndex,
-    fullPath: isHomePath ? import.meta.env.VITE_ROUTE_HOME : fullPath, // 确保首页的 fullPath 也统一
+    fullPath: isHomePath ? import.meta.env.VITE_ROUTE_HOME : fullPath,
     i18nKey,
     icon,
     id: tabId,

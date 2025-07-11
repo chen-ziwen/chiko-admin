@@ -75,6 +75,8 @@ export function addThemeVarsToGlobal(tokens: App.Theme.BaseToken, darkTokens: Ap
   const cssVarStr = getCssVarByTokens(tokens);
   const darkCssVarStr = getCssVarByTokens(darkTokens);
 
+  // 每当切换主题色时，都会重新生成跟主题色相关的 css 变量，并注入到名为 theme-vars 的 style 标签中
+  // 切换白/黑模式时，通过往 html 标签上添加和删除 dark 类名，来切换模式
   const css = `
    :root {
       ${cssVarStr}
@@ -82,7 +84,7 @@ export function addThemeVarsToGlobal(tokens: App.Theme.BaseToken, darkTokens: Ap
   `;
 
   const darkCss = `
-    html.${DARK_CLASS} {
+    :root.${DARK_CLASS} {
       ${darkCssVarStr}
     }
   `;

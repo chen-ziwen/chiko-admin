@@ -14,7 +14,7 @@ const PersonalCenter: React.FC = () => {
 
   const projects = [
     {
-      title: 'Chiko Admin',
+      title: 'ChikoAdmin',
       description: '一个现代化的后台管理系统',
       time: '2024-03'
     },
@@ -53,7 +53,7 @@ const PersonalCenter: React.FC = () => {
     <div style={{ padding: '24px' }}>
       <ARow gutter={24}>
         <ACol span={8}>
-          <ACard bordered={false}>
+          <ACard>
             <div style={{ textAlign: 'center', marginBottom: 24 }}>
               <AAvatar
                 icon={<UserOutlined />}
@@ -92,7 +92,7 @@ const PersonalCenter: React.FC = () => {
           </ACard>
         </ACol>
         <ACol span={16}>
-          <ACard bordered={false}>
+          <ACard>
             <ATabs
               items={[
                 {

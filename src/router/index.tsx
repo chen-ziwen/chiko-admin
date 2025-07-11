@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react';
+import { lazy } from 'react';
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@/pages';
@@ -32,14 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/home',
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Home />
-          </Suspense>
-        ),
+        element: <Home />,
         handle: {
           title: '首页',
-          fixedIndexInTab: 0,
+          i18nKey: 'route.home',
+          order: 0,
           keepAlive: true,
           icon: 'material-symbols-light:home'
         }
@@ -57,11 +54,7 @@ const router = createBrowserRouter([
             children: [
               {
                 path: 'list',
-                element: (
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <UserList />
-                  </Suspense>
-                ),
+                element: <UserList />,
                 handle: {
                   title: '用户列表',
                   icon: 'hugeicons:align-box-top-center',
@@ -70,11 +63,7 @@ const router = createBrowserRouter([
               },
               {
                 path: 'profile',
-                element: (
-                  <Suspense fallback={<div>Loading...</div>}>
-                    <UserProfile />
-                  </Suspense>
-                ),
+                element: <UserProfile />,
                 handle: {
                   title: '用户详情',
                   icon: 'hugeicons:align-box-top-center',
@@ -85,11 +74,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'role',
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <RoleManagement />
-              </Suspense>
-            ),
+            element: <RoleManagement />,
             handle: {
               title: '角色管理',
               icon: 'hugeicons:align-box-top-center',
@@ -98,11 +83,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'permission',
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <PermissionManagement />
-              </Suspense>
-            ),
+            element: <PermissionManagement />,
             handle: {
               title: '权限管理',
               icon: 'hugeicons:align-box-top-center',
@@ -111,11 +92,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'system-settings',
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <SystemSettings />
-              </Suspense>
-            ),
+            element: <SystemSettings />,
             handle: {
               title: '系统设置',
               icon: 'hugeicons:align-box-top-center',
@@ -130,11 +107,7 @@ const router = createBrowserRouter([
         children: [
           {
             path: 'center',
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <PersonalCenter />
-              </Suspense>
-            ),
+            element: <PersonalCenter />,
             handle: {
               title: '个人主页',
               icon: 'hugeicons:align-box-top-center',
@@ -143,11 +116,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'personal-settings',
-            element: (
-              <Suspense fallback={<div>Loading...</div>}>
-                <PersonalSettings />
-              </Suspense>
-            ),
+            element: <PersonalSettings />,
             handle: {
               title: '个人设置',
               icon: 'hugeicons:align-box-top-center',

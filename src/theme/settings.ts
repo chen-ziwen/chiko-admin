@@ -31,7 +31,7 @@ export const themeSettings: App.Theme.ThemeSetting = {
   },
   page: {
     animate: true,
-    animateMode: 'fade'
+    animateMode: 'fade-slide'
   },
   recommendColor: false,
   sider: {
@@ -45,10 +45,10 @@ export const themeSettings: App.Theme.ThemeSetting = {
   tab: {
     cache: true,
     height: 44,
-    mode: 'chrome',
+    mode: 'button',
     visible: true
   },
-  themeColor: '#F59E0B',
+  themeColor: '#F43F5E',
   tokens: {
     dark: {
       colors: {

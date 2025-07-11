@@ -85,7 +85,9 @@ export function useTabActions() {
     for (const tab of tabs) {
       if (remainTabIds.includes(tab.id)) {
         updatedTabs.push(tab);
-      } else if (tab.keepAlive) removeKeepKeys.push(tab.routePath);
+      } else if (tab.keepAlive) {
+        removeKeepKeys.push(tab.routePath);
+      }
     }
 
     // 如果一次都没删，直接返回
@@ -144,8 +146,7 @@ export function useTabActions() {
    * @param tabId
    */
   function removeTabById(tabId: string) {
-    const excludes = _tabIds // 除了要删的，其余都保留
-      .filter(t => t !== tabId);
+    const excludes = _tabIds.filter(t => t !== tabId);
 
     _clearTabs(excludes);
   }
@@ -232,8 +233,6 @@ export function initTab(cache: boolean, updateTabs: (tabs: App.Global.Tab[]) => 
   const storageTabs = localStg.get('globalTabs');
 
   if (cache && storageTabs) {
-    // const tabs = extractTabsByAllRoutes(router.getAllRouteNames(), storageTabs);
-    // dispatch(setTabs(tabs));
     updateTabs(storageTabs);
     return storageTabs;
   }

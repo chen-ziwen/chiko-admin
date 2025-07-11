@@ -59,15 +59,7 @@ const page = {
     greeting: 'Good morning, {{userName}}, today is another day full of vitality!',
     message: 'Message',
     projectCount: 'Project Count',
-    projectNews: {
-      desc1: 'Chiko created the open source project chiko-admin on May 28, 2021!',
-      desc2: 'Yanbowe submitted a bug to chiko-admin, the multi-tab bar will not adapt.',
-      desc3: 'Chiko is ready to do sufficient preparation for the release of chiko-admin!',
-      desc4: 'Chiko is busy writing project documentation for chiko-admin!',
-      desc5: 'Chiko just wrote some of the workbench pages casually, and it was enough to see!',
-      moreNews: 'More News',
-      title: 'Project News'
-    },
+    projectNews: {},
     registerCount: 'Register Count',
     rest: 'Rest',
     schedule: 'Work and rest Schedule',

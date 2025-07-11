@@ -17,10 +17,7 @@ const UserProfile: React.FC = () => {
             </div>
           </ACol>
           <ACol span={18}>
-            <ADescriptions
-              bordered
-              title="用户信息"
-            >
+            <ADescriptions title="用户信息">
               <ADescriptions.Item label="用户名">zhangsan</ADescriptions.Item>
               <ADescriptions.Item label="昵称">张三</ADescriptions.Item>
               <ADescriptions.Item label="邮箱">zhangsan@example.com</ADescriptions.Item>
@@ -41,10 +38,7 @@ const UserProfile: React.FC = () => {
         style={{ marginTop: 24 }}
         title="最近操作记录"
       >
-        <ADescriptions
-          bordered
-          column={1}
-        >
+        <ADescriptions column={1}>
           <ADescriptions.Item label="2024-03-20 10:00:00">登录系统</ADescriptions.Item>
           <ADescriptions.Item label="2024-03-19 18:00:00">更新个人信息</ADescriptions.Item>
           <ADescriptions.Item label="2024-03-19 16:30:00">修改密码</ADescriptions.Item>

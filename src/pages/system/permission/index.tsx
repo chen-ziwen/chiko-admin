@@ -74,10 +74,7 @@ const PermissionManagement: React.FC = () => {
     <ACard>
       <ARow gutter={24}>
         <ACol span={6}>
-          <ACard
-            bordered={false}
-            title="权限列表"
-          >
+          <ACard title="权限列表">
             <AInput.Search
               placeholder="请输入权限名称"
               style={{ marginBottom: 8 }}
@@ -90,10 +87,7 @@ const PermissionManagement: React.FC = () => {
           </ACard>
         </ACol>
         <ACol span={18}>
-          <ACard
-            bordered={false}
-            title="权限详情"
-          >
+          <ACard title="权限详情">
             <AForm layout="vertical">
               <AForm.Item
                 required

@@ -49,7 +49,7 @@ export function filterRoutesToMenus(routes: RouteObject[], parentPath: string = 
   const menus: App.Global.Menu[] = [];
 
   for (const route of sortedRoutes) {
-    // 只处理有path且不是index路由的路由
+    // 只处理有 path 且不是index路由的路由
     if (!(route.index || !route.path)) {
       const routeMenus = processRouteNode(route, parentPath);
       menus.push(...routeMenus);

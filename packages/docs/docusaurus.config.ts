@@ -5,7 +5,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Chiko Admin 中后台管理模板',
+  title: 'ChikoAdmin 中后台管理模板',
   tagline: '一个基于 React、TypeScript、MonoRepo 等最新技术栈的中后台管理系统，功能强大且丰富，页面美观，代码优雅',
   favicon: 'img/favicon.ico',
 
@@ -71,9 +71,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Chiko Admin',
+      title: 'ChikoAdmin',
       logo: {
-        alt: 'Chiko Admin Logo',
+        alt: 'ChikoAdmin Logo',
         src: 'img/logo.svg'
       },
       items: [
