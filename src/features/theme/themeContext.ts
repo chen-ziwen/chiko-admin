@@ -20,7 +20,7 @@ export const ThemeContext = createContext<ThemeContextType>({
 export const icons: Record<ThemeModeType, string> = {
   dark: 'material-symbols:nightlight-rounded',
   light: 'material-symbols:sunny',
-  system: 'material-symbols:hdr-auto'
+  system: 'material-symbols:brightness-auto'
 };
 
 export function toggleCssDarkMode(darkMode = false) {

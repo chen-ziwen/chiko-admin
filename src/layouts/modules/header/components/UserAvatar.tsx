@@ -1,7 +1,7 @@
 import type { MenuProps } from 'antd';
 
 // import { selectToken, selectUserInfo } from '@/features/auth/authStore';
-// import { useRouter } from '@/features/router';
+import { useRouter } from '@/features/router';
 
 const UserAvatar = memo(() => {
   // const token = useAppSelector(selectToken);
@@ -15,7 +15,7 @@ const UserAvatar = memo(() => {
 
   const token = true;
 
-  // const { navigate } = useRouter();
+  const { navigate } = useRouter();
 
   function logout() {
     window?.$modal?.confirm({
@@ -23,7 +23,7 @@ const UserAvatar = memo(() => {
       content: t('common.logoutConfirm'),
       okText: t('common.confirm'),
       onOk: () => {
-        // navigate('/login-out');
+        navigate('/login-out');
       },
       title: t('common.tip')
     });
@@ -33,12 +33,12 @@ const UserAvatar = memo(() => {
     if (key === '1') {
       logout();
     } else {
-      // navigate('/user-center');
+      navigate('/user-center');
     }
   }
 
   function loginOrRegister() {
-    // navigate('/login');
+    navigate('/login');
   }
 
   const items: MenuProps['items'] = [
@@ -48,7 +48,7 @@ const UserAvatar = memo(() => {
         <div className="flex-center gap-8px">
           <SvgIcon
             className="text-icon"
-            icon="ph:user-circle"
+            icon="mingcute:user-1-line"
           />
           {t('common.userCenter')}
         </div>
@@ -81,7 +81,7 @@ const UserAvatar = memo(() => {
         <ButtonIcon className="px-12px">
           <SvgIcon
             className="text-icon-large"
-            icon="ph:user-circle"
+            icon="mingcute:user-1-line"
           />
           <span className="text-16px font-medium">{userInfo.userName}</span>
         </ButtonIcon>

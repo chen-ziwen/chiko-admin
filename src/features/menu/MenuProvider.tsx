@@ -11,14 +11,15 @@ import { filterRoutesToMenus, getActiveFirstLevelMenuKey, getSelectKey } from '.
 import { MixMenuContext } from './menuContext';
 
 function getBaseChildrenRoutes(rs: RouteObject[]) {
-  // 查找根路由('/')的children
+  // 查找根路由'/' 的 children
   const rootRoute = rs.find(route => route.path === '/');
 
+  // 无法找到根路由或根路由没有子路由，返回空数组
   if (!rootRoute || !rootRoute.children) {
-    // 无法找到根路由或根路由没有子路由，返回空数组
     return [];
   }
 
+  // 因为返回的是 children 层级，所以不包含根路由 '/'
   return rootRoute.children;
 }
 

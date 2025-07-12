@@ -28,7 +28,7 @@ const LangSwitch: FC<LangSwitchProps> = memo(({ className, showTooltip = true })
     <ADropdown menu={menu}>
       <ButtonIcon
         className={className}
-        icon="heroicons:language"
+        icon="meteor-icons:language"
         tooltipContent={tooltipContext}
         tooltipPlacement="left"
       />

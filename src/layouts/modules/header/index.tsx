@@ -75,9 +75,9 @@ export const LayoutHeader: FC<Props> = memo(({ isMobile, mode, reverse, siderWid
           />
         )}
 
-        <LangSwitch className="px-12px" />
-
         <ThemeSchemaSwitch className="px-12px" />
+
+        <LangSwitch className="px-12px" />
 
         <ThemeButton />
 

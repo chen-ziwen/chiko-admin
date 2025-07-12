@@ -38,7 +38,7 @@ const router = createBrowserRouter([
           i18nKey: 'route.home',
           order: 0,
           keepAlive: true,
-          icon: 'material-symbols-light:home'
+          icon: 'material-symbols-light:google-home-devices'
         }
       },
       {
