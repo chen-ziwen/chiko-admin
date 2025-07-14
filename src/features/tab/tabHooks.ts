@@ -247,7 +247,6 @@ export function useCacheTabs() {
 
   function cacheTabs() {
     if (!themeSettings.tab.cache) return;
-
     localStg.set('globalTabs', tabs);
   }
 
@@ -298,6 +297,7 @@ export function useTabManager() {
     _addTab(_route);
   }, [_route.fullPath]);
 
+  // 关闭浏览器时，缓存标签页
   useEventListener(
     'beforeunload',
     () => {
