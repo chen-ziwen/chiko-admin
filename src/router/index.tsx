@@ -16,12 +16,12 @@ const router = createBrowserRouter([
         element: <Navigate to={import.meta.env.VITE_ROUTE_HOME} />
       },
 
+      ...loginRoutes,
       ...homeRoutes,
       ...systemRoutes,
       ...personalRoutes
     ]
-  },
-  ...loginRoutes
+  }
 ]);
 
 export default router;

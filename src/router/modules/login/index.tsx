@@ -5,7 +5,7 @@ import type { AppRouteObject } from '../../core/types';
 
 const Login = lazy(() => import('@/pages/login/layout'));
 const Register = lazy(() => import('@/pages/login/register'));
-const LoginOut = lazy(() => import('@/pages/login-out'));
+const LoginOut = lazy(() => import('@/pages/login/login-out'));
 
 const routes: AppRouteObject[] = [
   {
@@ -14,7 +14,8 @@ const routes: AppRouteObject[] = [
     handle: {
       title: '登录',
       icon: 'material-symbols-light:login',
-      constant: true
+      constant: true,
+      hideInMenu: true
     }
   },
   {
@@ -23,7 +24,8 @@ const routes: AppRouteObject[] = [
     handle: {
       title: '注册',
       icon: 'material-symbols-light:app-registration',
-      constant: true
+      constant: true,
+      hideInMenu: true
     }
   },
   {
@@ -32,7 +34,8 @@ const routes: AppRouteObject[] = [
     handle: {
       title: '退出登录',
       icon: 'material-symbols-light:logout',
-      constant: true
+      constant: true,
+      hideInMenu: true
     }
   }
 ];

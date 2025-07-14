@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren } from 'react';
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const RootLayout: FC<PropsWithChildren> = ({ children }) => {
