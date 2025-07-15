@@ -1,4 +1,4 @@
-const common: App.I18n.Schema['translation']['common'] = {
+const common = {
   action: '操作',
   add: '新增',
   addSuccess: '添加成功',
@@ -41,7 +41,10 @@ const common: App.I18n.Schema['translation']['common'] = {
   yesOrNo: {
     no: '否',
     yes: '是'
-  }
+  },
+  '403Message': '抱歉，您没有权限访问此页面',
+  '404Message': '抱歉，您访问的页面不存在',
+  '500Message': '抱歉，服务器出错了'
 };
 
 export default common;

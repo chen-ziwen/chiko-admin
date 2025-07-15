@@ -56,7 +56,7 @@ const page = {
     dealCount: 'Deal Count',
     downloadCount: 'Download Count',
     entertainment: 'Entertainment',
-    greeting: 'Good morning, {{userName}}, today is another day full of vitality!',
+    greeting: 'Hello, {{userName}}, today is another day full of vitality!',
     message: 'Message',
     projectCount: 'Project Count',
     projectNews: {},
@@ -68,7 +68,38 @@ const page = {
     turnover: 'Turnover',
     visitCount: 'Visit Count',
     weatherDesc: 'Today is cloudy to clear, 20℃ - 25℃!',
-    work: 'Work'
+    work: 'Work',
+    newProject: 'New Project',
+    fromLastMonth: 'From Last Month',
+    recentActivity: 'Recent Activity',
+    salesData: 'Sales Data',
+    userGrowth: 'User Growth',
+    salesAnalysis: 'Sales Analysis',
+    productAnalysis: 'Product Analysis',
+    productDistribution: 'Product Distribution',
+    technology: 'Technology',
+    marketing: 'Marketing',
+    operations: 'Operations',
+    finance: 'Finance',
+    dashboardOverview: 'Dashboard Overview',
+    refresh: 'Refresh',
+    today: 'Today',
+    thisWeek: 'This Week',
+    thisMonth: 'This Month',
+    aboutSection: {
+      title: 'About',
+      description: 'Modern React Management System Template'
+    },
+    activity: {
+      deploy: 'Project Deployment',
+      deployDesc: 'Successfully deployed the latest version to production',
+      update: 'System Update',
+      updateDesc: 'System has been updated to the latest version',
+      alert: 'System Warning',
+      alertDesc: 'Server load is too high, please pay attention',
+      error: 'System Error',
+      errorDesc: 'Database connection failed, please check configuration'
+    }
   },
   login: {
     bindWeChat: {

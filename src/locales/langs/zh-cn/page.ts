@@ -56,7 +56,7 @@ const page = {
     dealCount: '成交量',
     downloadCount: '下载量',
     entertainment: '娱乐',
-    greeting: '早安，{{userName}}, 今天又是充满活力的一天!',
+    greeting: '你好呀，{{userName}}, 今天又是充满活力的一天!',
     message: '消息',
     projectCount: '项目数',
     projectNews: {},
@@ -68,7 +68,38 @@ const page = {
     turnover: '成交额',
     visitCount: '访问量',
     weatherDesc: '今日多云转晴，20℃ - 25℃!',
-    work: '工作'
+    work: '工作',
+    newProject: '新建项目',
+    fromLastMonth: '较上月',
+    recentActivity: '最近活动',
+    salesData: '销售数据',
+    userGrowth: '用户增长',
+    salesAnalysis: '销售分析',
+    productAnalysis: '产品分析',
+    productDistribution: '产品分布',
+    technology: '技术部门',
+    marketing: '市场部门',
+    operations: '运营部门',
+    finance: '财务部门',
+    dashboardOverview: '仪表盘概览',
+    refresh: '刷新',
+    today: '今日',
+    thisWeek: '本周',
+    thisMonth: '本月',
+    aboutSection: {
+      title: '关于',
+      description: '现代化的 React 管理系统模板'
+    },
+    activity: {
+      deploy: '项目部署',
+      deployDesc: '成功部署了最新版本到生产环境',
+      update: '系统更新',
+      updateDesc: '系统已更新到最新版本',
+      alert: '系统警告',
+      alertDesc: '服务器负载过高，请注意',
+      error: '系统错误',
+      errorDesc: '数据库连接失败，请检查配置'
+    }
   },
   login: {
     bindWeChat: {

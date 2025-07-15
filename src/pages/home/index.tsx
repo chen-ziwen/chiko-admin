@@ -1,39 +1,83 @@
-import { ChartsSection } from './modules/ChartsSection';
-import { HeroSection } from './modules/HeroSection';
-import { PersonalIntro } from './modules/PersonalIntro';
-import { SkillsSection } from './modules/SkillsSection';
-import { StatisticsCards } from './modules/StatisticsCards';
+import { m } from 'motion/react';
+
+import AboutSection from './modules/AboutSection';
+import CardData from './modules/CardData';
+import HeaderBanner from './modules/HeaderBanner';
+import LineChart from './modules/LineChart';
+import PieChart from './modules/PieChart';
+import RecentActivity from './modules/RecentActivity';
 
 export default function DashBoard() {
   return (
-    <ASpace
-      className="w-full"
-      direction="vertical"
-      size={[16, 16]}
+    <m.div
+      animate={{ opacity: 1 }}
+      className="w-full pb-24px"
+      initial={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <HeroSection />
+      <ASpace
+        className="w-full"
+        direction="vertical"
+        size={24}
+      >
+        <HeaderBanner />
 
-      <StatisticsCards />
+        <CardData />
 
-      <ARow gutter={[24, 24]}>
-        <ACol
-          lg={10}
-          md={12}
-          xs={24}
-        >
-          <PersonalIntro />
-        </ACol>
+        <ARow gutter={[24, 24]}>
+          <ACol
+            lg={16}
+            span={24}
+          >
+            <m.div
+              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <LineChart />
+            </m.div>
+          </ACol>
+          <ACol
+            lg={8}
+            span={24}
+          >
+            <m.div
+              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <PieChart />
+            </m.div>
+          </ACol>
+        </ARow>
 
-        <ACol
-          lg={14}
-          md={12}
-          xs={24}
-        >
-          <SkillsSection />
-        </ACol>
-      </ARow>
-
-      <ChartsSection />
-    </ASpace>
+        <ARow gutter={[24, 24]}>
+          <ACol
+            lg={8}
+            span={24}
+          >
+            <m.div
+              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <AboutSection />
+            </m.div>
+          </ACol>
+          <ACol
+            lg={16}
+            span={24}
+          >
+            <m.div
+              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <RecentActivity />
+            </m.div>
+          </ACol>
+        </ARow>
+      </ASpace>
+    </m.div>
   );
 }

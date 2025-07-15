@@ -41,7 +41,10 @@ const common = {
   yesOrNo: {
     no: 'No',
     yes: 'Yes'
-  }
+  },
+  '403Message': 'Sorry, you are not authorized to access this page',
+  '404Message': 'Sorry, the page you visited does not exist',
+  '500Message': 'Sorry, something went wrong with the server'
 };
 
 export default common;

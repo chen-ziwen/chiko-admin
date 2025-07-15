@@ -9,14 +9,14 @@ const PersonalSettings = lazy(() => import('@/pages/personal/settings'));
 const routes: AppRouteObject[] = [
   {
     path: 'personal',
-    handle: { title: '个人中心', icon: 'hugeicons:align-box-top-center' },
+    handle: { title: '个人中心', icon: 'material-symbols-light:account-circle' },
     children: [
       {
         path: 'center',
         element: <PersonalCenter />,
         handle: {
           title: '个人主页',
-          icon: 'hugeicons:align-box-top-center',
+          icon: 'material-symbols-light:person',
           keepAlive: true
         }
       },
@@ -25,7 +25,7 @@ const routes: AppRouteObject[] = [
         element: <PersonalSettings />,
         handle: {
           title: '个人设置',
-          icon: 'hugeicons:align-box-top-center',
+          icon: 'material-symbols-light:manage-accounts',
           keepAlive: true
         }
       }

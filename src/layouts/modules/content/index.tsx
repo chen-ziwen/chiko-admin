@@ -8,7 +8,6 @@ import { getReloadFlag, selectCacheRoutes, selectRemoveCacheKey, setRemoveCacheK
 import './transition.css';
 
 interface Props {
-  /** Show padding for content */
   closePadding?: boolean;
 }
 
@@ -38,7 +37,6 @@ export const LayoutContent = ({ closePadding }: Props) => {
 
     aliveRef.current.destroy(removeCacheKey);
 
-    // 有的时候用户打开同一页面输入在关闭 不去切换新的页面 会造成无法二次删除缓存
     dispatch(setRemoveCacheKey(null));
   }, [removeCacheKey]);
 

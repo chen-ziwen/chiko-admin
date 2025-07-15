@@ -12,13 +12,13 @@ const SystemSettings = lazy(() => import('@/pages/system/settings'));
 const routes: AppRouteObject[] = [
   {
     path: 'system',
-    handle: { title: '系统管理', icon: 'hugeicons:align-box-top-center' },
+    handle: { title: '系统管理', icon: 'material-symbols-light:settings' },
     children: [
       {
         path: 'user',
         handle: {
           title: '用户管理',
-          icon: 'hugeicons:align-box-top-center'
+          icon: 'material-symbols-light:person'
         },
         children: [
           {
@@ -26,7 +26,7 @@ const routes: AppRouteObject[] = [
             element: <UserList />,
             handle: {
               title: '用户列表',
-              icon: 'hugeicons:align-box-top-center',
+              icon: 'material-symbols-light:group',
               keepAlive: true
             }
           },
@@ -35,7 +35,7 @@ const routes: AppRouteObject[] = [
             element: <UserProfile />,
             handle: {
               title: '用户详情',
-              icon: 'hugeicons:align-box-top-center',
+              icon: 'material-symbols-light:person-search',
               hideInMenu: true
             }
           }
@@ -46,7 +46,7 @@ const routes: AppRouteObject[] = [
         element: <RoleManagement />,
         handle: {
           title: '角色管理',
-          icon: 'hugeicons:align-box-top-center',
+          icon: 'material-symbols-light:admin-panel-settings',
           keepAlive: true
         }
       },
@@ -55,7 +55,7 @@ const routes: AppRouteObject[] = [
         element: <PermissionManagement />,
         handle: {
           title: '权限管理',
-          icon: 'hugeicons:align-box-top-center',
+          icon: 'material-symbols-light:shield-person',
           keepAlive: true
         }
       },
@@ -64,7 +64,7 @@ const routes: AppRouteObject[] = [
         element: <SystemSettings />,
         handle: {
           title: '系统设置',
-          icon: 'hugeicons:align-box-top-center',
+          icon: 'material-symbols-light:tune',
           keepAlive: true
         }
       }
