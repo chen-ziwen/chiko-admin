@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
-import { createRootRoutes } from '../../core';
-import type { AppRouteObject } from '../../core/types';
+import { createRootRoutes } from '@/router/core';
+import type { AppRouteObject } from '@/router/core/types';
 
 const UserList = lazy(() => import('@/pages/system/user/list'));
 const UserProfile = lazy(() => import('@/pages/system/user/profile'));

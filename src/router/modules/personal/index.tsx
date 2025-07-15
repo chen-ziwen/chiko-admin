@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
-import { createRootRoutes } from '../../core';
-import type { AppRouteObject } from '../../core/types';
+import { createRootRoutes } from '@/router/core';
+import type { AppRouteObject } from '@/router/core/types';
 
 const PersonalCenter = lazy(() => import('@/pages/personal/center'));
 const PersonalSettings = lazy(() => import('@/pages/personal/settings'));
