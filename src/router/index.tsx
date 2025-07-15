@@ -10,7 +10,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to={import.meta.env.VITE_ROUTE_HOME} />
+        element: <Navigate to={import.meta.env.VITE_ROUTE_HOME} />,
+        handle: { constant: true }
       },
       ...getAllRoutes()
     ]

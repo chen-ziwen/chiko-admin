@@ -60,7 +60,7 @@ export function useRoute<
         fullPath,
         hash,
         matched: matches.slice(1) as Router.Route<T>[],
-        params: getParams(routes.params as Record<string, string>, routes.id) as P,
+        params: getParams(<Record<string, string>>routes.params, routes.id) as P,
         pathname,
         query,
         redirect: null,

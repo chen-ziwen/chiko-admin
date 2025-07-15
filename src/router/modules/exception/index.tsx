@@ -12,8 +12,7 @@ const routes: AppRouteObject[] = [
     path: 'exception',
     handle: {
       title: '异常页',
-      icon: 'ant-design:exception-outlined',
-      constant: true
+      icon: 'ant-design:exception-outlined'
     },
     children: [
       {
@@ -21,8 +20,7 @@ const routes: AppRouteObject[] = [
         element: <Forbidden />,
         handle: {
           title: '403',
-          icon: 'material-symbols-light:block',
-          constant: true
+          icon: 'material-symbols-light:block'
         }
       },
       {
@@ -30,8 +28,7 @@ const routes: AppRouteObject[] = [
         element: <NotFound />,
         handle: {
           title: '404',
-          icon: 'material-symbols-light:error-outline',
-          constant: true
+          icon: 'material-symbols-light:error-outline'
         }
       },
       {
@@ -39,8 +36,7 @@ const routes: AppRouteObject[] = [
         element: <ServerError />,
         handle: {
           title: '500',
-          icon: 'material-symbols-light:warning-outline',
-          constant: true
+          icon: 'material-symbols-light:warning-outline'
         }
       }
     ]

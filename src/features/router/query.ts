@@ -18,115 +18,57 @@ export type LocationQueryRaw = Record<string | number, LocationQueryValueRaw | L
  * @returns a query object
  * @internal
  */
-
-export const PLUS_RE = /\+/g; // %2B
-
-const EQUAL_RE = /[=]/g; // %3D
-
-const ENC_BRACKET_OPEN_RE = /%5B/g; // [
-const ENC_BRACKET_CLOSE_RE = /%5D/g; // ]
-const ENC_CARET_RE = /%5E/g; // ^
-const ENC_BACKTICK_RE = /%60/g; // `
-const ENC_CURLY_OPEN_RE = /%7B/g; // {
-const ENC_PIPE_RE = /%7C/g; // |
-const ENC_CURLY_CLOSE_RE = /%7D/g; // }
-const ENC_SPACE_RE = /%20/g; // }
-const HASH_RE = /#/g; // %23
-const AMPERSAND_RE = /&/g; // %26
 export function parseQuery(search: string): LocationQuery {
   const query: LocationQuery = {};
-  // avoid creating an object with an empty key and empty value
-  // because of split('&')
-  if (search === '' || search === '?') return query;
-  const hasLeadingIM = search[0] === '?';
-  const searchParams = (hasLeadingIM ? search.slice(1) : search).split('&');
+  // URLSearchParams 构造函数能自动处理以 '?' 开头的字符串
+  const searchParams = new URLSearchParams(search);
 
-  for (let i = 0; i < searchParams.length; i += 1) {
-    // pre decode the + into space
-    const searchParam = searchParams[i].replace(PLUS_RE, ' ');
-    // allow the = character
-    const eqPos = searchParam.indexOf('=');
-    const key = decode(eqPos < 0 ? searchParam : searchParam.slice(0, eqPos));
-    const value = eqPos < 0 ? null : decode(searchParam.slice(eqPos + 1));
-
-    if (key in query) {
-      // an extra variable for ts types
-      let currentValue = query[key];
-      if (!Array.isArray(currentValue)) {
-        currentValue = [currentValue];
-        query[key] = currentValue;
-      }
-      // we force the modification
-      (currentValue as LocationQueryValue[]).push(value);
+  // 遍历所有键值对。URLSearchParams 会自动将 '+' 解码为空格。
+  // 对于具有相同键的多个值 (例如 `foo=a&foo=b`)，URLSearchParams 会将它们都保留。
+  // 通过 getAll(key) 可以获取某个键的所有值。
+  for (const key of searchParams.keys()) {
+    const values = searchParams.getAll(key);
+    // 根据值的数量，将其存储为单个值或数组
+    if (values.length === 1) {
+      query[key] = values[0];
     } else {
-      query[key] = value;
+      query[key] = values;
     }
   }
+
   return query;
 }
 
 export function stringifyQuery(query: LocationQueryRaw): string {
-  let search = '';
+  const searchParams = new URLSearchParams();
 
   for (const [originalKey, value] of Object.entries(query)) {
-    const key = encodeQueryKey(originalKey);
-    if (value === null) {
-      // only null adds the value
-      if (value !== undefined) {
-        search += (search.length ? '&' : '') + key;
-      }
-      // eslint-disable-next-line no-continue
+    // URLSearchParams 会自动对键和值进行标准 URL 编码。
+    // 空格会被编码为 '+'，文字的 '+' 会被编码为 '%2B'。
+
+    if (value === undefined) {
+      // 按照标准 URL 参数处理，undefined 值不应出现在查询字符串中。
       continue;
     }
-    // keep null values
-    const values: LocationQueryValueRaw[] = Array.isArray(value)
-      ? value.map(v => v && encodeQueryValue(v))
-      : [value && encodeQueryValue(value)];
 
-    for (const v of values) {
-      // skip undefined values in arrays as if they were not present
-      if (v !== undefined) {
-        // only append & with non-empty search
-        search += (search.length ? '&' : '') + key;
-        if (v !== null) search += `=${v}`;
+    if (value === null) {
+      // 对于 null 值，我们将追加一个空字符串，结果是 `key=`。
+      // 这是 URLSearchParams 的标准行为，也是处理“无值”参数的常见方式。
+      searchParams.append(originalKey, '');
+    } else if (Array.isArray(value)) {
+      // 如果值是数组，遍历数组中的每个项
+      for (const item of value) {
+        if (item !== undefined) {
+          // 数组中的 undefined 项被跳过。
+          // 其他项（包括 null）被转换为字符串并追加。
+          searchParams.append(originalKey, item === null ? '' : String(item));
+        }
       }
+    } else {
+      // 处理单个非 null、非 undefined 的值
+      searchParams.append(originalKey, String(value));
     }
   }
 
-  return search;
-}
-
-export function decode(text: string | number): string {
-  try {
-    return decodeURIComponent(`${text}`);
-  } catch {
-    console.warn(`Error decoding "${text}". Using original value`);
-  }
-  return `${text}`;
-}
-
-export function encodeQueryKey(text: string | number): string {
-  return encodeQueryValue(text).replace(EQUAL_RE, '%3D');
-}
-
-export function encodeQueryValue(text: string | number): string {
-  return (
-    commonEncode(text)
-      // Encode the space as +, encode the + to differentiate it from the space
-      .replace(PLUS_RE, '%2B')
-      .replace(ENC_SPACE_RE, '+')
-      .replace(HASH_RE, '%23')
-      .replace(AMPERSAND_RE, '%26')
-      .replace(ENC_BACKTICK_RE, '`')
-      .replace(ENC_CURLY_OPEN_RE, '{')
-      .replace(ENC_CURLY_CLOSE_RE, '}')
-      .replace(ENC_CARET_RE, '^')
-  );
-}
-
-function commonEncode(text: string | number): string {
-  return encodeURI(`${text}`)
-    .replace(ENC_PIPE_RE, '|')
-    .replace(ENC_BRACKET_OPEN_RE, '[')
-    .replace(ENC_BRACKET_CLOSE_RE, ']');
+  return searchParams.toString();
 }

@@ -11,7 +11,7 @@ import { filterRoutesToMenus, getActiveFirstLevelMenuKey, getSelectKey } from '.
 import { MixMenuContext } from './menuContext';
 
 function getBaseChildrenRoutes(rs: RouteObject[]) {
-  // 查找根路由'/' 的 children
+  // 查找根路由 '/' 的 children
   const rootRoute = rs.find(route => route.path === '/');
 
   // 无法找到根路由或根路由没有子路由，返回空数组
@@ -26,31 +26,38 @@ function getBaseChildrenRoutes(rs: RouteObject[]) {
 const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
   const route = useRoute();
 
-  const router = useRouter();
+  const { router } = useRouter();
 
   const dispatch = useAppDispatch();
 
   const { locale } = useLang();
 
+  // 获取当前选中路由的第一层级路由
   const activeFirstLevelMenuKey = useAppSelector(selectActiveFirstLevelMenuKey);
 
-  // 获取根路由的子路由
+  // 获取根路由下的子路由
   const menus = useMemo(
-    () => filterRoutesToMenus(getBaseChildrenRoutes(router.router.routes)),
+    () => filterRoutesToMenus(getBaseChildrenRoutes(router.routes)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [router.router.routes, locale]
+    [router.routes, locale]
   );
 
+  // 获取第一层级的路由，过滤掉子路由，用于某个布局
   const firstLevelMenu = menus.map(menu => {
     const { children: _, ...rest } = menu;
     return rest;
   }) as App.Global.Menu[];
 
+  // 根据当前选中的一级菜单路径，获取对应的子菜单
   const childLevelMenus = menus.find(menu => menu.key === activeFirstLevelMenuKey)?.children as App.Global.Menu[];
 
+  // 获取当前选中的菜单（完整的 path 路径）
   const selectKey = getSelectKey(route);
 
-  /** - 可以手动指定菜单或者是默认当前路由的一级菜单 */
+  // 判断当前选中的一级菜单下是否有子菜单
+  const isActiveFirstLevelMenuHasChildren = activeFirstLevelMenuKey ? Boolean(childLevelMenus) : false;
+
+  // 可以手动指定菜单或者是默认当前路由的一级菜单
   function changeActiveFirstLevelMenuKey(key?: string) {
     const routeKey = key || getActiveFirstLevelMenuKey(route);
     dispatch(setActiveFirstLevelMenuKey(routeKey || ''));
@@ -61,7 +68,7 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
     allMenus: menus,
     childLevelMenus: childLevelMenus || [],
     firstLevelMenu,
-    isActiveFirstLevelMenuHasChildren: activeFirstLevelMenuKey ? Boolean(childLevelMenus) : false,
+    isActiveFirstLevelMenuHasChildren,
     route,
     selectKey,
     setActiveFirstLevelMenuKey: changeActiveFirstLevelMenuKey

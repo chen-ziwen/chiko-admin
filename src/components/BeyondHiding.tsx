@@ -8,13 +8,13 @@ type BeyondHidingProps = Omit<TooltipProps, 'open' | 'trigger'> & {
   title: React.ReactNode;
 };
 
+// 给菜单的 label 移入展示 tooltip 的功能
 const BeyondHiding = ({ className, style, title, ...props }: BeyondHidingProps) => {
   const [isShow, setIsShow] = useState(false);
 
   const contentRef = useRef<HTMLSpanElement>(null);
 
   const isShowTooltip = (): void => {
-    // 计算span标签的offsetWidth与盒子元素的offsetWidth，给isShow赋值
     if (contentRef.current && contentRef.current.parentElement) {
       const spanWidth = contentRef.current.offsetWidth;
       const parentWidth = contentRef.current.parentElement.offsetWidth;

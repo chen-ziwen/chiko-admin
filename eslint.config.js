@@ -35,9 +35,11 @@ export default defineConfig(
         }
       ],
       // 只允许 warn 和 error 保留
-      // 'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
 
       'no-underscore-dangle': 'off',
+
+      'no-continue': 'off',
 
       'react/hook-use-state': [
         'error', // or "warn" to only warn instead of error
@@ -47,10 +49,7 @@ export default defineConfig(
       ],
       'react/jsx-closing-bracket-location': ['warn', 'tag-aligned'],
       'react/jsx-closing-tag-location': 'warn',
-      // 'react-refresh/only-export-components': [
-      //   'warn',
-      //   { allowConstantExport: true }
-      // ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/jsx-curly-brace-presence': [
         'warn',
         {

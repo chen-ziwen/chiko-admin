@@ -22,6 +22,7 @@ declare global {
   const AInput: typeof import('antd')['Input']
   const AInputNumber: typeof import('antd')['InputNumber']
   const AList: typeof import('antd')['List']
+  const AMPERSAND_RE: typeof import('antd')['MPERSAND_RE']
   const AMenu: typeof import('antd')['Menu']
   const AProgress: typeof import('antd')['Progress']
   const ARadio: typeof import('antd')['Radio']

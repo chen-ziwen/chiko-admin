@@ -38,16 +38,16 @@ function navigator() {
   }
 
   // eslint-disable-next-line max-params
-  function push(path: string, query?: LocationQueryRaw, state?: any, _replace?: boolean) {
-    let _path = path;
+  function push(path: string, query?: LocationQueryRaw, state?: any, shouldReplace?: boolean) {
+    let fullPath = path;
 
     if (query) {
       const search = stringifyQuery(query);
 
-      _path = `${path}?${search}`;
+      fullPath = `${path}?${search}`;
     }
 
-    router.navigate(_path, { replace: _replace, state });
+    router.navigate(fullPath, { replace: shouldReplace, state });
   }
 
   return {

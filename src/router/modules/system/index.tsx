@@ -35,8 +35,7 @@ const routes: AppRouteObject[] = [
             element: <UserProfile />,
             handle: {
               title: '用户详情',
-              icon: 'material-symbols-light:person-search',
-              hideInMenu: true
+              icon: 'material-symbols-light:person-search'
             }
           }
         ]
