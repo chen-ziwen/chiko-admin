@@ -1,7 +1,7 @@
 import { Navigate, createBrowserRouter } from 'react-router-dom';
 
 import AppLayout from '@/pages';
-import { getAllRoutes } from '@/router/config';
+import { getAllRoutes, getGlobalRoutes } from '@/router/config';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,8 @@ const router = createBrowserRouter([
       },
       ...getAllRoutes()
     ]
-  }
+  },
+  ...getGlobalRoutes()
 ]);
 
 export default router;

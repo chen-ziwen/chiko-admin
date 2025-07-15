@@ -40,4 +40,4 @@ const routes: AppRouteObject[] = [
   }
 ];
 
-export const loginRoutes = createRootRoutes(routes);
+export const globalLoginRoutes = createRootRoutes(routes);
