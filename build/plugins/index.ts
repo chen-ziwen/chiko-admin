@@ -5,6 +5,7 @@ import removeConsole from 'vite-plugin-remove-console';
 
 import { setupAutoImport } from './auto-import';
 import { setupHtmlPlugin } from './html';
+import { setupPagesPlugin } from './pages';
 import { setupUnocss } from './unocss';
 import { setupUnPluginIcon } from './unplugin-icon';
 
@@ -16,6 +17,7 @@ export function setupVitePlugins(viteEnv: Env.ImportMeta, buildTime: string) {
     Inspect(), // 打包分析
     removeConsole(), // 生产环境下移除 console
     setupHtmlPlugin(buildTime), // 注入 buildTime
+    setupPagesPlugin(), // 文件系统路由
     ...setupUnPluginIcon(viteEnv) // 处理本地 svg 图标自动导入
   ];
   return plugins;

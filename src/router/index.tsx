@@ -1,22 +1,12 @@
-import { Navigate, createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 
-import AppLayout from '@/pages';
-import { getAllRoutes, getGlobalRoutes } from '@/router/config';
+// import AppLayout from '@/pages';
+// import { getAllRoutes, getGlobalRoutes } from '@/router/config';
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    Component: AppLayout,
-    children: [
-      {
-        index: true,
-        element: <Navigate to={import.meta.env.VITE_ROUTE_HOME} />,
-        handle: { constant: true }
-      },
-      ...getAllRoutes()
-    ]
-  },
-  ...getGlobalRoutes()
-]);
+import routes from '~react-pages';
+
+const router = createBrowserRouter(routes);
 
 export default router;
+
+console.log('router ===>', routes, router);

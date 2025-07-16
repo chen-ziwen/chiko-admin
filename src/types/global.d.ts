@@ -9,9 +9,12 @@ interface Window {
   NProgress?: import('nprogress').NProgress;
 }
 
-interface ImportMeta {
-  readonly env: Env.ImportMeta;
-}
-
 /** Build time of the project */
 declare const BUILD_TIME: string;
+
+declare module '~react-pages' {
+  import type { RouteObject } from 'react-router-dom';
+
+  const routes: RouteObject[];
+  export default routes;
+}
