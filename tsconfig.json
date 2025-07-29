@@ -17,10 +17,10 @@
       "node",
       "unplugin-icons/types/react",
       "vite-plugin-svg-icons/client",
-      "@unocss/vite/client"
+      "@unocss/vite/client",
+      "@better-pages-create/react-router/client-react"
     ],
     "allowImportingTsExtensions": true,
-    /* Linting */
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": false,
