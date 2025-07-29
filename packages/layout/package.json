@@ -12,7 +12,7 @@
   "dependencies": {
     "@chiko-admin/color": "workspace:^",
     "@chiko-admin/utils": "workspace:*",
-    "simplebar-react": "3.3.1"
+    "simplebar-react": "3.3.2"
   },
   "devDependencies": {
     "typed-css-modules": "0.9.1"

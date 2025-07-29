@@ -20,3 +20,5 @@ const router = createBrowserRouter([
 ]);
 
 export default router;
+
+// console.log('router ===>', router);

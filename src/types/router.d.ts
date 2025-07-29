@@ -12,7 +12,7 @@ declare namespace Router {
      * @example
      *   the route is "user_detail", if it is set to "user_list", the menu "user_list" will be activated
      */
-    activeMenu?: import('@soybean-react/vite-plugin-react-router').RouteKey | null;
+    activeMenu?: string | null;
     /**
      * Is constant route
      *
@@ -30,7 +30,7 @@ declare namespace Router {
      *
      * It's used in i18n, if it is set, the title will be ignored
      */
-    i18nKey?: App.I18n.I18nKey | null;
+    i18nKey?: string | null;
     /**
      * Iconify icon
      *

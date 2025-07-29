@@ -72,24 +72,6 @@ declare namespace Api {
   }
 
   /**
-   * namespace Route
-   *
-   * backend api module: "route"
-   */
-  namespace Route {
-    type ElegantConstRoute = import('@soybean-react/vite-plugin-react-router').ElegantConstRoute;
-
-    interface MenuRoute extends ElegantConstRoute {
-      id: string;
-    }
-
-    interface UserRoute {
-      home: import('@soybean-react/vite-plugin-react-router').LastLevelRouteKey;
-      routes: string[];
-    }
-  }
-
-  /**
    * namespace SystemManage
    *
    * backend api module: "systemManage"
@@ -178,20 +160,6 @@ declare namespace Api {
      */
     type IconType = '1' | '2';
 
-    type MenuPropsOfRoute = Pick<
-      import('@soybean-react/vite-plugin-react-router').RouteMeta,
-      | 'activeMenu'
-      | 'constant'
-      | 'fixedIndexInTab'
-      | 'hideInMenu'
-      | 'href'
-      | 'i18nKey'
-      | 'keepAlive'
-      | 'multiTab'
-      | 'order'
-      | 'query'
-    >;
-
     type Menu = Common.CommonRecord<{
       /** buttons */
       buttons?: MenuButton[] | null;
@@ -213,8 +181,7 @@ declare namespace Api {
       routeName: string;
       /** route path */
       routePath: string;
-    }> &
-      MenuPropsOfRoute;
+    }>;
 
     /** menu list */
     type MenuList = Common.PaginatingQueryRecord<Menu>;

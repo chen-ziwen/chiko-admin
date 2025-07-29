@@ -67,7 +67,7 @@ declare namespace Env {
      * It only has effect when the auth route mode is static, if the route mode is dynamic, the home route key is
      * defined in the back-end
      */
-    readonly VITE_ROUTE_HOME: import('@soybean-react/vite-plugin-react-router').LastLevelRouteKey;
+    readonly VITE_ROUTE_HOME: '/home';
     /** The router history mode */
     readonly VITE_ROUTER_HISTORY_MODE?: RouterHistoryMode;
     /** backend service base url */
