@@ -37,7 +37,6 @@ function navigator() {
     router.navigate('/');
   }
 
-  // eslint-disable-next-line max-params
   function push(path: string, query?: LocationQueryRaw, state?: any, shouldReplace?: boolean) {
     let fullPath = path;
 

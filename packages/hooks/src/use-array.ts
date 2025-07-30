@@ -58,7 +58,9 @@ export default function useArray<T, K extends keyof T>(initState: T[], key?: K):
       const index = prevState.findIndex(i => i[resolvedKey] === itemKey);
 
       // 如果该元素在第一个位置，就不能上移
-      if (index <= 0) return prevState;
+      if (index <= 0) {
+        return prevState;
+      }
 
       // 交换当前元素与上一个元素的位置
       const newState = [...prevState];
@@ -75,7 +77,9 @@ export default function useArray<T, K extends keyof T>(initState: T[], key?: K):
       const index = prevState.findIndex(i => i[resolvedKey] === itemKey);
 
       // 如果该元素已经在最后一个位置或找不到该元素，就不能下移
-      if (index === prevState.length - 1 || index === -1) return prevState;
+      if (index === prevState.length - 1 || index === -1) {
+        return prevState;
+      }
 
       // 交换当前元素与下一个元素的位置
       const newState = [...prevState];

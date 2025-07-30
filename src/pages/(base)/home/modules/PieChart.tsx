@@ -52,7 +52,9 @@ const PieChart = () => {
     });
 
     updateOptions(opts => {
-      if (!opts.series) return opts;
+      if (!opts.series) {
+        return opts;
+      }
 
       const series = Array.isArray(opts.series) ? opts.series : [opts.series];
       if (series[0]) {
@@ -72,7 +74,9 @@ const PieChart = () => {
     updateOptions((opts, factory) => {
       const originOpts = factory();
 
-      if (!opts.series || !originOpts.series) return opts;
+      if (!opts.series || !originOpts.series) {
+        return opts;
+      }
 
       const series = Array.isArray(opts.series) ? opts.series : [opts.series];
       const originSeries = Array.isArray(originOpts.series) ? originOpts.series : [originOpts.series];

@@ -38,7 +38,7 @@ export async function setupCli() {
     .version(lightGreen(version))
     .option(
       '-e, --execute [command]',
-      "Execute additional command after bumping and before git commit. Defaults to 'npx soy changelog'"
+      'Execute additional command after bumping and before git commit. Defaults to \'npx soy changelog\''
     )
     .option('-p, --push', 'Indicates whether to push the git commit and tag')
     .option('-t, --total', 'Generate changelog by total tags')

@@ -24,7 +24,6 @@ const RootLayout = () => {
     window.NProgress?.done?.();
   }, [pathname]);
 
-  // eslint-disable-next-line no-nested-ternary
   return location.current ? (
     typeof location.current === 'string' ? (
       <Navigate to={location.current} />

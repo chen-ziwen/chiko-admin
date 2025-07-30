@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "material-symbols-light:manage-accounts",
- *   "keepAlive": true}
+ * @handle {
+ *   "icon": "material-symbols-light:manage-accounts",
+ *   "keepAlive": true
+ * }
  */
 
 import { UserOutlined } from '@ant-design/icons';

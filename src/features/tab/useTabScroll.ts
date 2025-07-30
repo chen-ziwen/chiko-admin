@@ -27,7 +27,9 @@ export function useTabScroll(activeTabId: string) {
   }
 
   async function _scrollToActiveTab() {
-    if (!tabRef.current) return;
+    if (!tabRef.current) {
+      return;
+    }
 
     const { children } = tabRef.current;
 
@@ -55,7 +57,9 @@ export function useTabScroll(activeTabId: string) {
   }
 
   useMount(() => {
-    if (!bsWrapper.current) return;
+    if (!bsWrapper.current) {
+      return;
+    }
 
     const { left, width } = bsWrapper.current.getBoundingClientRect();
 

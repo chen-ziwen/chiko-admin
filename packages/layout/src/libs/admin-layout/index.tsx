@@ -6,7 +6,6 @@ import type { AdminLayoutProps } from '../../types';
 import style from './index.module.css';
 import { LAYOUT_MAX_Z_INDEX, LAYOUT_SCROLL_EL_ID, createLayoutCssVars } from './shared';
 
-// eslint-disable-next-line complexity
 const AdminLayout: FC<AdminLayoutProps> = ({
   children,
   commonClass = 'transition-all-300',

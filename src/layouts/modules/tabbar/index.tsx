@@ -40,9 +40,13 @@ export const LayoutTabbar = () => {
       const homeDisable: App.Global.DropdownKey[] = ['closeCurrent', 'closeLeft'];
       disabledKeys.push(...homeDisable);
     }
-    if (index === 1) disabledKeys.push('closeLeft');
+    if (index === 1) {
+      disabledKeys.push('closeLeft');
+    }
 
-    if (index === tabs.length - 1) disabledKeys.push('closeRight');
+    if (index === tabs.length - 1) {
+      disabledKeys.push('closeRight');
+    }
     return disabledKeys;
   }
 

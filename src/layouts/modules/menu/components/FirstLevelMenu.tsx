@@ -54,7 +54,9 @@ function MixMenuItem(Props: MixMenuItemProps) {
     setActiveFirstLevelMenuKey(key);
 
     if (children?.length) {
-      if (onClick) onClick();
+      if (onClick) {
+        onClick();
+      }
     } else {
       navigate(key);
     }

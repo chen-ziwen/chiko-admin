@@ -20,7 +20,10 @@ function subscribe(listener: Listener) {
 
 if (isBrowser) {
   const revalidate = () => {
-    if (!isDocumentVisible() || !isOnline()) return;
+    if (!isDocumentVisible() || !isOnline()) {
+      return;
+    }
+    
     for (let i = 0; i < listeners.length; i += 1) {
       const listener = listeners[i];
       listener();

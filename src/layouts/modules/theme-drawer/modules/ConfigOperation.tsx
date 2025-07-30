@@ -18,7 +18,9 @@ const ConfigOperation = () => {
   }
 
   function initClipboard() {
-    if (!domRef.current) return;
+    if (!domRef.current) {
+      return;
+    }
 
     const clipboard = new Clipboard(domRef.current, {
       text: () => getClipboardText()

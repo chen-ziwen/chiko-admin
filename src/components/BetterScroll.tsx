@@ -15,8 +15,8 @@ interface Props extends React.ComponentProps<'div'> {
 }
 
 const BetterScroll: FC<Props> = memo(({ children, className, options, setBsScroll, ...rest }) => {
-  const bsWrapper = useRef<HTMLDivElement>(null);
-  const bsContent = useRef<HTMLDivElement>(null);
+  const bsWrapper = useRef<HTMLDivElement | null>(null);
+  const bsContent = useRef<HTMLDivElement | null>(null);
   const bsWrapperSize = useSize(bsWrapper);
   const bsContentSize = useSize(bsContent);
   const instance = useRef<BScroll | null>(null);
@@ -24,7 +24,10 @@ const BetterScroll: FC<Props> = memo(({ children, className, options, setBsScrol
   const isScrollY = Boolean(options.scrollY);
 
   function initBetterScroll() {
-    if (!bsWrapper.current) return;
+    if (!bsWrapper.current) {
+      return;
+    }
+
     instance.current = new BScroll(bsWrapper.current, options);
 
     setBsScroll(instance.current);

@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "material-symbols-light:tune",
- *   "keepAlive": true}
+ * @handle {
+ *   "icon": "material-symbols-light:tune",
+ *   "keepAlive": true
+ * }
  */
 
 import React from 'react';

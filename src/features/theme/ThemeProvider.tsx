@@ -38,7 +38,10 @@ const ThemeProvider: FC<PropsWithChildren> = ({ children }) => {
     const mediaQuery = window.matchMedia(DARK_MODE_MEDIA_QUERY);
 
     const handler = (event: MediaQueryListEvent) => {
-      if (themeMode !== 'system') return;
+      if (themeMode !== 'system') {
+        return;
+      }
+
       changeThemeMode(event.matches ? 'dark' : 'light');
     };
 

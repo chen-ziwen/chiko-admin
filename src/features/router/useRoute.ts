@@ -13,7 +13,10 @@ export function usePrevious<T>(value: T): T | null {
 }
 
 function getCatchAllParam(str: string | undefined) {
-  if (!str) return null;
+  if (!str) {
+    return null;
+  }
+
   const match = str.match(/\[\.\.\.(\w+)\]/);
   return match ? match[1] : null;
 }
@@ -22,7 +25,9 @@ function getParams(
   params: Record<string, string> | undefined,
   id: string
 ): Record<string, string | string[]> | undefined {
-  if (!params?.['*']) return params;
+  if (!params?.['*']) {
+    return params;
+  }
 
   const lastName = id.split('_').at(-1);
   const catchAllParam = getCatchAllParam(lastName);

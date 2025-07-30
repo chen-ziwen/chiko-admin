@@ -10,11 +10,17 @@ interface Props {
 }
 
 export const LayoutMenu = memo(({ mode, reverse }: Props) => {
-  if (mode === 'horizontal') return <HorizontalMenu />;
+  if (mode === 'horizontal') {
+    return <HorizontalMenu />;
+  }
 
-  if (mode === 'horizontal-mix') return reverse ? <ReversedHorizontalMix /> : <HorizontalMix />;
+  if (mode === 'horizontal-mix') {
+    return reverse ? <ReversedHorizontalMix /> : <HorizontalMix />;
+  }
 
-  if (mode === 'vertical') return <VerticalMenu />;
+  if (mode === 'vertical') {
+    return <VerticalMenu />;
+  }
 
   return <VerticalMixMenu />;
 });

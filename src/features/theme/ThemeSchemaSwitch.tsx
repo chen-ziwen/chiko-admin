@@ -33,7 +33,9 @@ const ThemeSchemaSwitch: React.FC<ThemeSwitchProps> = memo(
         toggleThemeScheme();
       });
 
-      if (themeScheme === 'system') return;
+      if (themeScheme === 'system') {
+        return;
+      }
 
       const rect = { x: event.clientX, y: event.clientY };
       const endRadius = Math.hypot(Math.max(rect.x, innerWidth - rect.x), Math.max(rect.y, innerHeight - rect.y));

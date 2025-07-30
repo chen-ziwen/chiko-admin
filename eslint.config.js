@@ -1,59 +1,63 @@
-import { defineConfig } from '@soybeanjs/eslint-config';
-import jsdoc from 'eslint-plugin-jsdoc';
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import react from 'eslint-plugin-react';
+import tseslint from 'typescript-eslint';
+import unocss from '@unocss/eslint-config/flat';
 
-export default defineConfig(
+export default tseslint.config(
+  unocss,
   {
-    ignores: ['ErrorBoundary.tsx'],
-    prettierRules: {
-      singleAttributePerLine: true,
-      trailingCommas: 'none',
-      printWidth: 120,
-      jsdocDescriptionWithDot: false,
-      jsdocVerticalAlignment: false
-    },
-    react: true,
-    unocss: true
+    ignores: [
+      'dist',
+      'node_modules',
+      '*.config.js',
+      '*.config.ts',
+      'ErrorBoundary.tsx',
+      'packages/docs/.docusaurus/**/*',
+    ]
   },
+  js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
+    files: ['**/*.{ts,tsx,js,jsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: {
+        ...globals.browser,
+        ...globals.node
+      },
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: {
+          jsx: true
+        },
+        sourceType: 'module'
+      }
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    },
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh
+    },
     rules: {
-      'import/newline-after-import': 'error',
-      'import/no-absolute-path': 'warn',
-      'import/no-empty-named-blocks': ['error'],
-      'import/no-useless-path-segments': [
-        'error',
-        {
-          noUselessIndex: true
-        }
-      ],
-
-      'import/order': [
-        'error',
-        {
-          alphabetize: {
-            order: 'asc'
-          },
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
-          'newlines-between': 'always',
-          pathGroups: [{ group: 'internal', pattern: '{{@,~}/,#}**' }],
-          pathGroupsExcludedImportTypes: ['builtin']
-        }
-      ],
-      // 只允许 warn 和 error 保留
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
-
-      'no-underscore-dangle': 'off',
-
-      'no-continue': 'off',
-
-      'react/hook-use-state': [
-        'error', // or "warn" to only warn instead of error
-        {
-          allowDestructuredState: true
-        }
-      ],
-      'react/jsx-closing-bracket-location': ['warn', 'tag-aligned'],
-      'react/jsx-closing-tag-location': 'warn',
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      // React 相关规则
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': 'off',
+      'react/hook-use-state': ['error', { allowDestructuredState: true }],
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      'react/jsx-no-undef': ['off'],
+      'react-hooks/exhaustive-deps': 'off', // useEffect 依赖项必须完整
       'react/jsx-curly-brace-presence': [
         'warn',
         {
@@ -62,44 +66,59 @@ export default defineConfig(
           props: 'never'
         }
       ],
-      'react/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'consistent' }],
-      'react/jsx-equals-spacing': ['warn', 'never'],
-      'react/jsx-fragments': ['warn', 'syntax'],
-      'react/jsx-newline': 'warn',
-      'react/jsx-no-undef': ['off'],
-      'react/jsx-no-useless-fragment': 'warn',
-      'react/jsx-one-expression-per-line': [
-        'warn',
-        {
-          allow: 'single-child'
-        }
-      ],
-      'react/jsx-props-no-multi-spaces': 'warn',
-      'react/jsx-sort-props': [
-        'warn',
-        { callbacksLast: true, ignoreCase: true, multiline: 'last', shorthandFirst: true }
-      ],
-
-      'react/self-closing-comp': [
+      'react/hook-use-state': [
         'error',
         {
-          component: true,
-          html: true
+          allowDestructuredState: true
         }
       ],
 
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowExportNames: ['loader', 'action', 'handle', 'shouldRevalidate'] }
+      // TypeScript 相关规则
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-non-null-assertion': 'off',
+
+      // 通用规则
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-debugger': 'error',
+      'no-alert': 'warn',
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'prefer-template': 'error',
+      'object-shorthand': 'error',
+      'quote-props': ['error', 'as-needed'],
+      'no-underscore-dangle': 'off',
+      'no-continue': 'off',
+
+      // 代码风格
+      'eqeqeq': ['error', 'always'],
+      'curly': ['error', 'all'],
+      'brace-style': ['error', '1tbs'],
+      'comma-dangle': ['error', 'never'],
+      'quotes': ['error', 'single'],
+      'semi': ['error', 'always'],
+      'indent': ['error', 2],
+      'max-len': [
+        'error',
+        {
+          code: 180,
+          ignoreUrls: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true
+        }
       ],
 
-      // JSDoc formatting rules
-      'jsdoc/multiline-blocks': ['error', { noZeroLineText: false }],
-      'jsdoc/no-multi-asterisks': ['error', { allowWhitespace: true }],
-      'jsdoc/tag-lines': ['error', 'any', { startLines: 1 }]
-    },
-    plugins: {
-      jsdoc
+      // 排序规则
+      'sort-imports': [
+        'error',
+        {
+          ignoreCase: false,
+          ignoreDeclarationSort: true,
+          ignoreMemberSort: false,
+          memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
+          allowSeparatedGroups: true
+        }
+      ]
     }
   }
 );

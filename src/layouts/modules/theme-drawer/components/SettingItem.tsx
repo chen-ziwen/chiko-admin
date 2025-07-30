@@ -10,7 +10,9 @@ type Props = PropsWithChildren<{
 }>;
 
 const SettingItem: FC<Props> = ({ children, className, label, show = true, suffix }: Props) => {
-  if (!show) return null;
+  if (!show) {
+    return null;
+  }
 
   return (
     <div className={clsx('w-full flex-y-center justify-between', className)}>

@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "ant-design:exception-outlined",
- *  "order": 999}
+ * @handle {
+ *  "icon": "ant-design:exception-outlined",
+ *  "order": 999
+ * }
  */
 
 import { replace } from 'react-router-dom';

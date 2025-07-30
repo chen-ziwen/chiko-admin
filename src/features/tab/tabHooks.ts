@@ -91,13 +91,18 @@ export function useTabActions() {
     }
 
     // 如果一次都没删，直接返回
-    if (updatedTabs.length === tabs.length) return;
+    if (updatedTabs.length === tabs.length) {
+      return;
+    }
 
     // ③ 处理激活页逻辑
     if (!remainTabIds.includes(activeTabId)) {
       const newActive = updatedTabs.at(-1);
-      if (newActive) switchRouteByTab(newActive);
+      if (newActive) {
+        switchRouteByTab(newActive);
+      }
     }
+
     updateTabs(updatedTabs);
 
     if (removeKeepKeys.length > 0) {
@@ -113,7 +118,9 @@ export function useTabActions() {
   function _clearLeftTabs(tabId: string) {
     const index = _tabIds.indexOf(tabId);
 
-    if (index === -1) return;
+    if (index === -1) {
+      return;
+    }
 
     const excludes = _tabIds.slice(index);
 
@@ -133,7 +140,9 @@ export function useTabActions() {
       return;
     }
 
-    if (index === -1) return;
+    if (index === -1) {
+      return;
+    }
 
     const excludes = _tabIds.slice(0, index + 1);
 
@@ -167,16 +176,24 @@ export function useTabActions() {
 
   useOn(TabEvent.UPDATE_TABS, (eventName: TabEvent, id: string) => {
     // 清除左侧标签页
-    if (eventName === TabEvent.CLEAR_LEFT_TABS) return _clearLeftTabs(id);
+    if (eventName === TabEvent.CLEAR_LEFT_TABS) {
+      return _clearLeftTabs(id);
+    }
 
     // 清除右侧标签页
-    if (eventName === TabEvent.CLEAR_RIGHT_TABS) return _clearRightTabs(id);
+    if (eventName === TabEvent.CLEAR_RIGHT_TABS) {
+      return _clearRightTabs(id);
+    }
 
     // 关闭当前标签页
-    if (eventName === TabEvent.CLOSE_CURRENT) return removeTabById(id);
+    if (eventName === TabEvent.CLOSE_CURRENT) {
+      return removeTabById(id);
+    }
 
     // 关闭其他标签页
-    if (eventName === TabEvent.CLOSE_OTHER) return _clearTabs([id]);
+    if (eventName === TabEvent.CLOSE_OTHER) {
+      return _clearTabs([id]);
+    }
 
     // 清除所有标签页
     return _clearTabs();
@@ -246,7 +263,9 @@ export function useCacheTabs() {
   const tabs = useAppSelector(selectTabs);
 
   function cacheTabs() {
-    if (!themeSettings.tab.cache) return;
+    if (!themeSettings.tab.cache) {
+      return;
+    }
     localStg.set('globalTabs', tabs);
   }
 
@@ -319,7 +338,9 @@ export function useTabLabel() {
 
     const tab = tabs.findIndex(item => item.id === id);
 
-    if (tab < 0) return;
+    if (tab < 0) {
+      return;
+    }
 
     dispatch(changeTabLabel({ index: tab, label }));
   }
@@ -329,7 +350,9 @@ export function useTabLabel() {
 
     const tab = tabs.findIndex(item => item.id === id);
 
-    if (tab < 0) return;
+    if (tab < 0) {
+      return;
+    }
 
     dispatch(changeTabLabel({ index: tab }));
   }

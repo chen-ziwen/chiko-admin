@@ -47,7 +47,9 @@ const PageTab: FC<PageTabProps> = ({
 
   function closeTab(event: React.MouseEvent | TouchEvent) {
     event.stopPropagation();
-    if (handleClose) handleClose();
+    if (handleClose) {
+      handleClose();
+    }
   }
 
   const suffixComponent =

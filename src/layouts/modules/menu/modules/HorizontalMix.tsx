@@ -10,7 +10,9 @@ import { useGetElementById } from './hook';
 const HorizontalMix = () => {
   const container = useGetElementById(GLOBAL_SIDER_MENU_ID);
 
-  if (!container) return null;
+  if (!container) {
+    return null;
+  }
 
   return [
     <Horizontal

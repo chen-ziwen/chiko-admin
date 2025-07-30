@@ -163,7 +163,9 @@ export const settingsJson = createSelector([getThemeSettings], settings => {
 export const cacheThemeSettings = (): AppThunk => (_, getState) => {
   const isProd = import.meta.env.PROD;
 
-  if (!isProd) return;
+  if (!isProd) {
+    return;
+  }
 
   localStg.set('themeSettings', getThemeSettings(getState()));
 };

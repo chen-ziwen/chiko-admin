@@ -33,7 +33,9 @@ export const LayoutContent = ({ closePadding }: Props) => {
   const transitionName = themeSetting.page.animate ? themeSetting.page.animateMode : '';
 
   useUpdateEffect(() => {
-    if (!aliveRef.current || !removeCacheKey) return;
+    if (!aliveRef.current || !removeCacheKey) {
+      return;
+    }
 
     aliveRef.current.destroy(removeCacheKey);
 

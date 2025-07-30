@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "material-symbols-light:admin-panel-settings",
- *   "keepAlive": true}
+ * @handle {
+ *   "icon": "material-symbols-light:admin-panel-settings",
+ *   "keepAlive": true
+ * }
  */
 
 import React from 'react';

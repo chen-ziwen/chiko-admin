@@ -102,7 +102,9 @@ const LineChart = () => {
     });
 
     updateOptions(opts => {
-      if (!opts.xAxis || !opts.series) return opts;
+      if (!opts.xAxis || !opts.series) {
+        return opts;
+      }
 
       const xAxis = Array.isArray(opts.xAxis) ? opts.xAxis[0] : opts.xAxis;
       const series = Array.isArray(opts.series) ? opts.series : [opts.series];
@@ -111,8 +113,13 @@ const LineChart = () => {
         (xAxis as any).data = ['01月', '02月', '03月', '04月', '05月', '06月', '07月', '08月', '09月', '10月'];
       }
 
-      if (series[0]) (series[0] as any).data = [3200, 4500, 5800, 7200, 8500, 7800, 6500, 9200, 8700, 9800];
-      if (series[1]) (series[1] as any).data = [2100, 3200, 4500, 6000, 7200, 6800, 7500, 8200, 8900, 9500];
+      if (series[0]) {
+        (series[0] as any).data = [3200, 4500, 5800, 7200, 8500, 7800, 6500, 9200, 8700, 9800];
+      }
+
+      if (series[1]) {
+        (series[1] as any).data = [2100, 3200, 4500, 6000, 7200, 6800, 7500, 8200, 8900, 9500];
+      }
 
       return opts;
     });
@@ -126,7 +133,9 @@ const LineChart = () => {
     updateOptions((opts, factory) => {
       const originOpts = factory();
 
-      if (!opts.legend || !opts.series || !originOpts.legend || !originOpts.series) return opts;
+      if (!opts.legend || !opts.series || !originOpts.legend || !originOpts.series) {
+        return opts;
+      }
 
       const legend = Array.isArray(opts.legend) ? opts.legend[0] : opts.legend;
       const originLegend = Array.isArray(originOpts.legend) ? originOpts.legend[0] : originOpts.legend;
@@ -134,8 +143,12 @@ const LineChart = () => {
       const originSeries = Array.isArray(originOpts.series) ? originOpts.series : [originOpts.series];
 
       (legend as any).data = (originLegend as any).data;
-      if (series[0] && originSeries[0]) (series[0] as any).name = (originSeries[0] as any).name;
-      if (series[1] && originSeries[1]) (series[1] as any).name = (originSeries[1] as any).name;
+      if (series[0] && originSeries[0]) {
+        (series[0] as any).name = (originSeries[0] as any).name;
+      }
+      if (series[1] && originSeries[1]) {
+        (series[1] as any).name = (originSeries[1] as any).name;
+      }
 
       return opts;
     });

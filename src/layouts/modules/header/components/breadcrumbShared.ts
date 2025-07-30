@@ -7,7 +7,7 @@ function removeChildren(menu: SubMenuType): Omit<ItemType, 'children'> {
     ...rest
   };
 }
-// eslint-disable-next-line max-params
+
 export function getBreadcrumbsByRoute(
   route: Router.Route,
   menus: ItemType[],

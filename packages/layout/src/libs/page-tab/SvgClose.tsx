@@ -2,7 +2,7 @@ import classNames from 'clsx';
 import type { FC, TouchEvent } from 'react';
 import React, { useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
+ 
 const SvgClose: FC<React.ComponentProps<'div'>> = ({ className, onClick, ...props }) => {
   const [touchStart, setTouchStart] = useState(false);
 
@@ -14,7 +14,9 @@ const SvgClose: FC<React.ComponentProps<'div'>> = ({ className, onClick, ...prop
   // 处理触摸结束事件
   const handleTouchEnd = (event: TouchEvent) => {
     if (touchStart) {
-      if (onClick) onClick(event as any);
+      if (onClick) {
+        onClick(event as any);
+      }
     }
 
     // 重置触摸状态

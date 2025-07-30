@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "material-symbols-light:person-search",
- *   "keepAlive": true}
+ * @handle {
+ *   "icon": "material-symbols-light:person-search",
+ *   "keepAlive": true
+ * }
  */
 
 import { UserOutlined } from '@ant-design/icons';

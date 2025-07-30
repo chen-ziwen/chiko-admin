@@ -9,7 +9,9 @@ import { useGetElementById } from './hook';
 const Vertical = () => {
   const container = useGetElementById(GLOBAL_SIDER_MENU_ID);
 
-  if (!container) return null;
+  if (!container) {
+    return null;
+  }
 
   return createPortal(<VerticalMenu />, container);
 };

@@ -43,12 +43,12 @@ const LayoutBreadcrumb: FC<Omit<BreadcrumbProps, 'items'>> = props => {
       title: commonTitle,
       ...('children' in item &&
         item.children && {
-          menu: {
-            items: item.children.filter(Boolean) as MenuItemType[],
-            onClick: handleClickMenu,
-            selectedKeys: [breadcrumb[index + 1]?.key] as string[]
-          }
-        })
+        menu: {
+          items: item.children.filter(Boolean) as MenuItemType[],
+          onClick: handleClickMenu,
+          selectedKeys: [breadcrumb[index + 1]?.key] as string[]
+        }
+      })
     };
   });
 

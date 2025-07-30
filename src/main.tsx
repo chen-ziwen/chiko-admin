@@ -11,7 +11,9 @@ function startup() {
 
   const container = document.getElementById('root');
 
-  if (!container) return;
+  if (!container) {
+    return;
+  }
 
   const root = createRoot(container);
 

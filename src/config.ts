@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 import type { WatermarkProps } from 'antd';
 
 import { themeSettings } from './theme/settings';
@@ -47,7 +46,7 @@ class GlobalConfig {
   // private _serviceOtherBaseURL = otherBaseURL;
 
   /** - 空函数 */
-  private _noop = () => {};
+  private _noop = () => { };
 
   /** - 水印文本 */
   private _watermarkText = 'Soybean';

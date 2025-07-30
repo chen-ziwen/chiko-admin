@@ -87,7 +87,9 @@ const VerticalMix = memo(() => {
 const VerticalMixMenu = () => {
   const container = useGetElementById(GLOBAL_SIDER_MENU_ID);
 
-  if (!container) return null;
+  if (!container) {
+    return null;
+  }
 
   return createPortal(<VerticalMix />, container);
 };

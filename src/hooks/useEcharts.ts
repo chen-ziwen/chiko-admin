@@ -22,7 +22,9 @@ export function useEcharts(options: () => EChartsOption) {
 
   function initChart() {
     const el = domRef.current;
-    if (!el) return;
+    if (!el) {
+      return;
+    }
 
     // 确保容器有尺寸
     if (el.offsetWidth === 0 || el.offsetHeight === 0) {
@@ -36,7 +38,9 @@ export function useEcharts(options: () => EChartsOption) {
   }
 
   function updateOptions(fn?: UpdateOptionsFn) {
-    if (!chartRef.current) return;
+    if (!chartRef.current) {
+      return;
+    }
 
     let opts: EChartsOption;
 

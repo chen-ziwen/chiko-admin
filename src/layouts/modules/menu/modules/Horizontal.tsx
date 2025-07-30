@@ -9,7 +9,9 @@ import { useGetElementById } from './hook';
 const Horizontal = ({ mode = '1' }: { readonly mode?: '1' | '2' | '3' }) => {
   const container = useGetElementById(GLOBAL_HEADER_MENU_ID);
 
-  if (!container) return null;
+  if (!container) {
+    return null;
+  }
 
   return createPortal(<HorizontalMenu mode={mode} />, container);
 };

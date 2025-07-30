@@ -130,7 +130,9 @@ export default function useHookTable<A extends ApiFn, T, C>(config: TableConfig<
   }
 
   useEffect(() => {
-    if (immediate) getData();
+    if (immediate) {
+      getData();
+    }
   }, []);
 
   return {

@@ -31,7 +31,7 @@ const MenuProvider: FC<PropsWithChildren> = ({ children }) => {
   // 获取根路由下的子路由
   const menus = useMemo(
     () => filterRoutesToMenus(getBaseChildrenRoutes(router.routes)),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+     
     [router.routes, locale]
   );
 

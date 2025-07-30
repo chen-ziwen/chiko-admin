@@ -53,7 +53,9 @@ const LayoutModeCard: FC<Props> = ({ mode, ...rest }: Props) => {
 
   const { t } = useTranslation();
   function handleChangeMode(modeType: UnionKey.ThemeLayoutMode) {
-    if (isMobile) return;
+    if (isMobile) {
+      return;
+    }
 
     dispatch(setLayoutMode(modeType));
   }

@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "material-symbols-light:shield-person",
- *   "keepAlive": true}
+ * @handle {
+ *   "icon": "material-symbols-light:shield-person",
+ *   "keepAlive": true
+ * }
  */
 
 import type { DataNode } from 'antd/es/tree';

@@ -28,7 +28,9 @@ const getLevelKeys = (items1: LevelKeysProps[]) => {
 };
 
 const getSelectedMenuKeyPath = (matches: Router.Route['matched']) => {
-  if (!matches) return [];
+  if (!matches) {
+    return [];
+  }
 
   const result = matches.reduce((acc: string[], match, index) => {
     if (index < matches.length - 1 && match.pathname) {
@@ -84,12 +86,17 @@ const VerticalMenu = memo(() => {
   };
 
   useEffect(() => {
-    if (inlineCollapsed || isVerticalMix) return;
+    if (inlineCollapsed || isVerticalMix) {
+      return;
+    }
+
     setStateOpenKeys(getSelectedMenuKeyPath(route.matched));
   }, [route, inlineCollapsed, isVerticalMix]);
 
   useUpdateEffect(() => {
-    if (inlineCollapsed || isVerticalMix) return;
+    if (inlineCollapsed || isVerticalMix) {
+      return;
+    }
 
     const names = route.matched
       .slice(isMix ? 1 : 0, -1)

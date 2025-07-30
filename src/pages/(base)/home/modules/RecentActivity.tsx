@@ -51,31 +51,31 @@ const RecentActivity = () => {
 
   const getIconColor = (type: ActivityItem['type']) => {
     switch (type) {
-      case 'success':
-        return 'text-green-500';
-      case 'info':
-        return 'text-blue-500';
-      case 'warning':
-        return 'text-yellow-500';
-      case 'error':
-        return 'text-red-500';
-      default:
-        return 'text-gray-500';
+    case 'success':
+      return 'text-green-500';
+    case 'info':
+      return 'text-blue-500';
+    case 'warning':
+      return 'text-yellow-500';
+    case 'error':
+      return 'text-red-500';
+    default:
+      return 'text-gray-500';
     }
   };
 
   const getBgColor = (type: ActivityItem['type']) => {
     switch (type) {
-      case 'success':
-        return 'bg-green-100';
-      case 'info':
-        return 'bg-blue-100';
-      case 'warning':
-        return 'bg-yellow-100';
-      case 'error':
-        return 'bg-red-100';
-      default:
-        return 'bg-gray-100';
+    case 'success':
+      return 'bg-green-100';
+    case 'info':
+      return 'bg-blue-100';
+    case 'warning':
+      return 'bg-yellow-100';
+    case 'error':
+      return 'bg-red-100';
+    default:
+      return 'bg-gray-100';
     }
   };
 

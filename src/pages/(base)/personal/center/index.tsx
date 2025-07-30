@@ -1,6 +1,8 @@
 /**
- * @handle {"icon": "material-symbols-light:person",
- *   "keepAlive": true}
+ * @handle {
+ *   "icon": "material-symbols-light:person",
+ *   "keepAlive": true
+ * }
  */
 
 import { EnvironmentOutlined, MailOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons';
