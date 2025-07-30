@@ -1,3 +1,8 @@
+/**
+ * @handle {"icon": "material-symbols-light:manage-accounts",
+ *   "keepAlive": true}
+ */
+
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 

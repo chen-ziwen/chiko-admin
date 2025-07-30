@@ -11,7 +11,7 @@ function removeChildren(menu: SubMenuType): Omit<ItemType, 'children'> {
 export function getBreadcrumbsByRoute(
   route: Router.Route,
   menus: ItemType[],
-  index: number = 0,
+  index: number = 1,
   breadcrumbs: Extract<ItemType, MenuItemType | SubMenuType>[] = []
 ) {
   const currentMenu = menus.find(item => item?.key === route.matched[index]?.pathname) as SubMenuType | undefined;

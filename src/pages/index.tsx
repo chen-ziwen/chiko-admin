@@ -1,12 +1,14 @@
-import BasicLayout from '@/layouts';
-import RootLayout from '@/pages/root';
+import { Navigate } from 'react-router-dom';
 
-const AppLayout = () => {
+import { globalConfig } from '@/config';
+
+const Index = () => {
   return (
-    <RootLayout>
-      <BasicLayout />
-    </RootLayout>
+    <Navigate
+      replace
+      to={globalConfig.homePath}
+    />
   );
 };
 
-export default AppLayout;
+export default Index;

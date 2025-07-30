@@ -1,4 +1,8 @@
-// 自动导入已启用，无需手动导入antd组件
+/**
+ * @handle {"icon": "material-symbols-light:shield-person",
+ *   "keepAlive": true}
+ */
+
 import type { DataNode } from 'antd/es/tree';
 import React from 'react';
 

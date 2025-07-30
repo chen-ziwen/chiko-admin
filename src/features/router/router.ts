@@ -1,6 +1,6 @@
 import type { RouterNavigateOptions, To } from 'react-router-dom';
 
-import router from '@/router';
+import { router } from '@/router';
 
 import { type LocationQueryRaw, stringifyQuery } from './query';
 

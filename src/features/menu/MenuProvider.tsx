@@ -10,17 +10,10 @@ import { useRoute, useRouter } from '../router';
 import { filterRoutesToMenus, getActiveFirstLevelMenuKey, getSelectKey } from './MenuUtil';
 import { MixMenuContext } from './menuContext';
 
-function getBaseChildrenRoutes(rs: RouteObject[]) {
-  // 查找根路由 '/' 的 children
-  const rootRoute = rs.find(route => route.path === '/');
+function getBaseChildrenRoutes(routes: RouteObject[]) {
+  const baseRoutes = routes[0].children?.find(item => item.id === '(base)')?.children;
 
-  // 无法找到根路由或根路由没有子路由，返回空数组
-  if (!rootRoute || !rootRoute.children) {
-    return [];
-  }
-
-  // 因为返回的是 children 层级，所以不包含根路由 '/'
-  return rootRoute.children;
+  return baseRoutes || [];
 }
 
 const MenuProvider: FC<PropsWithChildren> = ({ children }) => {

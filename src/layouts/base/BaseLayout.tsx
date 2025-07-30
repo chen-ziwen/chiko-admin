@@ -31,7 +31,7 @@ import {
 
 configResponsive({ small: 640 });
 
-export const LayoutComponent = () => {
+export const BasicLayout = () => {
   const dispatch = useAppDispatch();
 
   const themeSettings = useAppSelector(getThemeSettings);
@@ -160,4 +160,4 @@ export const LayoutComponent = () => {
   );
 };
 
-export default LayoutComponent;
+export default BasicLayout;

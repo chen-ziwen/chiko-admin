@@ -1,3 +1,9 @@
+/**
+ * @handle {"icon": "material-symbols-light:google-home-devices",
+ *   "keepAlive": true,
+ *   "order": 0}
+ */
+
 import { m } from 'motion/react';
 
 import AboutSection from './modules/AboutSection';

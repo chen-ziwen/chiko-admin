@@ -14,8 +14,6 @@ export function usePrevious<T>(value: T): T | null {
 
 function getCatchAllParam(str: string | undefined) {
   if (!str) return null;
-  // \[\.\.\.(\w+)\] 用来匹配形如 [...slug]
-  // (\w+) 意味着捕获“字母、数字或下划线”组成的部分
   const match = str.match(/\[\.\.\.(\w+)\]/);
   return match ? match[1] : null;
 }

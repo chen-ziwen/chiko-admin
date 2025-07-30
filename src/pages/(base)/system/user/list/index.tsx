@@ -1,4 +1,8 @@
-// 自动导入已启用，无需手动导入antd组件
+/**
+ * @handle {"icon": "material-symbols-light:group",
+ *   "keepAlive": true}
+ */
+
 import React from 'react';
 
 const UserList: React.FC = () => {

@@ -1,11 +1,15 @@
 import { defineConfig } from '@soybeanjs/eslint-config';
+import jsdoc from 'eslint-plugin-jsdoc';
 
 export default defineConfig(
   {
     ignores: ['ErrorBoundary.tsx'],
     prettierRules: {
       singleAttributePerLine: true,
-      trailingCommas: 'none'
+      trailingCommas: 'none',
+      printWidth: 120,
+      jsdocDescriptionWithDot: false,
+      jsdocVerticalAlignment: false
     },
     react: true,
     unocss: true
@@ -87,7 +91,15 @@ export default defineConfig(
       'react-refresh/only-export-components': [
         'warn',
         { allowExportNames: ['loader', 'action', 'handle', 'shouldRevalidate'] }
-      ]
+      ],
+
+      // JSDoc formatting rules
+      'jsdoc/multiline-blocks': ['error', { noZeroLineText: false }],
+      'jsdoc/no-multi-asterisks': ['error', { allowWhitespace: true }],
+      'jsdoc/tag-lines': ['error', 'any', { startLines: 1 }]
+    },
+    plugins: {
+      jsdoc
     }
   }
 );

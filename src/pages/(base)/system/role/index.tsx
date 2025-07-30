@@ -1,4 +1,8 @@
-// 自动导入已启用，无需手动导入React
+/**
+ * @handle {"icon": "material-symbols-light:admin-panel-settings",
+ *   "keepAlive": true}
+ */
+
 import React from 'react';
 
 const RoleManagement: React.FC = () => {

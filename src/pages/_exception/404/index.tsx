@@ -7,7 +7,7 @@ const NotFound = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="size-full flex-center">
+    <div className="size-full flex-center bg-layout">
       <AResult
         status="404"
         subTitle={t('common.404Message')}

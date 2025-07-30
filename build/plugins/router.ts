@@ -5,9 +5,9 @@ export function setupBetterRouter() {
     dirs: ['src/pages'],
     exclude: ['**/components/**', '**/modules/**'],
     extendRoute(route) {
-      const constantRoutes = ['403', '404', '500'];
-
       const name = route.name;
+
+      const constantRoutes = ['403', '404', '500'];
 
       const handle: { [key: string]: any } = {
         i18nKey: `route.${name}`,

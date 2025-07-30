@@ -1,5 +1,3 @@
-import type { LastLevelRouteKey, RouteMap } from '@soybean-react/vite-plugin-react-router';
-
 /**
  * Get fixed tab ids
  *
@@ -55,31 +53,25 @@ export function getTabByRoute(route: Router.Route) {
 
   let fixedIndex = fixedIndexInTab;
 
-  const isHomePath = pathname === '/' || pathname === import.meta.env.VITE_ROUTE_HOME;
-
-  const normalizedPath = isHomePath ? import.meta.env.VITE_ROUTE_HOME : pathname;
-
-  if (isHomePath) {
+  if (pathname === import.meta.env.VITE_ROUTE_HOME) {
     fixedIndex = 0;
   }
 
   const { icon, localIcon } = getRouteIcons(route);
 
-  const tabId = handle.multiTab ? fullPath : normalizedPath;
-
   const tab: App.Global.Tab = {
     fixedIndex,
-    fullPath: isHomePath ? import.meta.env.VITE_ROUTE_HOME : fullPath,
+    fullPath,
     i18nKey,
     icon,
-    id: tabId,
+    id: handle.multiTab ? fullPath : pathname,
     keepAlive,
     label: title,
     localIcon,
     newLabel: '',
     oldLabel: i18nKey || title,
-    routeKey: id as LastLevelRouteKey,
-    routePath: normalizedPath as RouteMap[LastLevelRouteKey]
+    routeKey: id,
+    routePath: pathname
   };
 
   return tab;

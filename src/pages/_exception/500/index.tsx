@@ -7,7 +7,7 @@ const ServerError = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="size-full flex-center">
+    <div className="size-full flex-center bg-layout">
       <AResult
         status="500"
         subTitle={t('common.500Message')}

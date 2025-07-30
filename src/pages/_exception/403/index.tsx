@@ -6,7 +6,7 @@ const Forbidden = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="size-full flex-center">
+    <div className="size-full flex-center bg-layout">
       <AResult
         status="403"
         subTitle={t('common.403Message')}
