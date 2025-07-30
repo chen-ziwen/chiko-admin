@@ -2,7 +2,7 @@
   "name": "@chiko-admin/scripts",
   "version": "1.0.0",
   "bin": {
-    "cka": "tsx ./bin.ts"
+    "cka": "./bin.ts"
   },
   "exports": {
     ".": "./src/index.ts"

@@ -30,7 +30,7 @@ declare namespace Router {
      *
      * It's used in i18n, if it is set, the title will be ignored
      */
-    i18nKey?: App.I18n.I18nKey | null;
+    i18nKey?: string | null;
     /**
      * Iconify icon
      *

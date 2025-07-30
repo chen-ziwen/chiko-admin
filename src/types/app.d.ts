@@ -158,7 +158,6 @@ declare namespace App {
     };
   }
 
-  /** Global namespace */
   namespace Global {
     type RouteKey = string;
     type RouteMap = Record<string, string>;
@@ -189,7 +188,7 @@ declare namespace App {
       /** The menu children */
       children?: Menu[];
       /** The menu i18n key */
-      i18nKey?: I18n.I18nKey | null;
+      i18nKey?: string | null;
       /** The menu icon */
       icon?: React.ReactElement;
       /**
@@ -218,7 +217,7 @@ declare namespace App {
       /** The tab route full path */
       fullPath: string;
       /** I18n key */
-      i18nKey?: I18n.I18nKey | null | string;
+      i18nKey?: string | null;
       /**
        * Tab icon
        *

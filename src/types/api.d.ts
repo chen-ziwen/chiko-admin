@@ -183,8 +183,7 @@ declare namespace Api {
       routeName: string;
       /** route path */
       routePath: string;
-    }> &
-      MenuPropsOfRoute;
+    }>;
 
     /** menu list */
     type MenuList = Common.PaginatingQueryRecord<Menu>;

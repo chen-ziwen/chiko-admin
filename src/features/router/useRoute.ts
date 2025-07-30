@@ -37,7 +37,7 @@ function getParams(
   return params;
 }
 
-/** - get route meta */
+// 获取到当前路由信息
 export function useRoute<
   T = unknown,
   Q extends Record<string, string> | null = Record<string, string>,
