@@ -1,0 +1,10 @@
+# @chiko-admin/layout
+
+## 1.0.1
+
+### Patch Changes
+
+- f8b98b8: update
+- Updated dependencies [f8b98b8]
+  - @chiko-admin/color@1.0.1
+  - @chiko-admin/utils@1.0.1
