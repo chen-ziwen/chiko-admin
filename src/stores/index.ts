@@ -1,16 +1,16 @@
 import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import type { Action, ThunkAction } from '@reduxjs/toolkit';
 
-import { appSlice, routeSlice, tabSlice, themeSlice } from '@/stores/modules';
+import { appSlice, authSlice,  routeSlice, tabSlice,themeSlice } from '@/stores/modules';
 
 export { default as StoreProvider } from './storeProvider';
 
-const rootReducer = combineSlices(appSlice, routeSlice, tabSlice, themeSlice);
+const rootReducer = combineSlices(appSlice, routeSlice, tabSlice, themeSlice, authSlice);
 
 export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false // Disable serializable check if needed
+      serializableCheck: false
     }),
   reducer: rootReducer
 });

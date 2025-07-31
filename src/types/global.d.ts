@@ -5,9 +5,4 @@ interface Window {
   NProgress?: import('nprogress').NProgress;
 }
 
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
-
-/** Build time of the project */
 declare const BUILD_TIME: string;

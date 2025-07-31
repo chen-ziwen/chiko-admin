@@ -2,14 +2,14 @@ import type { WatermarkProps } from 'antd';
 
 import { themeSettings } from './theme/settings';
 import { isPC } from './utils/agent';
-// import { getServiceBaseURL } from './utils/service';
+import { getServiceBaseURL } from './utils/service';
 import { localStg } from './utils/storage';
 
 const isDev = import.meta.env.DEV;
 
-// const isHttpProxy = isDev && import.meta.env.VITE_HTTP_PROXY === 'Y';
+const isHttpProxy = isDev && import.meta.env.VITE_HTTP_PROXY === 'Y';
 
-// const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
+const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env as Env.ImportMeta, isHttpProxy);
 
 class GlobalConfig {
   /** - 默认暗色模式 */
@@ -40,10 +40,10 @@ class GlobalConfig {
   private _isDev = isDev;
 
   /** - 服务基础URL */
-  // private _serviceBaseURL = baseURL;
+  private _serviceBaseURL = baseURL;
 
   /** - 服务其他基础URL */
-  // private _serviceOtherBaseURL = otherBaseURL;
+  private _serviceOtherBaseURL = otherBaseURL;
 
   /** - 空函数 */
   private _noop = () => { };
@@ -124,15 +124,15 @@ class GlobalConfig {
     return this._isPC;
   }
 
-  // /** - 服务基础URL */
-  // get serviceBaseURL() {
-  //   return this._serviceBaseURL;
-  // }
+  /** - 服务基础URL */
+  get serviceBaseURL() {
+    return this._serviceBaseURL;
+  }
 
-  // /** - 服务其他基础URL */
-  // get serviceOtherBaseURL() {
-  //   return this._serviceOtherBaseURL;
-  // }
+  /** - 服务其他基础URL */
+  get serviceOtherBaseURL() {
+    return this._serviceOtherBaseURL;
+  }
 }
 
 export const globalConfig = new GlobalConfig();

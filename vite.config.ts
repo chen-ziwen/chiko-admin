@@ -5,9 +5,8 @@ import { defineConfig, loadEnv } from 'vite';
 
 import { getBuildTime, setupVitePlugins } from './build';
 
-// https://vite.dev/config/
 export default defineConfig(configEnv => {
-  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as unknown as Env.ImportMeta;
+  const viteEnv = loadEnv(configEnv.mode, process.cwd()) as Env.ImportMeta;
   const buildTime = getBuildTime();
   return {
     css: {
