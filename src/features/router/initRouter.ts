@@ -31,7 +31,6 @@ export function initRouter() {
     return false;
   }
 
-
   const router = createBrowserRouter(routes, {
     basename: import.meta.env.VITE_BASE_URL,
     patchRoutesOnNavigation: async ({ patch, path }) => {
@@ -42,6 +41,8 @@ export function initRouter() {
       }
     }
   });
+
+  console.log('router <========>', routes, router);
 
   store.dispatch(setCacheRoutes(initCacheRoutes));
 

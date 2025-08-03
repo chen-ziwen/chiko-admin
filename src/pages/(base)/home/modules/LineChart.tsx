@@ -1,5 +1,6 @@
 import { useLang } from '@/features/lang';
 
+
 const LineChart = () => {
   const { t } = useTranslation();
 
@@ -101,7 +102,7 @@ const LineChart = () => {
       setTimeout(resolve, 1000);
     });
 
-    updateOptions(opts => {
+    updateOptions((opts: echarts.EChartsOption) => {
       if (!opts.xAxis || !opts.series) {
         return opts;
       }
@@ -130,7 +131,7 @@ const LineChart = () => {
   }
 
   function updateLocale() {
-    updateOptions((opts, factory) => {
+    updateOptions((opts: echarts.EChartsOption, factory: () => echarts.EChartsOption) => {
       const originOpts = factory();
 
       if (!opts.legend || !opts.series || !originOpts.legend || !originOpts.series) {

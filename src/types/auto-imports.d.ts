@@ -48,6 +48,7 @@ declare global {
   const ButtonIcon: typeof import('../components/ButtonIcon')['default']
   const DarkModeContainer: typeof import('../components/DarkModeContainer')['default']
   const ErrorBoundary: typeof import('../components/ErrorBoundary')['default']
+  const FilpText: typeof import('../components/FilpText')['default']
   const FullScreen: typeof import('../components/FullScreen')['default']
   const IconAntDesignReloadOutlined: typeof import('~icons/ant-design/reload-outlined.tsx')['default']
   const IconGridiconsFullscreen: typeof import('~icons/gridicons/fullscreen.tsx')['default']
@@ -61,6 +62,8 @@ declare global {
   const Route: typeof import('react-router-dom')['Route']
   const Routes: typeof import('react-router-dom')['Routes']
   const SvgIcon: typeof import('../components/SvgIcon')['default']
+  const WaveBg: typeof import('../components/WaveBg')['default']
+  const copy: typeof import('../hooks/common/copy')['default']
   const createRef: typeof import('react')['createRef']
   const createRequest: typeof import('../utils/ofetch')['createRequest']
   const createServiceConfig: typeof import('../utils/service')['createServiceConfig']
@@ -83,10 +86,12 @@ declare global {
   const useAsyncEffect: typeof import('ahooks')['useAsyncEffect']
   const useBoolean: typeof import('ahooks')['useBoolean']
   const useCallback: typeof import('react')['useCallback']
+  const useCaptcha: typeof import('../hooks/business/captcha')['useCaptcha']
   const useClickAway: typeof import('ahooks')['useClickAway']
   const useContext: typeof import('react')['useContext']
   const useControllableValue: typeof import('ahooks')['useControllableValue']
   const useCookieState: typeof import('ahooks')['useCookieState']
+  const useCopy: typeof import('../hooks/common/copy')['useCopy']
   const useCountDown: typeof import('ahooks')['useCountDown']
   const useCounter: typeof import('ahooks')['useCounter']
   const useCreation: typeof import('ahooks')['useCreation']
@@ -145,6 +150,7 @@ declare global {
   const useOutletContext: typeof import('react-router-dom')['useOutletContext']
   const usePagination: typeof import('ahooks')['usePagination']
   const useParams: typeof import('react-router-dom')['useParams']
+  const usePreferredColorScheme: typeof import('../hooks/business/usePreferredColorScheme')['default']
   const usePrevious: typeof import('ahooks')['usePrevious']
   const useRafInterval: typeof import('ahooks')['useRafInterval']
   const useRafState: typeof import('ahooks')['useRafState']
@@ -193,4 +199,10 @@ declare global {
   // @ts-ignore
   export type { FC, PropsWithChildren } from 'react'
   import('react')
+  // @ts-ignore
+  export type { ThemeName } from '../hooks/business/usePreferredColorScheme'
+  import('../hooks/business/usePreferredColorScheme')
+  // @ts-ignore
+  export type { ECOption } from '../hooks/common/echarts'
+  import('../hooks/common/echarts')
 }

@@ -9,6 +9,7 @@ export default defineConfig(configEnv => {
   const viteEnv = loadEnv(configEnv.mode, process.cwd()) as Env.ImportMeta;
   const buildTime = getBuildTime();
   return {
+    base: viteEnv.VITE_BASE_URL,
     css: {
       preprocessorOptions: {
         scss: {

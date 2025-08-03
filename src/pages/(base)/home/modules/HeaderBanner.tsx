@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import avatar from '@/assets/images/chiko.jpg';
-// import { useAppSelector } from '@/hooks/useStore';
+// import { useAppSelector } from '@/hooks/business/useStore';
 
 interface StatisticData {
   id: number;

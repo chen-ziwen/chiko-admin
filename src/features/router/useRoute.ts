@@ -45,7 +45,11 @@ export function useRoute<
 >() {
   const matches = useMatches();
 
+  console.log('matches', matches);
+
   const routes = matches.at(-1) as Router.Route<T>;
+
+  // console.log('routes', routes);
 
   const { hash, pathname, search } = useLocation();
 
@@ -54,6 +58,13 @@ export function useRoute<
   const query = parseQuery(search) as Q;
 
   const error = useRouteError() as Error | null;
+
+
+  // console.log('routes', routes);
+  // console.log('fullPath', fullPath);
+  // console.log('hash', hash);
+  // console.log('pathname', pathname);
+  // console.log('search', search);
 
   return useMemo(
     () =>

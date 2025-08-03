@@ -23,6 +23,7 @@ function createRouteGuard(to: Router.Route, roles: string[], isSuper: boolean, p
   const notFoundRoute = 'notFound';
   const isNotFoundRoute = to.id === notFoundRoute;
 
+  console.log(to.fullPath, to.handle.constant, to.id, !isNotFoundRoute);
   if (!isLogin) {
     if (to.handle.constant && !isNotFoundRoute) {
       return null;
