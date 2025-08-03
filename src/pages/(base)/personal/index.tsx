@@ -1,4 +1,9 @@
-/** @handle {"icon": "material-symbols-light:account-circle"} */
+/**
+ * @handle {
+ *   "icon": "material-symbols-light:account-circle",
+ *   "constant": true
+ * }
+ */
 
 import { replace } from 'react-router-dom';
 

@@ -1,3 +1,11 @@
+/**
+ * @handle {
+ *  "icon": "ant-design:exception-outlined",
+ *  "order": 999,
+ *  "constant": true
+ * }
+ */
+
 import { Navigate } from 'react-router-dom';
 
 import { globalConfig } from '@/config';

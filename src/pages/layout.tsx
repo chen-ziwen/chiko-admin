@@ -1,7 +1,9 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, matchRoutes } from 'react-router-dom';
 import type { ShouldRevalidateFunctionArgs } from 'react-router-dom';
-import { isStaticSuper,selectUserInfo } from '@/stores/modules';
+import { isStaticSuper, selectUserInfo } from '@/stores/modules';
 import { usePrevious, useRoute } from '@/features/router';
+import { localStg } from '@/utils/storage';
+import { allRoutes } from '@/router';
 
 function handleRouteSwitch(to: Router.Route, from: Router.Route | null) {
 
@@ -48,11 +50,11 @@ function createRouteGuard(to: Router.Route, roles: string[], isSuper: boolean, p
   }
 
   if (to.id === 'notFound') {
-    // const exist = matchRoutes(allRoutes[0].children || [], to.pathname);
+    const exist = matchRoutes(allRoutes[0].children || [], to.pathname);
 
-    // if (exist && exist.length > 1) {
-    //   return noAuthorizationRoute;
-    // }
+    if (exist && exist.length > 1) {
+      return noAuthorizationRoute;
+    }
 
     return null;
   }
@@ -67,7 +69,6 @@ function createRouteGuard(to: Router.Route, roles: string[], isSuper: boolean, p
 
   return handleRouteSwitch(to, previousRoute);
 }
-
 
 const RootLayout = () => {
   const route = useRoute();

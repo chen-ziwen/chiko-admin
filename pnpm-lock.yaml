@@ -12,8 +12,8 @@ importers:
         specifier: 1.0.3
         version: 1.0.3(antd@5.26.7(moment@2.30.1)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@better-pages-create/react-router':
-        specifier: 0.1.6
-        version: 0.1.6(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))
+        specifier: 0.1.7
+        version: 0.1.7(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))
       '@better-scroll/core':
         specifier: 2.5.1
         version: 2.5.1
@@ -1079,13 +1079,13 @@ packages:
     resolution: {integrity: sha512-ruv7Ae4J5dUYULmeXw1gmb7rYRz57OWCPM57pHojnLq/3Z1CK2lNSLTCVjxVk1F/TZHwOZZrOWi0ur95BbLxNQ==}
     engines: {node: '>=6.9.0'}
 
-  '@better-pages-create/core@0.1.4':
-    resolution: {integrity: sha512-W2cikD62HNYP0T6dHx/CMe8C/KYj0RDjIrIIbxPrGUWRIAzSP5+Ea5iE8VbwTVCTTS6L+zPRrc1XwpSfOi9DCQ==}
+  '@better-pages-create/core@0.1.5':
+    resolution: {integrity: sha512-t+jF0Wnh6GSiO0RyM3gBnfp/SE1eNLqFal6hI98rzymyzHGmtkOeaV83fDFIs8VkQk1JJlx1fbiYhMAv9na5XA==}
     peerDependencies:
       vite: '> 5.0.0'
 
-  '@better-pages-create/react-router@0.1.6':
-    resolution: {integrity: sha512-ZnvH1e9Jmqsw9AUn/OdyvN+yG0xyCpVEsxotZquPt84MjijGO0RjkxyehT9nWvLQET+qVNqDHShC2TRxeMuecQ==}
+  '@better-pages-create/react-router@0.1.7':
+    resolution: {integrity: sha512-Qbt/auvDw6IO7YED+qRpImSC8x3f8ayjAwaYVD4Dr5YhdlIBVtl8X1AVTxltaJ0sAJBNmnqMl4pu6sqlA7N8vw==}
 
   '@better-pages-create/shared@0.1.4':
     resolution: {integrity: sha512-1vAUeAOMTDFFq2/dtVx5Bo1GHXWpqhYI47sklnJILVdfl4NnsHT6KoCmnWEOFjdH6/IjYVQ5zQ7oqC91HHlw/Q==}
@@ -9802,7 +9802,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@better-pages-create/core@0.1.4(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))':
+  '@better-pages-create/core@0.1.5(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))':
     dependencies:
       '@antfu/utils': 9.2.0
       '@better-pages-create/shared': 0.1.4
@@ -9812,10 +9812,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@better-pages-create/react-router@0.1.6(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))':
+  '@better-pages-create/react-router@0.1.7(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))':
     dependencies:
       '@antfu/utils': 9.2.0
-      '@better-pages-create/core': 0.1.4(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))
+      '@better-pages-create/core': 0.1.5(vite@7.0.6(@types/node@24.1.0)(jiti@2.4.2)(sass@1.89.2)(terser@5.42.0)(tsx@4.20.3)(yaml@2.8.0))
       '@better-pages-create/shared': 0.1.4
       dequal: 2.0.3
       extract-comments: 1.1.0

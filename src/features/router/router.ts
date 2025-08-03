@@ -1,10 +1,11 @@
 import type { RouterNavigateOptions, To } from 'react-router-dom';
 
-import { router } from '@/router';
-
 import { type LocationQueryRaw, stringifyQuery } from './query';
+import { initRouter } from './initRouter';
 
 function navigator() {
+  const { router, resetRoutes } = initRouter();
+
   async function navigate(path: To | null, options?: RouterNavigateOptions) {
     router.navigate(path, options);
   }
@@ -59,7 +60,8 @@ function navigator() {
     navigateUp,
     push,
     reload,
-    replace
+    replace,
+    resetRoutes
   };
 }
 

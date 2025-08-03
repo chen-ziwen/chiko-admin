@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@ant-design/v5-patch-for-react-19": "1.0.3",
-    "@better-pages-create/react-router": "0.1.6",
+    "@better-pages-create/react-router": "0.1.7",
     "@better-scroll/core": "2.5.1",
     "@chiko-admin/axios": "workspace:*",
     "@chiko-admin/color": "workspace:*",

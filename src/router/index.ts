@@ -1,7 +1,16 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { filterRoutes } from '@/features/router';
 
-import routes from '~react-pages';
+import generatedRoutes from '~react-pages';
 
-// console.log('routes ===>', routes);
+function initRoutes() {
+  const allRoutes = { ...generatedRoutes };
+  const authRoutes: Router.SingleAuthRoute[] = [];
+  const cacheRoutes: string[] = [];
 
-export const router = createBrowserRouter(routes);
+  const constantRoutes = filterRoutes(generatedRoutes, null, authRoutes, cacheRoutes);
+
+  return { allRoutes, authRoutes, initCacheRoutes: cacheRoutes, routes: constantRoutes };
+}
+
+export const { allRoutes, authRoutes, initCacheRoutes, routes } = initRoutes();
+
