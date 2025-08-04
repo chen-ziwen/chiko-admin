@@ -42,8 +42,6 @@ export function initRouter() {
     }
   });
 
-  console.log('router <========>', routes, router);
-
   store.dispatch(setCacheRoutes(initCacheRoutes));
 
   if (getIsLogin(store.getState()) && !isAlreadyPatch) {
@@ -72,15 +70,12 @@ export async function initAuthRoutes(addRoutes: (parent: string | null, route: R
 
   const { roles } = selectUserInfo(store.getState());
 
-  // 静态模式
   if (authRouteMode === 'static') {
-    // 超级管理员
     if (isSuper) {
       reactAuthRoutes.forEach(route => {
         addRoutes(route.parent, route.route);
       });
     } else {
-      // 非超级管理员
       const filteredRoutes = filterAuthRoutesByRoles(reactAuthRoutes, roles);
 
       filteredRoutes.forEach(({ parent, route }) => {
@@ -88,7 +83,6 @@ export async function initAuthRoutes(addRoutes: (parent: string | null, route: R
       });
     }
   } else {
-    // 动态模式
     const { data, error } = await fetchGetUserRoutes();
     if (error) {
       console.error(error);

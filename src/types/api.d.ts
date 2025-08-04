@@ -127,7 +127,7 @@ declare namespace Api {
     /** user search params */
     type UserSearchParams = CommonType.RecordNullable<
       Pick<Api.SystemManage.User, 'nickName' | 'status' | 'userEmail' | 'userGender' | 'userName' | 'userPhone'> &
-        CommonSearchParams
+      CommonSearchParams
     >;
 
     /** user list */
@@ -242,6 +242,11 @@ declare namespace Api {
     };
 
     /** user route */
-    type UserRoute = MenuRoute[];
+    type UserRoute = {
+      /** home page path */
+      home: string;
+      /** available route paths */
+      routes: string[];
+    };
   }
 }

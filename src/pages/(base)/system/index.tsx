@@ -1,4 +1,9 @@
-/** @handle {"icon": "material-symbols-light:settings"} */
+/**
+ * @handle {
+ *   "icon": "material-symbols-light:settings",
+ *   "order": 4
+ * }
+ */
 
 import { replace } from 'react-router-dom';
 

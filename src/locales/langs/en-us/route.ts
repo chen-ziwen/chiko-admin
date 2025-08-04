@@ -1,4 +1,5 @@
 const route = {
+  root: 'Home',
   '(base)_home': 'Home',
   '(base)_personal': 'Personal',
   '(base)_personal_center': 'Personal Center',
@@ -13,7 +14,11 @@ const route = {
   '(base)_exception': 'Exception',
   '(base)_exception_403': '403',
   '(base)_exception_404': '404',
-  '(base)_exception_500': '500'
+  '(base)_exception_500': '500',
+  notFound: 'Page Not Found',
+  403: 'No Permission',
+  404: 'Page Not Found',
+  500: 'Server Error'
 };
 
 export default route;

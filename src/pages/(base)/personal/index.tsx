@@ -1,7 +1,8 @@
 /**
  * @handle {
  *   "icon": "material-symbols-light:account-circle",
- *   "constant": true
+ *   "constant": true,
+ *   "order": 2
  * }
  */
 

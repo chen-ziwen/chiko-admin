@@ -13,7 +13,19 @@ export const authHandlers = [
   http.post('/auth/login', async ({ request }) => {
     const { userName, password } = await request.json() as { userName: string; password: string };
 
-    if (userName === 'Chiko' && password === '123456') {
+    // 支持的用户账户
+    const validAccounts = [
+      { userName: 'Chiko', password: '123456' },
+      { userName: 'Super', password: '123456' },
+      { userName: 'Admin', password: '123456' },
+      { userName: 'User', password: '123456' }
+    ];
+
+    const isValidAccount = validAccounts.some(
+      account => account.userName === userName && account.password === password
+    );
+
+    if (isValidAccount) {
       const loginToken: Api.Auth.LoginToken = {
         token: `mock-jwt-token-${  Date.now()}`,
         refreshToken: `mock-refresh-token-${  Date.now()}`

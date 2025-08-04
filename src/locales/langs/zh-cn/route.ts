@@ -1,4 +1,5 @@
 const route = {
+  root: '首页',
   '(base)_home': '首页',
   '(base)_personal': '个人中心',
   '(base)_personal_center': '个人主页',
@@ -13,7 +14,11 @@ const route = {
   '(base)_exception': '异常页',
   '(base)_exception_403': '403',
   '(base)_exception_404': '404',
-  '(base)_exception_500': '500'
+  '(base)_exception_500': '500',
+  notFound: '页面不存在',
+  403: '无权限',
+  404: '页面不存在',
+  500: '服务器错误'
 };
 
 export default route;

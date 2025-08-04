@@ -55,13 +55,6 @@ export function useRoute<
 
   const error = useRouteError() as Error | null;
 
-
-  // console.log('routes', routes);
-  // console.log('fullPath', fullPath);
-  // console.log('hash', hash);
-  // console.log('pathname', pathname);
-  // console.log('search', search);
-
   return useMemo(
     () =>
       ({

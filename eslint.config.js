@@ -79,7 +79,7 @@ export default tseslint.config(
       '@typescript-eslint/no-non-null-assertion': 'off',
 
       // 通用规则
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      // 'no-console': ['warn', { allow: ['warn', 'error'] }],
       'no-debugger': 'error',
       'no-alert': 'warn',
       'no-var': 'error',

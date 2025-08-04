@@ -2,7 +2,7 @@
  * @handle {
  *   "icon": "material-symbols-light:google-home-devices",
  *   "keepAlive": true,
- *   "order": 0
+ *   "order": 1
  * }
  */
 

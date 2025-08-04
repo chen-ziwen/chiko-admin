@@ -1,7 +1,6 @@
 /**
  * @handle {
  *  "icon": "ant-design:exception-outlined",
- *  "order": 999,
  *  "constant": true
  * }
  */

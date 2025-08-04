@@ -97,10 +97,4 @@ const ResetPwd = () => {
   );
 };
 
-export const handle = {
-  constant: true,
-  i18nKey: 'route.(blank)_login_reset-pwd',
-  title: 'login_reset-pwd'
-};
-
 export default ResetPwd;
