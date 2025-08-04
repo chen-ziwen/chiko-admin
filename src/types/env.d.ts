@@ -30,7 +30,7 @@ declare namespace Env {
      *
      * Only valid in the development environment
      */
-    readonly VITE_HTTP_PROXY?: CommonType.YesOrNo;
+    // VITE_HTTP_PROXY 已移除，MSW 不需要代理配置
     /**
      * The prefix of the local icon
      *
@@ -58,9 +58,9 @@ declare namespace Env {
      *
      * the value is a json
      */
-    readonly VITE_OTHER_SERVICE_BASE_URL: string;
+    // VITE_OTHER_SERVICE_BASE_URL 已移除，MSW 统一处理所有请求
     /** show proxy url log in terminal */
-    readonly VITE_PROXY_LOG?: CommonType.YesOrNo;
+    // VITE_PROXY_LOG 已移除，MSW 不需要代理日志
     /**
      * The home route key
      *

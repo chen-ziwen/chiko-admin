@@ -35,7 +35,7 @@ const UserProfile: React.FC = () => {
                 <ATag color="green">在职</ATag>
               </ADescriptions.Item>
               <ADescriptions.Item label="入职时间">2023-01-01</ADescriptions.Item>
-              <ADescriptions.Item label="最后登录时间">2024-03-20 10:00:00</ADescriptions.Item>
+              <ADescriptions.Item label="最后登录时间">2025-03-20 10:00:00</ADescriptions.Item>
             </ADescriptions>
           </ACol>
         </ARow>
@@ -46,10 +46,10 @@ const UserProfile: React.FC = () => {
         title="最近操作记录"
       >
         <ADescriptions column={1}>
-          <ADescriptions.Item label="2024-03-20 10:00:00">登录系统</ADescriptions.Item>
-          <ADescriptions.Item label="2024-03-19 18:00:00">更新个人信息</ADescriptions.Item>
-          <ADescriptions.Item label="2024-03-19 16:30:00">修改密码</ADescriptions.Item>
-          <ADescriptions.Item label="2024-03-18 14:00:00">查看用户列表</ADescriptions.Item>
+          <ADescriptions.Item label="2025-03-20 10:00:00">登录系统</ADescriptions.Item>
+          <ADescriptions.Item label="2025-03-19 18:00:00">更新个人信息</ADescriptions.Item>
+          <ADescriptions.Item label="2025-03-19 16:30:00">修改密码</ADescriptions.Item>
+          <ADescriptions.Item label="2025-03-18 14:00:00">查看用户列表</ADescriptions.Item>
         </ADescriptions>
       </ACard>
     </div>

@@ -1,3 +1,9 @@
+/**
+ * @handle {
+ *   "constant": true
+ * }
+ */
+
 import { Button, Checkbox, Divider, Input, Space } from 'antd';
 
 import { loginModuleRecord } from '@/constants/app';
@@ -15,8 +21,8 @@ interface Account {
 type LoginParams = Pick<Account, 'password' | 'userName'>;
 
 const INITIAL_VALUES = {
-  password: '123456',
-  userName: 'Soybean'
+  userName: 'Chiko',
+  password: '123456'
 };
 
 const PwdLogin = () => {

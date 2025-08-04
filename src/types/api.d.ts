@@ -195,4 +195,53 @@ declare namespace Api {
       pId: number;
     };
   }
+
+  /**
+   * namespace Route
+   *
+   * backend api module: "route"
+   */
+  namespace Route {
+    /** menu route */
+    type MenuRoute = {
+      /** route children */
+      children?: MenuRoute[];
+      /** route component */
+      component?: string;
+      /** route id */
+      id: string;
+      /** route meta */
+      meta: {
+        /** route title */
+        title: string;
+        /** route icon */
+        icon?: string;
+        /** whether to hide in menu */
+        hideInMenu?: boolean;
+        /** route order */
+        order?: number;
+        /** route roles */
+        roles?: string[];
+        /** whether to keep alive */
+        keepAlive?: boolean;
+        /** whether is constant route */
+        constant?: boolean;
+        /** route href */
+        href?: string;
+        /** multi tab */
+        multiTab?: boolean;
+        /** active menu */
+        activeMenu?: string;
+      };
+      /** route name */
+      name: string;
+      /** route path */
+      path: string;
+      /** route redirect */
+      redirect?: string;
+    };
+
+    /** user route */
+    type UserRoute = MenuRoute[];
+  }
 }

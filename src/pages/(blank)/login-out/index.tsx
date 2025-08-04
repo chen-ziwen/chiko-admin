@@ -1,3 +1,9 @@
+/**
+ * @handle {
+ *   "constant": true
+ * }
+ */
+
 import { useResetAuth } from '@/features/auth';
 
 const Component = () => {

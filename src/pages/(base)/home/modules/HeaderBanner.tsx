@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import avatar from '@/assets/images/chiko.jpg';
-// import { useAppSelector } from '@/hooks/business/useStore';
+import { useAppSelector } from '@/hooks/business/useStore';
 
 interface StatisticData {
   id: number;
@@ -12,7 +12,7 @@ interface StatisticData {
 const HeaderBanner = () => {
   const { t } = useTranslation();
 
-  // const userInfo = useAppSelector(state => state.auth.userInfo);
+  const userInfo = useAppSelector(state => state.auth.userInfo);
 
   const statisticData: StatisticData[] = [
     {
@@ -50,7 +50,7 @@ const HeaderBanner = () => {
               />
             </div>
             <div className="pl-3">
-              <h3 className="text-lg font-semibold">{t('page.home.greeting', { userName: 'chiko' })}</h3>
+              <h3 className="text-lg font-semibold">{t('page.home.greeting', { userName: userInfo.userName })}</h3>
               <p className="text-gray-500 leading-7">{t('page.home.weatherDesc')}</p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import process from 'node:process';
 import { URL, fileURLToPath } from 'node:url';
 
 import { defineConfig, loadEnv } from 'vite';
+import { createViteProxy } from './build';
 
 import { getBuildTime, setupVitePlugins } from './build';
 
@@ -30,7 +31,8 @@ export default defineConfig(configEnv => {
       port: 5210,
       warmup: {
         clientFiles: ['./index.html', './src/{pages,components}/*']
-      }
+      },
+      proxy: createViteProxy(viteEnv, true)
     }
   };
 });

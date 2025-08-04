@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { Variants } from 'motion/react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, m } from 'motion/react';
 
 interface FlipTextProps {
   readonly className?: string;
@@ -24,7 +24,7 @@ const FlipText: FC<FlipTextProps> = memo(
     return (
       <AnimatePresence mode="sync">
         {word.split('').map((char, i) => (
-          <motion.span
+          <m.span
             animate="visible"
             className={clsx(' drop-shadow-sm', className)}
             initial="hidden"
@@ -33,7 +33,7 @@ const FlipText: FC<FlipTextProps> = memo(
             variants={framerProps}
           >
             {char}
-          </motion.span>
+          </m.span>
         ))}
       </AnimatePresence>
     );

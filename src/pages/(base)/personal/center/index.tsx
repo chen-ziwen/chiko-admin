@@ -23,36 +23,36 @@ const PersonalCenter: React.FC = () => {
     {
       title: 'ChikoAdmin',
       description: '一个现代化的后台管理系统',
-      time: '2024-03'
+      time: '2025-03'
     },
     {
       title: '电商平台',
       description: '基于React的电商平台前端项目',
-      time: '2024-02'
+      time: '2025-02'
     },
     {
       title: '数据可视化平台',
       description: '使用ECharts的数据可视化解决方案',
-      time: '2024-01'
+      time: '2025-01'
     }
   ];
 
   const activities = [
     {
       content: '完成了Chiko Admin项目的初始化设置',
-      time: '2024-03-20 10:00:00'
+      time: '2025-03-20 10:00:00'
     },
     {
       content: '更新了个人信息',
-      time: '2024-03-19 15:30:00'
+      time: '2025-03-19 15:30:00'
     },
     {
       content: '提交了新的代码变更',
-      time: '2024-03-19 11:00:00'
+      time: '2025-03-19 11:00:00'
     },
     {
       content: '参与了项目评审会议',
-      time: '2024-03-18 14:00:00'
+      time: '2025-03-18 14:00:00'
     }
   ];
 

@@ -61,7 +61,6 @@ export function useInitAuth() {
       const { data: info, error: userInfoError } = await fetchGetUserInfo();
 
       if (!userInfoError) {
-        // 2. store user info
         localStg.set('userInfo', info);
 
         dispatch(setToken(loginToken.token));

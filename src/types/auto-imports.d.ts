@@ -19,12 +19,11 @@ declare global {
   const ADropdown: typeof import('antd')['Dropdown']
   const AFlex: typeof import('antd')['Flex']
   const AForm: typeof import('antd')['Form']
+  const AFormItem: typeof import('antd')['FormItem']
   const AInput: typeof import('antd')['Input']
   const AInputNumber: typeof import('antd')['InputNumber']
   const AList: typeof import('antd')['List']
-  const AMPERSAND_RE: typeof import('antd')['MPERSAND_RE']
   const AMenu: typeof import('antd')['Menu']
-  const AProgress: typeof import('antd')['Progress']
   const ARadio: typeof import('antd')['Radio']
   const AResult: typeof import('antd')['Result']
   const ARow: typeof import('antd')['Row']
@@ -81,8 +80,8 @@ declare global {
   const transformRecordToOption: typeof import('../utils/common')['transformRecordToOption']
   const translateOptions: typeof import('../utils/common')['translateOptions']
   const useAntdTable: typeof import('ahooks')['useAntdTable']
-  const useAppDispatch: typeof import('../hooks/useStore')['useAppDispatch']
-  const useAppSelector: typeof import('../hooks/useStore')['useAppSelector']
+  const useAppDispatch: typeof import('../hooks/business/useStore')['useAppDispatch']
+  const useAppSelector: typeof import('../hooks/business/useStore')['useAppSelector']
   const useAsyncEffect: typeof import('ahooks')['useAsyncEffect']
   const useBoolean: typeof import('ahooks')['useBoolean']
   const useCallback: typeof import('react')['useCallback']
@@ -106,7 +105,7 @@ declare global {
   const useDrag: typeof import('ahooks')['useDrag']
   const useDrop: typeof import('ahooks')['useDrop']
   const useDynamicList: typeof import('ahooks')['useDynamicList']
-  const useEcharts: typeof import('../hooks/useEcharts')['default']
+  const useEcharts: typeof import('../hooks/business/useEcharts')['default']
   const useEffect: typeof import('react')['useEffect']
   const useEventEmitter: typeof import('ahooks')['useEventEmitter']
   const useEventListener: typeof import('ahooks')['useEventListener']
@@ -139,7 +138,7 @@ declare global {
   const useMap: typeof import('ahooks')['useMap']
   const useMemo: typeof import('react')['useMemo']
   const useMemoizedFn: typeof import('ahooks')['useMemoizedFn']
-  const useMobile: typeof import('../hooks/mobile')['useMobile']
+  const useMobile: typeof import('../hooks/common/mobile')['useMobile']
   const useMount: typeof import('ahooks')['useMount']
   const useMouse: typeof import('ahooks')['useMouse']
   const useMutationObserver: typeof import('ahooks')['useMutationObserver']
@@ -172,7 +171,7 @@ declare global {
   const useSetState: typeof import('ahooks')['useSetState']
   const useSize: typeof import('ahooks')['useSize']
   const useState: typeof import('react')['useState']
-  const useSvgIcon: typeof import('../hooks/icon')['useSvgIcon']
+  const useSvgIcon: typeof import('../hooks/common/icon')['useSvgIcon']
   const useSyncExternalStore: typeof import('react')['useSyncExternalStore']
   const useTextSelection: typeof import('ahooks')['useTextSelection']
   const useTheme: typeof import('ahooks')['useTheme']
@@ -202,7 +201,4 @@ declare global {
   // @ts-ignore
   export type { ThemeName } from '../hooks/business/usePreferredColorScheme'
   import('../hooks/business/usePreferredColorScheme')
-  // @ts-ignore
-  export type { ECOption } from '../hooks/common/echarts'
-  import('../hooks/common/echarts')
 }

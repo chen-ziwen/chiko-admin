@@ -1,3 +1,9 @@
+/**
+ * @handle {
+ *   "constant": true
+ * }
+ */
+
 import { Button, Form, Input, Space } from 'antd';
 
 import { SubmitEnterButton, useFormRules } from '@/features/form';
@@ -14,10 +20,8 @@ const CodeLogin = () => {
 
   const { navigateUp } = useRouter();
   async function handleSubmit() {
-    const params = await form.validateFields();
-    console.log(params);
+    await form.validateFields();
 
-    // request to reset password
     window.$message?.success(t('page.login.common.validateSuccess'));
   }
 

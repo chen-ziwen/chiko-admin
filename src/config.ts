@@ -7,7 +7,9 @@ import { localStg } from './utils/storage';
 
 const isDev = import.meta.env.DEV;
 
-const isHttpProxy = isDev && import.meta.env.VITE_HTTP_PROXY === 'Y';
+// HTTP 代理配置已移除，MSW 不需要代理
+// const isHttpProxy = isDev && import.meta.env.VITE_HTTP_PROXY === 'Y';
+const isHttpProxy = false; // MSW 模式下不使用代理
 
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env as Env.ImportMeta, isHttpProxy);
 
@@ -49,7 +51,7 @@ class GlobalConfig {
   private _noop = () => { };
 
   /** - 水印文本 */
-  private _watermarkText = 'Soybean';
+  private _watermarkText = 'Chiko';
 
   /** - 水印配置 */
   private _watermarkConfig = {

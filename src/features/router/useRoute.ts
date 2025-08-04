@@ -45,11 +45,7 @@ export function useRoute<
 >() {
   const matches = useMatches();
 
-  console.log('matches', matches);
-
   const routes = matches.at(-1) as Router.Route<T>;
-
-  // console.log('routes', routes);
 
   const { hash, pathname, search } = useLocation();
 

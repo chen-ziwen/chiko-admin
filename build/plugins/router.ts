@@ -7,7 +7,8 @@ export function setupBetterRouter() {
     extendRoute(route) {
       const name = route.name;
 
-      const constantRoutes = ['403', '404', '500'];
+      // notFound 是文件路由系统自动根据 404 路由来生成的，只能在这里配置
+      const constantRoutes = ['notFound', '403', '404', '500'];
 
       const handle: { [key: string]: any } = {
         i18nKey: `route.${name}`,

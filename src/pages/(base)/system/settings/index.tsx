@@ -33,7 +33,7 @@ const SystemSettings: React.FC = () => {
           </AForm.Item>
           <AForm.Item label="版权信息">
             <AInput
-              defaultValue="© 2024 Chiko Admin"
+              defaultValue="© 2025 Chiko Admin"
               placeholder="请输入版权信息"
             />
           </AForm.Item>

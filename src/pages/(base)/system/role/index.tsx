@@ -60,7 +60,7 @@ const RoleManagement: React.FC = () => {
       code: 'SUPER_ADMIN',
       description: '系统最高权限角色',
       status: '启用',
-      createTime: '2024-03-20 10:00:00'
+      createTime: '2025-03-20 10:00:00'
     },
     {
       key: '2',
@@ -68,7 +68,7 @@ const RoleManagement: React.FC = () => {
       code: 'NORMAL_USER',
       description: '普通用户角色',
       status: '启用',
-      createTime: '2024-03-20 10:00:00'
+      createTime: '2025-03-20 10:00:00'
     },
     {
       key: '3',
@@ -76,7 +76,7 @@ const RoleManagement: React.FC = () => {
       code: 'VISITOR',
       description: '访客角色',
       status: '禁用',
-      createTime: '2024-03-20 10:00:00'
+      createTime: '2025-03-20 10:00:00'
     }
   ];
 
