@@ -54,8 +54,6 @@ export function useInitAuth() {
     startLoading();
     const { data: loginToken, error } = await fetchLogin(userName, password);
 
-    console.log('data ===>', loginToken);
-
     if (!error) {
       localStg.set('token', loginToken.token);
       localStg.set('refreshToken', loginToken.refreshToken);

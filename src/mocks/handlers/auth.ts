@@ -13,8 +13,8 @@ const chikoUser: UserInfo = {
   userInfo: {
     userId: '1',
     userName: 'Super',
-    buttons: ['home', 'user-management', 'role-management', 'dashboard'],
-    roles: ['R_SUPER', 'admin']
+    buttons: [],
+    roles: ['R_SUPER', 'R_ADMIN']
   },
   token: 'token-super',
   refreshToken: 'refresh-super'
@@ -28,8 +28,8 @@ const mockUsers: Record<string, UserInfo> = {
     userInfo: {
       userId: '2',
       userName: 'Admin',
-      buttons: ['home', 'user-management'],
-      roles: ['admin']
+      buttons: [],
+      roles: ['R_ADMIN']
     },
     token: 'token-admin',
     refreshToken: 'refresh-admin'
@@ -39,8 +39,8 @@ const mockUsers: Record<string, UserInfo> = {
     userInfo: {
       userId: '3',
       userName: 'User',
-      buttons: ['home'],
-      roles: ['user']
+      buttons: [],
+      roles: []
     },
     token: 'token-user',
     refreshToken: 'refresh-user'
