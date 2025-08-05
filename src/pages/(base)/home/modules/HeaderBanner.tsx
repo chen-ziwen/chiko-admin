@@ -18,17 +18,17 @@ const HeaderBanner = () => {
     {
       id: 0,
       title: t('page.home.projectCount'),
-      value: '25'
+      value: '8'
     },
     {
       id: 1,
       title: t('page.home.todo'),
-      value: '4/16'
+      value: '2/9'
     },
     {
       id: 2,
       title: t('page.home.message'),
-      value: '12'
+      value: '99'
     }
   ];
   return (

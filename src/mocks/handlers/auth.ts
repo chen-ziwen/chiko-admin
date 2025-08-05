@@ -1,11 +1,50 @@
 import { HttpResponse, http } from 'msw';
 
+interface UserInfo {
+  password: string;
+  userInfo: Api.Auth.UserInfo;
+  token: string;
+  refreshToken: string
+}
+
 // 模拟用户数据
-const mockUserInfo: Api.Auth.UserInfo = {
-  userId: '1',
-  userName: 'Chiko',
-  buttons: ['home', 'user-management', 'role-management'],
-  roles: ['R_SUPER', 'admin']
+const chikoUser: UserInfo = {
+  password: '123456',
+  userInfo: {
+    userId: '1',
+    userName: 'Super',
+    buttons: ['home', 'user-management', 'role-management', 'dashboard'],
+    roles: ['R_SUPER', 'admin']
+  },
+  token: 'token-super',
+  refreshToken: 'refresh-super'
+};
+
+const mockUsers: Record<string, UserInfo> = {
+  Chiko: chikoUser,
+  Super: chikoUser,
+  Admin: {
+    password: '123456',
+    userInfo: {
+      userId: '2',
+      userName: 'Admin',
+      buttons: ['home', 'user-management'],
+      roles: ['admin']
+    },
+    token: 'token-admin',
+    refreshToken: 'refresh-admin'
+  },
+  User: {
+    password: '123456',
+    userInfo: {
+      userId: '3',
+      userName: 'User',
+      buttons: ['home'],
+      roles: ['user']
+    },
+    token: 'token-user',
+    refreshToken: 'refresh-user'
+  }
 };
 
 export const authHandlers = [
@@ -13,24 +52,12 @@ export const authHandlers = [
   http.post('/auth/login', async ({ request }) => {
     const { userName, password } = await request.json() as { userName: string; password: string };
 
-    // 支持的用户账户
-    const validAccounts = [
-      { userName: 'Chiko', password: '123456' },
-      { userName: 'Super', password: '123456' },
-      { userName: 'Admin', password: '123456' },
-      { userName: 'User', password: '123456' }
-    ];
-
-    const isValidAccount = validAccounts.some(
-      account => account.userName === userName && account.password === password
-    );
-
-    if (isValidAccount) {
+    const user = mockUsers[userName];
+    if (user && user.password === password) {
       const loginToken: Api.Auth.LoginToken = {
-        token: `mock-jwt-token-${  Date.now()}`,
-        refreshToken: `mock-refresh-token-${  Date.now()}`
+        token: user.token,
+        refreshToken: user.refreshToken
       };
-
       return HttpResponse.json({
         code: '0000',
         message: '登录成功',
@@ -46,19 +73,27 @@ export const authHandlers = [
 
   // 获取用户信息
   http.get('/auth/getUserInfo', ({ request }) => {
-    const token = request.headers.get('authorization');
+    const token = request.headers.get('authorization')?.replace('Bearer ', '');
+    let userInfo: Api.Auth.UserInfo | undefined;
+    if (token === 'token-super') {
+      userInfo = mockUsers.Super.userInfo;
+    } else if (token === 'token-admin') {
+      userInfo = mockUsers.Admin.userInfo;
+    } else if (token === 'token-user') {
+      userInfo = mockUsers.User.userInfo;
+    }
 
-    if (!token) {
+    if (!token || !userInfo) {
       return HttpResponse.json({
         code: '1002',
-        message: '未提供认证令牌'
+        message: '未提供认证令牌或无效令牌'
       });
     }
 
     return HttpResponse.json({
       code: '0000',
       message: '获取用户信息成功',
-      data: mockUserInfo
+      data: userInfo
     });
   }),
 
@@ -73,9 +108,19 @@ export const authHandlers = [
       });
     }
 
+    const user = Object.values(mockUsers).find(u => u.refreshToken === refreshToken);
+    if (!user) {
+      return HttpResponse.json({
+        code: '1004',
+        message: '无效的刷新令牌'
+      });
+    }
+    user.token = `token-${user.userInfo.userName.toLowerCase()}-${Date.now()}`;
+    user.refreshToken = `refresh-${user.userInfo.userName.toLowerCase()}-${Date.now()}`;
+
     const newTokens: Api.Auth.LoginToken = {
-      token: `new-mock-jwt-token-${  Date.now()}`,
-      refreshToken: `new-mock-refresh-token-${  Date.now()}`
+      token: user.token,
+      refreshToken: user.refreshToken
     };
 
     return HttpResponse.json({
