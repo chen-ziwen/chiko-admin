@@ -1,8 +1,7 @@
 /**
  * @handle {
  *   "icon": "material-symbols-light:person",
- *   "keepAlive": true,
- *   "roles": ["R_SUPER", "R_ADMIN"]
+ *   "keepAlive": true
  * }
  */
 

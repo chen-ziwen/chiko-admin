@@ -1,7 +1,8 @@
 /**
  * @handle {
  *   "icon": "material-symbols-light:settings",
- *   "order": 4
+ *   "order": 4,
+ *   "roles": ["R_SUPER"]
  * }
  */
 
