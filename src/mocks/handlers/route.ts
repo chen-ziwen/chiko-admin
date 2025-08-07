@@ -11,7 +11,10 @@ const flatUserRoutes = [
   '/exception/500',
   '/system',
   '/system/user',
+  '/system/user/list',
+  '/system/user/profile',
   '/system/role',
+  '/system/settings',
   '/system/permission'
 ];
 

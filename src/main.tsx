@@ -1,16 +1,12 @@
 import { createRoot } from 'react-dom/client';
 
-import 'virtual:uno.css';
-import 'virtual:svg-icons-register';
-import '@/styles/css/global.css';
+import './plugins/assets.ts';
 import App from './App.tsx';
 import { setupI18n } from './locales/index.ts';
+import { setupDayjs, setupIconifyOffline, setupMSW, setupNProgress } from './plugins';
 
 async function startup() {
-  if (import.meta.env.VITE_MOCK_MODE === 'msw' && import.meta.env.DEV) {
-    const { startMockWorker } = await import('./mocks/browser');
-    await startMockWorker();
-  }
+  await setupMSW();
 
   setupI18n();
 
@@ -23,6 +19,12 @@ async function startup() {
   const root = createRoot(container);
 
   root.render(<App />);
+
+  setupDayjs();
+
+  setupIconifyOffline();
+
+  setupNProgress();
 }
 
 startup();

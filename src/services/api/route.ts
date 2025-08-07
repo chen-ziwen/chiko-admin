@@ -1,7 +1,10 @@
 import { request } from '../request';
+import { waitForMSW } from '@/plugins';
 
 // 获取用户路由
-export function fetchGetUserRoutes() {
+export async function fetchGetUserRoutes() {
+  await waitForMSW();
+
   return request<Api.Route.UserRoute>({ url: '/route/getReactUserRoutes' });
 }
 

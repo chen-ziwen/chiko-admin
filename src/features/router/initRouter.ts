@@ -84,6 +84,8 @@ export async function initAuthRoutes(addRoutes: (parent: string | null, route: R
     }
   } else {
     const { data, error } = await fetchGetUserRoutes();
+    console.log('data ======>', data);
+
     if (error) {
       console.error(error);
       return;

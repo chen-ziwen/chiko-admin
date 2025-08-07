@@ -1,19 +1,14 @@
 import type { MenuProps } from 'antd';
 
-// import { selectToken, selectUserInfo } from '@/features/auth/authStore';
+import { selectToken, selectUserInfo } from '@/stores/modules';
 import { useRouter } from '@/features/router';
 
 const UserAvatar = memo(() => {
-  // const token = useAppSelector(selectToken);
+  const token = useAppSelector(selectToken);
 
   const { t } = useTranslation();
 
-  // const userInfo = useAppSelector(selectUserInfo);
-  const userInfo = {
-    userName: 'Chiko'
-  };
-
-  const token = true;
+  const userInfo = useAppSelector(selectUserInfo);
 
   const { navigate } = useRouter();
 
