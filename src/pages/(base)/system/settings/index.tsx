@@ -2,7 +2,7 @@
  * @handle {
  *   "icon": "material-symbols-light:tune",
  *   "keepAlive": true,
- *   "roles": ["R_SUPER","R_ADMIN"]
+ *   "roles": ["R_ADMIN"]
  * }
  */
 

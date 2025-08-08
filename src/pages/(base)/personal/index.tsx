@@ -1,8 +1,7 @@
 /**
  * @handle {
  *   "icon": "material-symbols-light:account-circle",
- *   "constant": true,
- *   "order": 2,
+ *   "order": 4,
  *   "roles": ["R_ADMIN"]
  * }
  */

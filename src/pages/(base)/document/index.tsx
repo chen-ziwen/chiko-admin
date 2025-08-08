@@ -1,18 +1,17 @@
 /**
  * @handle {
- *  "icon": "ant-design:exception-outlined",
+ *  "icon": "mdi:file-document-multiple-outline",
  *  "order": 3
  * }
  */
 
 import { replace } from 'react-router-dom';
-
-const Exception = () => {
+const Document = () => {
   return null;
 };
 
 export const loader = () => {
-  return replace('403');
+  replace('router');
 };
 
-export default Exception;
+export default Document;
