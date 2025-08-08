@@ -18,7 +18,7 @@ const route = {
   '(base)_document': 'Document',
   '(base)_document_react': 'React Document',
   '(base)_document_vite': 'Vite Document',
-  '(base)_document_router': 'Router Document',
+  '(base)_document_router-link': 'Router Document (external link)',
   notFound: 'Page Not Found',
   403: 'No Permission',
   404: 'Page Not Found',

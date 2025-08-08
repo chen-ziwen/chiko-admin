@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "octicon:mark-github-16",
+ *   "icon": "streamline-sharp-color:zoom-document-flat",
  *   "href": "https://github.com/chen-ziwen/better-pages-create/blob/main/README.md",
  *   "order": 1
  * }

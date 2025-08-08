@@ -18,7 +18,7 @@ const route = {
   '(base)_document': '文档',
   '(base)_document_react': 'React 文档',
   '(base)_document_vite': 'Vite 文档',
-  '(base)_document_router': '路由文档 (外链)',
+  '(base)_document_router-link': '路由文档 (外链)',
   notFound: '页面不存在',
   403: '无权限',
   404: '页面不存在',

@@ -8,7 +8,6 @@ interface Feature {
   id: number;
   icon: string;
   title: string;
-  color: string;
 }
 
 const AboutSection = () => {
@@ -17,27 +16,23 @@ const AboutSection = () => {
   const features: Feature[] = [
     {
       id: 1,
-      icon: 'mdi:react',
-      title: 'React 19',
-      color: 'text-blue-500'
+      icon: 'logos:react',
+      title: 'React 19'
     },
     {
       id: 2,
-      icon: 'mdi:language-typescript',
-      title: 'TypeScript',
-      color: 'text-blue-600'
+      icon: 'logos:typescript-icon',
+      title: 'TypeScript'
     },
     {
       id: 3,
       icon: 'logos:ant-design',
-      title: 'Ant Design',
-      color: 'text-blue-400'
+      title: 'Ant Design'
     },
     {
       id: 4,
-      icon: 'material-icon-theme:unocss',
-      title: 'Uno CSS',
-      color: 'text-gray-500'
+      icon: 'logos:unocss',
+      title: 'Uno CSS'
     }
   ];
 
@@ -113,10 +108,10 @@ const AboutSection = () => {
                 >
                   <div className="flex items-center gap-2 border border-gray-100 rounded-lg p-2 shadow-sm dark:border-gray-800">
                     <div
-                      className={`flex h-7 w-7 items-center justify-center rounded-md ${feature.color.replace('text', 'bg')}/20`}
+                      className="h-7 w-7 flex items-center justify-center rounded-md"
                     >
                       <Icon
-                        className={`text-lg ${feature.color}`}
+                        className="text-lg"
                         icon={feature.icon}
                       />
                     </div>

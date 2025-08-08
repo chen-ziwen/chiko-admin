@@ -3,7 +3,7 @@ import { Skeleton } from 'antd';
 
 import { useRoute } from '@/features/router';
 
-const IframePage = () => {
+const IFramePage = () => {
   const [loading, { setFalse: endLoading }] = useBoolean(true);
 
   const { handle: { url } } = useRoute();
@@ -25,4 +25,4 @@ const IframePage = () => {
   );
 };
 
-export default IframePage;
+export default IFramePage;

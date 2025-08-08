@@ -6,6 +6,6 @@
  * }
  */
 
-import IFramePage from '@/pages/(base)/document/modules/IframePage';
+import IFramePage from '@/pages/(base)/document/modules/IFramePage';
 
 export default IFramePage;
