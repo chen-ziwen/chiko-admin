@@ -12,7 +12,7 @@ import { setupUnPluginIcon } from './unplugin-icon';
 export function setupVitePlugins(viteEnv: Env.ImportMeta, buildTime: string) {
   const plugins: PluginOption[] = [
     react(),
-    setupBetterRouter(),
+    setupBetterRouter(), // 通过文件生成路由
     setupUnocss(viteEnv),
     setupAutoImport(viteEnv), // 自动导入
     Inspect(), // 打包分析

@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react';
 
-const SystemLogo = (props: SVGProps<SVGSVGElement>) => {
+const AppLogo = (props: SVGProps<SVGSVGElement>) => {
   return <IconLocalLogo {...props} />;
 };
 
-export default SystemLogo;
+export default AppLogo;

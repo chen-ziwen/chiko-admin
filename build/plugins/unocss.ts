@@ -25,7 +25,7 @@ export function setupUnocss(viteEnv: Env.ImportMeta) {
         },
         prefix: `${VITE_ICON_PREFIX}-`,
         scale: 1,
-        warn: true
+        warn: false
       })
     ]
   });

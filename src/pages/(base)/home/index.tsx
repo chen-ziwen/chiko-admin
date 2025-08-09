@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:google-home-devices",
+ *   "icon": "solar:home-angle-linear",
  *   "keepAlive": true,
  *   "order": 1
  * }

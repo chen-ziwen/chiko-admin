@@ -1,6 +1,6 @@
 /**
  * @handle {
- *  "icon": "mdi:file-document-multiple-outline",
+ *  "icon": "solar:document-linear",
  *  "order": 3
  * }
  */
