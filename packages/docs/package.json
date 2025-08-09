@@ -1,6 +1,6 @@
 {
   "name": "@chiko-admin/docs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "engines": {
     "node": ">=18.0"
@@ -33,7 +33,15 @@
     "typescript": "~5.8.3"
   },
   "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
-    "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
   }
 }
