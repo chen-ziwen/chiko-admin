@@ -4,30 +4,10 @@
  * }
  */
 
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import ExceptionBase from '@/components/ExceptionBase';
 
-const Forbidden = () => {
-  const navigate = useNavigate();
-  const { t } = useTranslation();
-
-  return (
-    <div className="size-full flex-center bg-layout">
-      <AResult
-        status="403"
-        subTitle={t('common.403Message')}
-        title="403"
-        extra={
-          <AButton
-            type="primary"
-            onClick={() => navigate('/')}
-          >
-            {t('common.backToHome')}
-          </AButton>
-        }
-      />
-    </div>
-  );
+const NotAuth = () => {
+  return <ExceptionBase type="403" />;
 };
 
-export default Forbidden;
+export default NotAuth;

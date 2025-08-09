@@ -1,6 +1,6 @@
 /**
  * @handle {
- *  "icon": "solar:document-linear",
+ *  "icon": "lucide:folder-open-dot",
  *  "order": 3
  * }
  */

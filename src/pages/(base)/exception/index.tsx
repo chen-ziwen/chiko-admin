@@ -1,6 +1,6 @@
 /**
  * @handle {
- *  "icon": "ant-design:exception-outlined",
+ *  "icon": "icon-park-outline:abnormal",
  *  "order": 3
  * }
  */

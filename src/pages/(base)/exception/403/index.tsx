@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:block"
+ *   "icon": "ic:baseline-block"
  * }
  */
 

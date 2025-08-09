@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:warning-outline"
+ *   "icon": "ic:baseline-wifi-off"
  * }
  */
 

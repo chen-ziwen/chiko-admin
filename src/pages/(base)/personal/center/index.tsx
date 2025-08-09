@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:person",
+ *   "icon": "lucide:user-star",
  *   "keepAlive": true
  * }
  */

@@ -1,18 +1,18 @@
 /**
  * @handle {
- *   "icon": "line-md:cog-loop",
+ *   "icon": "lucide:menu",
  *   "order": 999
  * }
  */
 
 import { replace } from 'react-router-dom';
 
-const System = () => {
+const MultiMenu = () => {
   return null;
 };
 
 export const loader = () => {
-  return replace('permission');
+  return replace('first');
 };
 
-export default System;
+export default MultiMenu;

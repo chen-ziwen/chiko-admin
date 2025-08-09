@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:error-outline"
+ *   "icon": "ic:baseline-web-asset-off"
  * }
  */
 

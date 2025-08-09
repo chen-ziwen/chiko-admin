@@ -6,7 +6,9 @@ import presetIcons from '@unocss/preset-icons';
 import unocss from '@unocss/vite';
 
 export function setupUnocss(viteEnv: Env.ImportMeta) {
-  const { VITE_ICON_LOCAL_PREFIX, VITE_ICON_PREFIX } = viteEnv;
+  // 设置默认值，确保即使环境变量缺失也能正常工作
+  const VITE_ICON_PREFIX = viteEnv.VITE_ICON_PREFIX || 'icon';
+  const VITE_ICON_LOCAL_PREFIX = viteEnv.VITE_ICON_LOCAL_PREFIX || 'icon-local';
 
   const localIconPath = path.join(process.cwd(), 'src/assets/svg-icon');
 

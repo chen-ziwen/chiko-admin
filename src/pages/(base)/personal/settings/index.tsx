@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:manage-accounts",
+ *   "icon": "lucide:user-cog",
  *   "keepAlive": true
  * }
  */

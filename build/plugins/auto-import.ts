@@ -2,8 +2,11 @@ import AutoImport from 'unplugin-auto-import/vite';
 import IconsResolver from 'unplugin-icons/resolver';
 
 export function setupAutoImport(env: Env.ImportMeta) {
-  const { VITE_ICON_LOCAL_PREFIX, VITE_ICON_PREFIX } = env;
+  // 设置默认值，确保即使环境变量缺失也能正常工作
+  const VITE_ICON_PREFIX = env.VITE_ICON_PREFIX || 'icon';
+  const VITE_ICON_LOCAL_PREFIX = env.VITE_ICON_LOCAL_PREFIX || 'icon-local';
   const collectionName = VITE_ICON_LOCAL_PREFIX.replace(`${VITE_ICON_PREFIX}-`, '');
+
   return AutoImport({
     dirs: [
       // 目录下模块自动导入

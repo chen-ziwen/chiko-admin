@@ -3,6 +3,7 @@ import type { MenuProps } from 'antd';
 import type { MenuInfo } from 'rc-menu/lib/interface';
 
 import { useMixMenuContext } from '@/features/menu';
+import { toAntdItems } from '@/features/menu/antdAdapter';
 import { useRouter } from '@/features/router';
 import { getSiderCollapse, getThemeSettings } from '@/stores/modules';
 
@@ -112,7 +113,7 @@ const VerticalMenu = memo(() => {
         className="size-full transition-300 border-0!"
         inlineCollapsed={isVerticalMix ? false : inlineCollapsed}
         inlineIndent={18}
-        items={isMix ? childLevelMenus : allMenus}
+        items={toAntdItems(isMix ? childLevelMenus : allMenus)}
         mode="inline"
         openKeys={stateOpenKeys}
         selectedKeys={selectKey}

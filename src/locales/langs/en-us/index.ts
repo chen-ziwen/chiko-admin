@@ -1,5 +1,6 @@
 import common from './common';
 import form from './form';
+import multiMenu from './multi-menu';
 import page from './page';
 import request from './request';
 import route from './route';
@@ -30,6 +31,7 @@ const local = {
     themeSchema: 'Theme Schema',
     unpin: 'Unpin'
   },
+  multiMenu,
   page,
   request,
   route,

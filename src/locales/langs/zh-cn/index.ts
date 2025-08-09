@@ -1,5 +1,6 @@
 import common from './common';
 import form from './form';
+import multiMenu from './multi-menu';
 import page from './page';
 import route from './route';
 import theme from './theme';
@@ -29,6 +30,7 @@ const local = {
     themeSchema: '主题模式',
     unpin: '取消固定'
   },
+  multiMenu,
   page,
   request: {
     logout: '请求失败后登出用户',

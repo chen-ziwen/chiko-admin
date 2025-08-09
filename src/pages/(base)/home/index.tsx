@@ -1,6 +1,6 @@
 /**
  * @handle {
- *   "icon": "solar:home-angle-linear",
+ *   "icon": "lucide:laptop-minimal",
  *   "keepAlive": true,
  *   "order": 1
  * }

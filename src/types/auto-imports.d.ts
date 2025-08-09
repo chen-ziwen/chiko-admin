@@ -7,6 +7,7 @@
 export {}
 declare global {
   const AAvatar: typeof import('antd')['Avatar']
+  const ABreadcrumb: typeof import('antd')['Breadcrumb']
   const AButton: typeof import('antd')['Button']
   const ACard: typeof import('antd')['Card']
   const ACheckbox: typeof import('antd')['Checkbox']
@@ -47,6 +48,7 @@ declare global {
   const ButtonIcon: typeof import('../components/ButtonIcon')['default']
   const DarkModeContainer: typeof import('../components/DarkModeContainer')['default']
   const ErrorBoundary: typeof import('../components/ErrorBoundary')['default']
+  const ExceptionBase: typeof import('../components/ExceptionBase')['default']
   const FilpText: typeof import('../components/FilpText')['default']
   const FullScreen: typeof import('../components/FullScreen')['default']
   const IconAntDesignReloadOutlined: typeof import('~icons/ant-design/reload-outlined.tsx')['default']
@@ -54,6 +56,7 @@ declare global {
   const IconGridiconsFullscreenExit: typeof import('~icons/gridicons/fullscreen-exit.tsx')['default']
   const IconLocalLogo: typeof import('~icons/local/logo.tsx')['default']
   const Link: typeof import('react-router-dom')['Link']
+  const LookForward: typeof import('../components/LookForward')['default']
   const NavLink: typeof import('react-router-dom')['NavLink']
   const Navigate: typeof import('react-router-dom')['Navigate']
   const Outlet: typeof import('react-router-dom')['Outlet']
