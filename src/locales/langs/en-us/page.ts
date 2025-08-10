@@ -147,6 +147,99 @@ const page = {
       title: 'Reset Password'
     }
   },
+  multiMenu: {
+    title: 'Multi-level Menu',
+    description: 'This is an example page for multi-level menu',
+    menuOne: {
+      title: 'Menu One',
+      description: 'This is the first multi-level menu',
+      first: {
+        title: 'First Level Menu',
+        description: 'First level menu page',
+        child: {
+          title: 'Second Level Menu',
+          description: 'Second level menu page',
+          home: {
+            title: 'Second Level Home',
+            description: 'Welcome to the second level home page',
+            content: 'This demonstrates the hierarchical structure of multi-level menus'
+          }
+        }
+      }
+    },
+    menuTwo: {
+      title: 'Menu Two',
+      description: 'This is the second multi-level menu',
+      first: {
+        title: 'First Level Menu',
+        description: 'First level menu page',
+        child: {
+          title: 'Second Level Menu',
+          description: 'Second level menu page',
+          home: {
+            title: 'Second Level Home',
+            description: 'Welcome to the second level home page',
+            content: 'This demonstrates the hierarchical structure of multi-level menus'
+          }
+        }
+      }
+    },
+    navigation: {
+      backToMenuOne: 'Back to Menu One',
+      backToMenuTwo: 'Back to Menu Two',
+      backToRoot: 'Back to Root Menu'
+    },
+    pageContent: 'Page Content',
+    currentPath: 'Current Path',
+    menuLevel: 'Menu Level',
+    menuOneToFirst: 'Menu One → First Level Menu → Second Level Menu → Second Level Home',
+    menuTwoToFirst: 'Menu Two → First Level Menu → Second Level Menu',
+    pageTitles: {
+      menuOneChild: 'Menu One Display Page',
+      menuOneChildDesc: 'This is the display page under the first level menu of Menu One',
+      menuTwoChildHome: 'Menu Two Display Page',
+      menuTwoChildHomeDesc: 'This is the display page under the second level menu of Menu Two'
+    },
+    menuLevels: {
+      multiMenu: 'Multi-level Menu',
+      menuOne: 'Menu One',
+      menuTwo: 'Menu Two',
+      firstLevel: 'First Level Menu',
+      secondLevel: 'Second Level Menu',
+      home: 'Home'
+    },
+    features: {
+      title: 'Features',
+      breadcrumb: 'Breadcrumb Navigation',
+      tabNavigation: 'Tab Navigation',
+      menuHighlight: 'Menu Highlight',
+      routeParams: 'Route Parameters',
+      menuStructure: 'Menu Structure Description',
+      menuOneDesc: 'Menu One: Contains first level, second level, etc.',
+      menuTwoDesc: 'Menu Two: Contains first level, second level, etc.'
+    },
+    statistics: {
+      title: 'Page Statistics',
+      visits: 'Visits',
+      duration: 'Duration',
+      bounceRate: 'Bounce Rate',
+      conversionRate: 'Conversion Rate'
+    },
+    quickActions: {
+      title: 'Quick Actions',
+      refresh: 'Refresh Page',
+      export: 'Export Data',
+      print: 'Print Page',
+      share: 'Share Page'
+    },
+    systemInfo: {
+      title: 'System Information',
+      version: 'Version',
+      buildTime: 'Build Time',
+      environment: 'Environment',
+      lastUpdate: 'Last Update'
+    }
+  },
   manage: {
     common: {
       status: {

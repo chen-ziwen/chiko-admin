@@ -1,7 +1,7 @@
 /**
  * @handle {
  *   "icon": "lucide:circle-user-round",
- *   "order": 998,
+ *   "order": 999,
  *   "roles": ["R_ADMIN"]
  * }
  */

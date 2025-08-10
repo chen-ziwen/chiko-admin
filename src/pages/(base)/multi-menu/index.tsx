@@ -1,7 +1,7 @@
 /**
  * @handle {
  *   "icon": "lucide:menu",
- *   "order": 999
+ *   "order": 4
  * }
  */
 
