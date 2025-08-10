@@ -6,6 +6,7 @@
   "packageManager": "pnpm@10.13.1",
   "scripts": {
     "build": "tsc -b && vite build --mode prod",
+    "build:preview": "tsc -b && vite build --mode preview",
     "ci:publish": "pnpm publish -r",
     "cleanup": "cka clean",
     "cz": "git-cz",

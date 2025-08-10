@@ -1,7 +1,7 @@
 let isMSWStarted = false;
 
 export async function setupMSW() {
-  if (import.meta.env.VITE_MOCK_MODE === 'msw' && import.meta.env.DEV && !isMSWStarted) {
+  if (import.meta.env.MODE !== 'prod' && import.meta.env.VITE_MOCK_MODE === 'msw' && !isMSWStarted) {
     const { startMockWorker } = await import('@/mocks/browser');
     await startMockWorker();
     isMSWStarted = true;
@@ -9,11 +9,9 @@ export async function setupMSW() {
 }
 
 export async function waitForMSW() {
-  if (import.meta.env.DEV && import.meta.env.VITE_MOCK_MODE === 'msw') {
-    // 先确保 MSW 已启动
+  if (import.meta.env.MODE !== 'prod' && import.meta.env.VITE_MOCK_MODE === 'msw') {
     await setupMSW();
 
-    // 然后等待 MSW 完全就绪
     await new Promise(resolve => {
       const checkMSW = () => {
         if (navigator.serviceWorker.controller?.state === 'activated') {

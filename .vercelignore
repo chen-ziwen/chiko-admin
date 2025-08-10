@@ -1,0 +1,7 @@
+node_modules
+.pnpm-store
+.git
+.env.local
+.env.development
+.env.test
+*.log 
