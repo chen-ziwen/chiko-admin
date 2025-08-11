@@ -65,6 +65,3 @@ LICENSE
 
 # Project specific
 packages/docs/
-packages/scripts/
-scripts/
-src/mocks/
