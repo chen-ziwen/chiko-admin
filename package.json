@@ -2,8 +2,38 @@
   "name": "chiko-admin",
   "type": "module",
   "version": "1.0.0",
-  "private": true,
-  "packageManager": "pnpm@10.13.1",
+  "private": false,
+  "packageManager": "pnpm@10.4.1",
+  "engines": {
+    "node": ">=18.12.0",
+    "pnpm": ">=8.7.0"
+  },
+  "description": "一个基于React18、Vite、TypeScript、Ant Design 和 UnoCSS 的清新优雅的中后台模版。",
+  "author": {
+    "name": "Chiko",
+    "email": "2452559902@qq.com",
+    "url": "https://github.com/chen-ziwen"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/chen-ziwen/chiko-admin",
+  "repository": {
+    "url": "https://github.com/chen-ziwen/chiko-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chen-ziwen/chiko-admin/issues"
+  },
+  "keywords": [
+    "react",
+    "better-pages-create",
+    "react admin",
+    "react admin template",
+    "vite",
+    "typescript",
+    "ant design",
+    "react-router-dom",
+    "react-redux-toolkit",
+    "unocss"
+  ],
   "scripts": {
     "build": "tsc -b && vite build --mode prod",
     "build:preview": "tsc -b && vite build --mode preview",
