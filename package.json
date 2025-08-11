@@ -1,12 +1,12 @@
 {
   "name": "chiko-admin",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@10.13.1",
   "scripts": {
     "build": "tsc -b && vite build --mode prod",
-    "build:preview": "pnpm -r build && tsc -b && vite build --mode preview",
+    "build:preview": "tsc -b && vite build --mode preview",
     "ci:publish": "pnpm publish -r",
     "cleanup": "cka clean",
     "cz": "git-cz",
@@ -83,6 +83,7 @@
     "lint-staged": "16.1.2",
     "msw": "^2.10.4",
     "sass": "1.89.2",
+
     "typescript": "5.7.3",
     "typescript-eslint": "8.38.0",
     "unplugin-auto-import": "19.3.0",

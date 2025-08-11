@@ -1,7 +1,7 @@
 let isMSWStarted = false;
 
 export async function setupMSW() {
-  if (import.meta.env.MODE !== 'prod' && import.meta.env.VITE_MOCK_MODE === 'msw' && !isMSWStarted) {
+  if (import.meta.env.VITE_MOCK_MODE === 'msw' && !isMSWStarted) {
     const { startMockWorker } = await import('@/mocks/browser');
     await startMockWorker();
     isMSWStarted = true;
@@ -9,7 +9,7 @@ export async function setupMSW() {
 }
 
 export async function waitForMSW() {
-  if (import.meta.env.MODE !== 'prod' && import.meta.env.VITE_MOCK_MODE === 'msw') {
+  if (import.meta.env.VITE_MOCK_MODE === 'msw') {
     await setupMSW();
 
     await new Promise(resolve => {

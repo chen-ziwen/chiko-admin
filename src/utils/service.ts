@@ -22,7 +22,7 @@ export function getServiceBaseURL(env: Env.ImportMeta, isProxy: boolean) {
   const otherBaseURL = {} as Record<App.Service.OtherBaseURLKey, string>;
 
   // 如果是 MSW 模式，直接返回空字符串作为 baseURL，让 MSW 拦截请求
-  const isMSWMode = env.VITE_MOCK_MODE === 'msw' && env.DEV;
+  const isMSWMode = env.VITE_MOCK_MODE === 'msw';
   const finalBaseURL = isMSWMode ? '' : (isProxy ? createProxyPattern() : baseURL);
 
   return {

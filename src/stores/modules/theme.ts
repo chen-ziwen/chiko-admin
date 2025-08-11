@@ -3,6 +3,7 @@ import { createSelector, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 import { initThemeSettings, toggleAuxiliaryColorModes, toggleGrayscaleMode } from '@/features/theme/shared';
+import { themeSettings } from '@/theme/settings';
 import type { AppThunk } from '@/stores';
 import { localStg } from '@/utils/storage';
 
@@ -12,10 +13,10 @@ interface InitialStateType {
 
 type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends (infer U)[]
-    ? DeepPartial<U>[]
-    : T[P] extends ReadonlyArray<infer U>
-      ? ReadonlyArray<DeepPartial<U>>
-      : DeepPartial<T[P]>;
+  ? DeepPartial<U>[]
+  : T[P] extends ReadonlyArray<infer U>
+  ? ReadonlyArray<DeepPartial<U>>
+  : DeepPartial<T[P]>;
 };
 
 const initialState: InitialStateType = {
@@ -31,7 +32,10 @@ export const themeSlice = createSlice({
     },
 
     resetTheme() {
-      return initialState;
+      localStg.remove('themeSettings');
+      return {
+        settings: themeSettings
+      };
     },
     /**
      * Set colourWeakness value
@@ -161,11 +165,6 @@ export const settingsJson = createSelector([getThemeSettings], settings => {
 
 /** Cache theme settings */
 export const cacheThemeSettings = (): AppThunk => (_, getState) => {
-  const isProd = import.meta.env.PROD;
-
-  if (!isProd) {
-    return;
-  }
-
+  // 保存主题设置到 localStorage，开发和生产模式都保存
   localStg.set('themeSettings', getThemeSettings(getState()));
 };

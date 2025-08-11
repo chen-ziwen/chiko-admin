@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './plugins/assets.ts';
 import App from './App.tsx';
 import { setupI18n } from './locales/index.ts';
-import { setupDayjs, setupIconifyOffline, setupMSW, setupNProgress } from './plugins';
+import { setupAppVersionNotification, setupDayjs, setupIconifyOffline, setupMSW, setupNProgress } from './plugins';
 
 async function startup() {
   await setupMSW();
@@ -25,6 +25,8 @@ async function startup() {
   setupIconifyOffline();
 
   setupNProgress();
+
+  setupAppVersionNotification();
 }
 
 startup();
