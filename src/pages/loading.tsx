@@ -1,4 +1,4 @@
-import { getRgb } from '@Chiko-admin/color';
+import { getRgb } from '@chiko-admin/color';
 import clsx from 'clsx';
 
 import AppLogo from '@/components/AppLogo';
