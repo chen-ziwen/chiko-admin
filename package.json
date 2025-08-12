@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": false,
   "packageManager": "pnpm@10.13.1",
-  "description": "一个基于React18、Vite、TypeScript、Ant Design 和 UnoCSS 的清新优雅的中后台模版。",
+  "description": "一个基于 React19、Vite、TypeScript、Ant Design 和 UnoCSS 的清新优雅的中后台模版",
   "author": {
     "name": "Chiko",
     "email": "2452559902@qq.com",
@@ -35,7 +35,6 @@
     "preview": "vite preview",
     "test": "vite --mode test",
     "build": "vite build --mode prod",
-    "build:preview": "vite build --mode preview",
     "cleanup": "cka clean",
     "cz": "git-cz",
     "docs:build": "pnpm -F @chiko-admin/docs build",

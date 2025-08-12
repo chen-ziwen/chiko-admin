@@ -1,30 +1,477 @@
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * work well for content-focused websites.
  */
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #F43F5E;
+  --ifm-color-primary-dark: #E11D48;
+  --ifm-color-primary-darker: #BE123C;
+  --ifm-color-primary-darkest: #9F1239;
+  --ifm-color-primary-light: #FB7185;
+  --ifm-color-primary-lighter: #FDA4AF;
+  --ifm-color-primary-lightest: #FECDD3;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(244, 63, 94, 0.1);
+  
+  /* 自定义变量 */
+  --chiko-gradient: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%);
+  --chiko-shadow: 0 4px 20px rgba(244, 63, 94, 0.15);
+  --chiko-border-radius: 12px;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* 暗色主题 */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #F43F5E;
+  --ifm-color-primary-dark: #FB7185;
+  --ifm-color-primary-darker: #FDA4AF;
+  --ifm-color-primary-darkest: #FECDD3;
+  --ifm-color-primary-light: #E11D48;
+  --ifm-color-primary-lighter: #BE123C;
+  --ifm-color-primary-lightest: #9F1239;
+  --docusaurus-highlighted-code-line-bg: rgba(244, 63, 94, 0.2);
+  
+  /* 暗色主题背景 */
+  --ifm-background-color: #141414;
+  --ifm-background-surface-color: #1f1f1f;
+  --ifm-color-emphasis-100: #262626;
+  --ifm-color-emphasis-200: #404040;
+  --ifm-color-emphasis-300: #595959;
+  --ifm-color-emphasis-400: #737373;
+  --ifm-color-emphasis-500: #8c8c8c;
+  --ifm-color-emphasis-600: #a6a6a6;
+  --ifm-color-emphasis-700: #bfbfbf;
+  --ifm-color-emphasis-800: #d9d9d9;
+  --ifm-color-emphasis-900: #f2f2f2;
+}
+
+/* 全局样式 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+  line-height: var(--ifm-line-height-base);
+  color: var(--ifm-color-emphasis-800);
+  background: var(--ifm-background-color);
+}
+
+/* 导航栏样式 */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(244, 63, 94, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .navbar {
+  background: rgba(20, 20, 20, 0.95);
+  border-bottom: 1px solid rgba(244, 63, 94, 0.2);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--ifm-color-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.navbar__logo {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 4px rgba(244, 63, 94, 0.3));
+}
+
+.navbar__items {
+  gap: 1rem;
+}
+
+.navbar__item {
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar__item:hover {
+  transform: translateY(-1px);
+}
+
+/* 侧边栏样式 */
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+}
+
+.theme-doc-sidebar-menu {
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.theme-doc-sidebar-item-category-level-1 > .theme-doc-sidebar-item-category > .theme-doc-sidebar-item-category__label {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border-radius: var(--chiko-border-radius);
+  background: var(--chiko-gradient);
+  color: white;
+  box-shadow: var(--chiko-shadow);
+}
+
+.theme-doc-sidebar-item-link {
+  margin: 0.25rem 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.theme-doc-sidebar-item-link:hover {
+  background: rgba(244, 63, 94, 0.1);
+  transform: translateX(4px);
+}
+
+.theme-doc-sidebar-item-link--active {
+  background: var(--chiko-gradient);
+  color: white;
+  box-shadow: var(--chiko-shadow);
+}
+
+/* 主内容区域 */
+.main-wrapper {
+  background: var(--ifm-background-color);
+}
+
+.theme-doc-markdown {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 标题样式 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--ifm-heading-font-weight);
+  color: var(--ifm-color-emphasis-900);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: var(--chiko-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-size: 2rem;
+  border-bottom: 3px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: var(--ifm-color-primary);
+}
+
+/* 代码块样式 */
+.prism-code {
+  border-radius: var(--chiko-border-radius);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  box-shadow: var(--chiko-shadow);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.codeBlockTitle {
+  background: var(--chiko-gradient);
+  color: white;
+  border-radius: var(--chiko-border-radius) var(--chiko-border-radius) 0 0;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+}
+
+/* 表格样式 */
+table {
+  border-radius: var(--chiko-border-radius);
+  overflow: hidden;
+  box-shadow: var(--chiko-shadow);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  margin: 1.5rem 0;
+}
+
+thead {
+  background: var(--chiko-gradient);
+  color: white;
+}
+
+th {
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  transition: background 0.3s ease;
+}
+
+tr:hover td {
+  background: rgba(244, 63, 94, 0.05);
+}
+
+/* 卡片样式 */
+.card {
+  border-radius: var(--chiko-border-radius);
+  box-shadow: var(--chiko-shadow);
+  transition: all 0.3s ease;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(244, 63, 94, 0.2);
+}
+
+.card__header {
+  background: var(--chiko-gradient);
+  color: white;
+  padding: 1.5rem;
+}
+
+.card__body {
+  padding: 1.5rem;
+}
+
+/* 按钮样式 */
+.button {
+  border-radius: var(--chiko-border-radius);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: var(--chiko-gradient);
+  color: white;
+  box-shadow: var(--chiko-shadow);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(244, 63, 94, 0.3);
+}
+
+/* 首页样式 */
+.hero {
+  background: var(--chiko-gradient);
+  color: white;
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.hero__title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__subtitle {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero .button {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  margin: 0 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* 特性卡片 */
+.features {
+  padding: 6rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.featureSvg {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 4px 8px rgba(244, 63, 94, 0.2));
+}
+
+/* 页脚样式 */
+.footer {
+  background: var(--ifm-color-emphasis-100);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  padding: 3rem 0 2rem;
+}
+
+.footer__title {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  color: var(--ifm-color-emphasis-600);
+  transition: all 0.3s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  transform: translateX(4px);
+}
+
+/* 链接样式 */
+a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+/* 列表样式 */
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+
+/* 引用样式 */
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: rgba(244, 63, 94, 0.05);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--chiko-border-radius) var(--chiko-border-radius) 0;
+}
+
+/* 分割线 */
+hr {
+  border: none;
+  height: 2px;
+  background: var(--chiko-gradient);
+  margin: 2rem 0;
+  border-radius: 1px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2.5rem;
+  }
+  
+  .hero__subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .navbar__brand {
+    font-size: 1.5rem;
+  }
+  
+  .theme-doc-markdown {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.theme-doc-markdown > * {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 特殊元素样式 */
+.admonition {
+  border-radius: var(--chiko-border-radius);
+  border: none;
+  box-shadow: var(--chiko-shadow);
+  margin: 1.5rem 0;
+}
+
+.admonition-heading {
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: var(--chiko-border-radius) var(--chiko-border-radius) 0 0;
+}
+
+.admonition-content {
+  padding: 1rem 1.5rem;
+}
+
+.admonition--tip {
+  background: linear-gradient(135deg, #52c41a 0%, #73d13d 100%);
+  color: white;
+}
+
+.admonition--warning {
+  background: linear-gradient(135deg, #faad14 0%, #ffc53d 100%);
+  color: white;
+}
+
+.admonition--danger {
+  background: linear-gradient(135deg, #f5222d 0%, #ff4d4f 100%);
+  color: white;
+}
+
+.admonition--info {
+  background: var(--chiko-gradient);
+  color: white;
 }

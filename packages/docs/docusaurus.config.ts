@@ -1,12 +1,12 @@
+import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type { Config } from '@docusaurus/types';
-import { themes as prismThemes } from 'prism-react-renderer';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'ChikoAdmin 中后台管理模板',
-  tagline: '一个基于 React、TypeScript、MonoRepo 等最新技术栈的中后台管理系统，功能强大且丰富，页面美观，代码优雅',
+  title: 'ChikoAdmin',
+  tagline: '基于 React19 的现代化中后台管理模板',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -15,25 +15,25 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://chiko-admin.vercel.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'ChikoAdmin', // Usually your GitHub org/user name.
-  projectName: 'ChikoAdmin', // Usually your repo name.
+  organizationName: 'chen-ziwen', // Usually your GitHub org/user name.
+  projectName: 'chiko-admin', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en']
+    defaultLocale: 'zh-Hans',
+    locales: ['zh-Hans']
   },
 
   presets: [
@@ -44,22 +44,9 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/'
+          editUrl: 'https://github.com/chen-ziwen/chiko-admin/tree/main/packages/docs/'
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn'
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css'
         }
@@ -81,11 +68,10 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial'
+          label: '文档'
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
         {
-          href: 'https://github.com/chen-ziwen/chiko-admin/tree/main/packages/docs',
+          href: 'https://github.com/chen-ziwen/chiko-admin',
           label: 'GitHub',
           position: 'right'
         }
@@ -95,46 +81,45 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '文档',
           items: [
             {
-              label: 'Tutorial',
+              label: '快速开始',
               to: '/docs/intro'
+            },
+            {
+              label: '路由配置',
+              to: '/docs/guide/router'
+            },
+            {
+              label: '菜单配置',
+              to: '/docs/guide/menu'
+            },
+            {
+              label: '主题配置',
+              to: '/docs/guide/theme'
             }
           ]
         },
         {
-          title: 'Community',
+          title: '社区',
           items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus'
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus'
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus'
-            }
-          ]
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog'
-            },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus'
+              href: 'https://github.com/chen-ziwen/chiko-admin'
+            },
+            {
+              label: 'Issues',
+              href: 'https://github.com/chen-ziwen/chiko-admin/issues'
+            },
+            {
+              label: 'Discussions',
+              href: 'https://github.com/chen-ziwen/chiko-admin/discussions'
             }
           ]
         }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`
+      copyright: `Copyright © ${new Date().getFullYear()} ChikoAdmin. Built with Docusaurus.`
     },
     prism: {
       theme: prismThemes.github,

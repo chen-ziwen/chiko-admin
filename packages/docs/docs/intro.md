@@ -2,46 +2,82 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# ChikoAdmin 介绍
 
-Let's discover **Docusaurus in less than 5 minutes**.
+ChikoAdmin 是一个基于 React19、Vite、TypeScript、Ant Design 和 UnoCSS 的现代化中后台管理模板。它提供了丰富的功能和优雅的代码结构，帮助你快速构建企业级管理系统。
 
-## Getting Started
+## 主要特性
 
-Get started by **creating a new site**.
+- **现代化技术栈**: React19 + Vite + TypeScript + Ant Design
+- **优雅的代码结构**: 基于功能模块化的目录结构
+- **丰富的功能组件**: 路由、菜单、主题、权限等核心功能
+- **开发体验优化**: 热更新、类型检查、代码规范
+- **部署友好**: 支持 Vercel、GitHub Pages 等平台部署
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## 技术栈
 
-### What you'll need
+| 技术          | 版本   | 说明       |
+| ------------- | ------ | ---------- |
+| React         | 19.1.1 | 前端框架   |
+| Vite          | 7.0.6  | 构建工具   |
+| TypeScript    | 5.7.3  | 类型系统   |
+| Ant Design    | 5.26.7 | UI 组件库  |
+| UnoCSS        | 66.3.3 | 原子化 CSS |
+| React Router  | 7.7.1  | 路由管理   |
+| Redux Toolkit | 2.8.2  | 状态管理   |
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## 项目结构
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
+```
+chiko-admin/
+├── src/                    # 源代码
+│   ├── pages/             # 页面组件
+│   ├── components/        # 公共组件
+│   ├── features/          # 功能模块
+│   ├── layouts/           # 布局组件
+│   ├── stores/            # 状态管理
+│   └── utils/             # 工具函数
+├── packages/              # 子包
+│   ├── docs/             # 文档站点
+│   ├── hooks/            # 自定义 Hooks
+│   ├── utils/            # 工具库
+│   └── layout/           # 布局组件
+├── build/                # 构建配置
+└── public/               # 静态资源
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## 快速开始
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+1. **克隆项目**
+   ```bash
+   git clone https://github.com/chen-ziwen/chiko-admin.git
+   cd chiko-admin
+   ```
 
-## Start your site
+2. **安装依赖**
+   ```bash
+   pnpm install
+   ```
 
-Run the development server:
+3. **启动开发服务器**
+   ```bash
+   pnpm dev
+   ```
 
-```bash
-cd my-website
-npm run start
-```
+4. **构建生产版本**
+   ```bash
+   pnpm build
+   ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+## 在线预览
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+- **管理后台**: [https://chiko-admin.vercel.app](https://chiko-admin.vercel.app)
+- **文档站点**: [https://chiko-admin-docs.vercel.app](https://chiko-admin-docs.vercel.app)
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+## 贡献指南
+
+欢迎提交 Issue 和 Pull Request 来帮助改进这个项目。
+
+## 许可证
+
+MIT License

@@ -16,6 +16,9 @@ export default tseslint.config(
       '*.config.ts',
       'ErrorBoundary.tsx',
       'packages/docs/.docusaurus/**/*',
+      'packages/docs/build/**/*',
+      '**/build/**/*',
+      '**/dist/**/*',
     ]
   },
   js.configs.recommended,
