@@ -1,7 +1,7 @@
 {
   "buildCommand": "pnpm build:preview",
   "outputDirectory": "dist",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm add -g pnpm@10.13.1 && pnpm install",
   "rewrites": [
     {
       "source": "/(.*)",
