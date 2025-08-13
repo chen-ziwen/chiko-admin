@@ -1,5 +1,6 @@
 import type { MenuProps } from 'antd';
 
+import avatar from '@/assets/images/chiko.jpg';
 import { selectToken, selectUserInfo } from '@/stores/modules';
 import { useRouter } from '@/features/router';
 
@@ -74,9 +75,11 @@ const UserAvatar = memo(() => {
     >
       <div>
         <ButtonIcon className="px-12px">
-          <SvgIcon
-            className="text-icon-large"
-            icon="mingcute:user-1-line"
+          <AAvatar
+            alt="avatar"
+            className="mr-8px shadow-md"
+            size={32}
+            src={avatar}
           />
           <span className="text-16px font-medium">{userInfo.userName}</span>
         </ButtonIcon>

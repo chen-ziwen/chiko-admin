@@ -17,7 +17,6 @@ export default tseslint.config(
       'ErrorBoundary.tsx',
       'packages/docs/.docusaurus/**/*',
       'packages/docs/build/**/*',
-      '**/build/**/*',
       '**/dist/**/*',
     ]
   },
@@ -100,8 +99,7 @@ export default tseslint.config(
       'comma-dangle': ['error', 'never'],
       'quotes': ['error', 'single'],
       'semi': ['error', 'always'],
-      // 禁用 ESLint 的 indent 规则，TypeScript ESLint v8 会自动处理缩进
-      'indent': 'off',
+      'indent': ['error', 2],
       'max-len': [
         'error',
         {

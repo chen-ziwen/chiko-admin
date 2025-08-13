@@ -4,6 +4,6 @@
  * }
  */
 
-import ServerError from '@/pages/_exception/500';
+import ServerError from '@/pages/_error/500';
 
 export default ServerError;

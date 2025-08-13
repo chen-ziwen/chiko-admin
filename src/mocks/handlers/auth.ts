@@ -12,17 +12,27 @@ const chikoUser: UserInfo = {
   password: '123456',
   userInfo: {
     userId: '1',
-    userName: 'Super',
+    userName: 'Chiko',
     buttons: [],
     roles: ['R_SUPER', 'R_ADMIN']
   },
-  token: 'token-super',
-  refreshToken: 'refresh-super'
+  token: 'token-chiko',
+  refreshToken: 'refresh-chiko'
 };
 
 const mockUsers: Record<string, UserInfo> = {
   Chiko: chikoUser,
-  Super: chikoUser,
+  Super: {
+    password: '123456',
+    userInfo: {
+      userId: '4',
+      userName: 'Super',
+      buttons: [],
+      roles: ['R_SUPER', 'R_ADMIN']
+    },
+    token: 'token-super',
+    refreshToken: 'refresh-super'
+  },
   Admin: {
     password: '123456',
     userInfo: {
@@ -75,7 +85,9 @@ export const authHandlers = [
   http.get('/auth/getUserInfo', ({ request }) => {
     const token = request.headers.get('authorization')?.replace('Bearer ', '');
     let userInfo: Api.Auth.UserInfo | undefined;
-    if (token === 'token-super') {
+    if (token === 'token-chiko') {
+      userInfo = mockUsers.Chiko.userInfo;
+    } else if (token === 'token-super') {
       userInfo = mockUsers.Super.userInfo;
     } else if (token === 'token-admin') {
       userInfo = mockUsers.Admin.userInfo;

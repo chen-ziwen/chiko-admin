@@ -5,8 +5,10 @@
  * }
  */
 
-import { EnvironmentOutlined, MailOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons';
+import { EnvironmentOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
 import React from 'react';
+
+import avatar from '@/assets/images/chiko.jpg';
 
 const PersonalCenter: React.FC = () => {
   const userInfo = {
@@ -63,8 +65,10 @@ const PersonalCenter: React.FC = () => {
           <ACard>
             <div style={{ textAlign: 'center', marginBottom: 24 }}>
               <AAvatar
-                icon={<UserOutlined />}
+                alt="avatar"
+                className="shadow-lg"
                 size={104}
+                src={avatar}
               />
               <h2 style={{ margin: '16px 0 8px' }}>{userInfo.name}</h2>
               <div>

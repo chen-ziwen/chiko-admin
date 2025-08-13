@@ -43,9 +43,10 @@ const HeaderBanner = () => {
         >
           <div className="flex items-center">
             <div className="h-[72px] w-[72px] shrink-0 overflow-hidden rounded-full">
-              <img
-                alt="avatar"
-                className="h-full w-full"
+              <AAvatar
+                shape='square'
+                draggable={false}
+                className="h-full w-full shadow-lg"
                 src={avatar}
               />
             </div>

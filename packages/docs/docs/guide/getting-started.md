@@ -71,7 +71,7 @@ src/
 ├── pages/           # 页面组件
 │   ├── (base)/     # 基础布局页面
 │   ├── (blank)/    # 空白布局页面
-│   └── _exception/ # 异常页面
+│   └── _error/ # 错误页面
 ├── components/      # 公共组件
 ├── features/        # 功能模块
 │   ├── router/     # 路由管理

@@ -372,6 +372,47 @@ const page = {
         还要自己加loading效果`,
       explain: '这个页面仅仅是为了展示 react-router-dom 的 loader 的强大能力，数据是随机的对不上很正常'
     }
+  },
+  userCenter: {
+    description: '管理您的个人信息和账户设置',
+    rolePermissions: '角色权限信息',
+    accountStats: '账户统计',
+    quickActions: '快速操作',
+    status: {
+      employed: '在职',
+      online: '在线'
+    },
+    joinDate: '入职时间',
+    lastLogin: '最后登录',
+    permissionList: '权限列表',
+    loginCount: '登录次数',
+    onlineTime: '在线时长',
+    operationCount: '操作次数',
+    actions: {
+      editProfile: '编辑个人信息',
+      changePassword: '修改密码',
+      messageSettings: '消息设置',
+      exportData: '导出数据'
+    },
+    roles: {
+      superAdmin: '超级管理员',
+      superAdminDesc: '拥有系统所有权限，可以管理所有功能和用户',
+      admin: '管理员',
+      adminDesc: '拥有大部分管理权限，可以管理用户和基础功能',
+      user: '普通用户',
+      userDesc: '基础功能使用权限',
+      customRole: '自定义角色'
+    },
+    permissions: {
+      userManagement: '用户管理',
+      roleManagement: '角色管理',
+      systemConfig: '系统配置',
+      dataManagement: '数据管理',
+      logView: '日志查看',
+      dataView: '数据查看',
+      personalSettings: '个人设置',
+      basicPermission: '基础权限'
+    }
   }
 };
 

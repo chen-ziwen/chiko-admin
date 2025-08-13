@@ -43,6 +43,5 @@
   "unocss.root": [
     "./"
   ],
-  "i18n-ally.sourceLanguage": "zh-cn",
-  "liveServer.settings.port": 5501
+  "i18n-ally.sourceLanguage": "zh-cn"
 }

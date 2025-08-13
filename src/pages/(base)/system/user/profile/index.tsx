@@ -5,8 +5,9 @@
  * }
  */
 
-import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
+
+import avatar from '@/assets/images/chiko.jpg';
 
 const UserProfile: React.FC = () => {
   return (
@@ -16,8 +17,10 @@ const UserProfile: React.FC = () => {
           <ACol span={6}>
             <div style={{ textAlign: 'center' }}>
               <AAvatar
-                icon={<UserOutlined />}
+                alt="avatar"
+                className="shadow-lg"
                 size={120}
+                src={avatar}
               />
               <h2 style={{ marginTop: 16 }}>张三</h2>
               <ATag color="blue">超级管理员</ATag>

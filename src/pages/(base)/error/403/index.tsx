@@ -4,6 +4,6 @@
  * }
  */
 
-import Forbidden from '@/pages/_exception/403';
+import Forbidden from '@/pages/_error/403';
 
 export default Forbidden;

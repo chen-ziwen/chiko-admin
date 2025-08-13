@@ -4,6 +4,6 @@
  * }
  */
 
-import NotFound from '@/pages/_exception/404';
+import NotFound from '@/pages/_error/404';
 
 export default NotFound;

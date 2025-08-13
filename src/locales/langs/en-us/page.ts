@@ -368,6 +368,47 @@ const page = {
       content: 'The loader allows network requests and lazy-loaded files to be triggered almost simultaneously, enabling the lazy-loaded files to be parsed while waiting for the network request to complete. Once the network request finishes, the page is displayed all at once. Leveraging React\'s Fiber architecture, if users find the waiting time too long, they can switch to different pages during the wait. This is an advantage of the React framework and React Router\'s data loader, as it avoids the conventional sequence of: request lazy-loaded file -> parse -> mount -> send network request -> render page -> display, and eliminates the need for manually adding a loading effect.',
       explain: 'This page is solely for demonstrating the powerful capabilities of react-router-dom\'s loader. The data is random and may not match.'
     }
+  },
+  userCenter: {
+    description: 'Manage your personal information and account settings',
+    rolePermissions: 'Role Permissions',
+    accountStats: 'Account Statistics',
+    quickActions: 'Quick Actions',
+    status: {
+      employed: 'Employed',
+      online: 'Online'
+    },
+    joinDate: 'Join Date',
+    lastLogin: 'Last Login',
+    permissionList: 'Permission List',
+    loginCount: 'Login Count',
+    onlineTime: 'Online Time',
+    operationCount: 'Operation Count',
+    actions: {
+      editProfile: 'Edit Profile',
+      changePassword: 'Change Password',
+      messageSettings: 'Message Settings',
+      exportData: 'Export Data'
+    },
+    roles: {
+      superAdmin: 'Super Admin',
+      superAdminDesc: 'Has all system permissions, can manage all functions and users',
+      admin: 'Admin',
+      adminDesc: 'Has most management permissions, can manage users and basic functions',
+      user: 'User',
+      userDesc: 'Basic function usage permissions',
+      customRole: 'Custom Role'
+    },
+    permissions: {
+      userManagement: 'User Management',
+      roleManagement: 'Role Management',
+      systemConfig: 'System Configuration',
+      dataManagement: 'Data Management',
+      logView: 'Log View',
+      dataView: 'Data View',
+      personalSettings: 'Personal Settings',
+      basicPermission: 'Basic Permission'
+    }
   }
 };
 
