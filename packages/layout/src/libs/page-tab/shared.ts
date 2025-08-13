@@ -7,12 +7,12 @@ export const ACTIVE_COLOR = '#1890ff';
 
 function createCssVars(props: PageTabCssVarsProps) {
   const cssVars: PageTabCssVars = {
-    '--soy-primary-color': props.primaryColor,
-    '--soy-primary-color-opacity1': props.primaryColorOpacity1,
-    '--soy-primary-color-opacity2': props.primaryColorOpacity2,
-    '--soy-primary-color-opacity3': props.primaryColorOpacity3,
-    '--soy-primary-color1': props.primaryColor1,
-    '--soy-primary-color2': props.primaryColor2
+    '--cka-primary-color': props.primaryColor,
+    '--cka-primary-color-opacity1': props.primaryColorOpacity1,
+    '--cka-primary-color-opacity2': props.primaryColorOpacity2,
+    '--cka-primary-color-opacity3': props.primaryColorOpacity3,
+    '--cka-primary-color1': props.primaryColor1,
+    '--cka-primary-color2': props.primaryColor2
   };
 
   return cssVars;

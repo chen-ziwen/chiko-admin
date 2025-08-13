@@ -37,11 +37,6 @@ export const themeSlice = createSlice({
         settings: themeSettings
       };
     },
-    /**
-     * Set colourWeakness value
-     *
-     * @param isColourWeakness
-     */
     setColourWeakness(state, { payload }: PayloadAction<boolean>) {
       toggleAuxiliaryColorModes(payload);
       state.settings.colourWeakness = payload;
@@ -53,11 +48,6 @@ export const themeSlice = createSlice({
     setFooter(state, { payload }: PayloadAction<Partial<App.Theme.ThemeSetting['footer']>>) {
       Object.assign(state.settings.footer, payload);
     },
-    /**
-     * Set grayscale value
-     *
-     * @param isGrayscale
-     */
     setGrayscale(state, { payload }: PayloadAction<boolean>) {
       toggleGrayscaleMode(payload);
       state.settings.grayscale = payload;
@@ -96,12 +86,6 @@ export const themeSlice = createSlice({
     setWatermark(state, { payload }: PayloadAction<Partial<App.Theme.ThemeSetting['watermark']>>) {
       Object.assign(state.settings.watermark, payload);
     },
-    /**
-     * Update theme colors
-     *
-     * @param key Theme color key
-     * @param color Theme color
-     */
     updateThemeColors(
       state,
       { payload: { color, key } }: PayloadAction<{ color: string; key: App.Theme.ThemeColorKey }>
@@ -109,8 +93,6 @@ export const themeSlice = createSlice({
       let colorValue = color;
 
       if (state.settings.recommendColor) {
-        // get a color palette by provided color and color name, and use the suitable color
-
         colorValue = getPaletteColorByNumber(color, 500, true);
       }
 
@@ -149,7 +131,6 @@ export const {
   updateThemeColors
 } = themeSlice.actions;
 
-// 计算属性选择器
 export const themeColors = createSelector([getThemeSettings], ({ isInfoFollowPrimary, otherColor, themeColor }) => {
   const colors: App.Theme.ThemeColor = {
     primary: themeColor,
@@ -163,8 +144,6 @@ export const settingsJson = createSelector([getThemeSettings], settings => {
   return JSON.stringify(settings);
 });
 
-/** Cache theme settings */
 export const cacheThemeSettings = (): AppThunk => (_, getState) => {
-  // 保存主题设置到 localStorage，开发和生产模式都保存
   localStg.set('themeSettings', getThemeSettings(getState()));
 };

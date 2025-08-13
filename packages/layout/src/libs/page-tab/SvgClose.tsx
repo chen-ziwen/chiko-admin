@@ -2,16 +2,14 @@ import classNames from 'clsx';
 import type { FC, TouchEvent } from 'react';
 import React, { useState } from 'react';
 
- 
+
 const SvgClose: FC<React.ComponentProps<'div'>> = ({ className, onClick, ...props }) => {
   const [touchStart, setTouchStart] = useState(false);
 
-  // 处理触摸开始事件
   const handleTouchStart = () => {
     setTouchStart(true);
   };
 
-  // 处理触摸结束事件
   const handleTouchEnd = (event: TouchEvent) => {
     if (touchStart) {
       if (onClick) {
@@ -19,19 +17,17 @@ const SvgClose: FC<React.ComponentProps<'div'>> = ({ className, onClick, ...prop
       }
     }
 
-    // 重置触摸状态
     setTouchStart(false);
   };
 
   const handleTouchMove = () => {
-    // 触摸移动，认为不是点击事件
     setTouchStart(false);
   };
 
   return (
     <div
       className={classNames(
-        ':soy: relative h-16px w-16px inline-flex items-center justify-center rd-50% text-14px',
+        ':cka: relative h-16px w-16px inline-flex items-center justify-center rd-50% text-14px',
         className
       )}
       onTouchEnd={handleTouchEnd}

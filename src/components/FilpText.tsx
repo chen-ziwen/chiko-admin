@@ -26,7 +26,7 @@ const FlipText: FC<FlipTextProps> = memo(
         {word.split('').map((char, i) => (
           <m.span
             animate="visible"
-            className={clsx(' drop-shadow-sm', className)}
+            className={clsx('drop-shadow-sm', className)}
             initial="hidden"
             key={i}
             transition={{ delay: i * delayMultiple, duration }}

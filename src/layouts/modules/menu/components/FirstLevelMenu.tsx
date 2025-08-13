@@ -66,10 +66,10 @@ function MixMenuItem(Props: MixMenuItemProps) {
     <div
       style={{ backgroundColor: active ? selectedBgColor : '' }}
       className={clsx(
-        'mx-4px mb-6px flex-col-center cursor-pointer rounded-8px bg-transparent px-4px py-8px  transition-300 hover:bg-[rgb(0,0,0,0.08)] ',
-        { 'text-primary selected-mix-menu': active },
+        'mx-4px mb-6px flex-col-center cursor-pointer rounded-8px bg-transparent px-4px py-8px transition-300 hover:bg-[rgb(0,0,0,0.08)]',
+        { 'selected-mix-menu text-primary': active },
         { 'text-white:65 hover:text-white': inverted },
-        { '!text-white !bg-primary': active && inverted }
+        { '!bg-primary !text-white': active && inverted }
       )}
       onClick={handleSelectMixMenu}
     >
@@ -77,7 +77,7 @@ function MixMenuItem(Props: MixMenuItemProps) {
 
       <p
         className={clsx(
-          'w-full ellipsis-text text-12px text-center  transition-height-300',
+          'w-full ellipsis-text text-center text-12px transition-height-300',
           siderCollapse ? 'h-0 pt-0' : 'h-24px pt-4px'
         )}
       >

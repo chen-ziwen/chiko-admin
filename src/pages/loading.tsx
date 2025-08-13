@@ -35,7 +35,7 @@ const GlobalLoading = memo(() => {
           {loadingClasses.map(item => {
             return (
               <div
-                className={clsx('absolute w-16px h-16px bg-primary rounded-8px animate-pulse ', item)}
+                className={clsx('absolute h-16px w-16px animate-pulse rounded-8px bg-primary', item)}
                 key={item}
               />
             );

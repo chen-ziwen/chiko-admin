@@ -18,7 +18,7 @@ const RecentActivity = () => {
     {
       id: 1,
       title: t('page.home.activity.deploy'),
-      time: '2023-11-28 14:23',
+      time: '2025-3-28 14:23',
       type: 'success',
       icon: 'mdi:rocket-launch',
       description: t('page.home.activity.deployDesc')
@@ -26,7 +26,7 @@ const RecentActivity = () => {
     {
       id: 2,
       title: t('page.home.activity.update'),
-      time: '2023-11-27 09:15',
+      time: '2025-3-27 09:15',
       type: 'info',
       icon: 'mdi:update',
       description: t('page.home.activity.updateDesc')
@@ -34,7 +34,7 @@ const RecentActivity = () => {
     {
       id: 3,
       title: t('page.home.activity.alert'),
-      time: '2023-11-26 22:45',
+      time: '2025-3-26 22:45',
       type: 'warning',
       icon: 'mdi:alert-circle',
       description: t('page.home.activity.alertDesc')
@@ -42,7 +42,7 @@ const RecentActivity = () => {
     {
       id: 4,
       title: t('page.home.activity.error'),
-      time: '2023-11-25 18:30',
+      time: '2025-3-25 18:30',
       type: 'error',
       icon: 'mdi:close-circle',
       description: t('page.home.activity.errorDesc')
@@ -110,7 +110,7 @@ const RecentActivity = () => {
                 <AList.Item.Meta
                   title={<div className="text-sm font-medium">{item.title}</div>}
                   avatar={
-                    <div className={`flex h-8 w-8 items-center justify-center rounded-full ${getBgColor(item.type)}`}>
+                    <div className={`h-8 w-8 flex items-center justify-center rounded-full ${getBgColor(item.type)}`}>
                       <Icon
                         className={`text-lg ${getIconColor(item.type)}`}
                         icon={item.icon}

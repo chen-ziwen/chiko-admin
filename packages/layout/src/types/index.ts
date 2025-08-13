@@ -237,7 +237,7 @@ type KebabCase<S extends string> = S extends `${infer Start}${infer End}`
   ? `${Uncapitalize<Start>}${KebabCase<Kebab<End>>}`
   : S;
 
-type Prefix = '--soy-';
+type Prefix = '--cka-';
 
 export type LayoutCssVarsProps = Pick<
   AdminLayoutProps,

@@ -13,16 +13,16 @@ export const LAYOUT_MAX_Z_INDEX = 100;
  */
 function createLayoutCssVarsByCssVarsProps(props: LayoutCssVarsProps) {
   const cssVars: LayoutCssVars = {
-    '--soy-footer-height': `${props.footerHeight}px`,
-    '--soy-footer-z-index': props.footerZIndex,
-    '--soy-header-height': `${props.headerHeight}px`,
-    '--soy-header-z-index': props.headerZIndex,
-    '--soy-mobile-sider-z-index': props.mobileSiderZIndex,
-    '--soy-sider-collapsed-width': `${props.siderCollapsedWidth}px`,
-    '--soy-sider-width': `${props.siderWidth}px`,
-    '--soy-sider-z-index': props.siderZIndex,
-    '--soy-tab-height': `${props.tabHeight}px`,
-    '--soy-tab-z-index': props.tabZIndex
+    '--cka-footer-height': `${props.footerHeight}px`,
+    '--cka-footer-z-index': props.footerZIndex,
+    '--cka-header-height': `${props.headerHeight}px`,
+    '--cka-header-z-index': props.headerZIndex,
+    '--cka-mobile-sider-z-index': props.mobileSiderZIndex,
+    '--cka-sider-collapsed-width': `${props.siderCollapsedWidth}px`,
+    '--cka-sider-width': `${props.siderWidth}px`,
+    '--cka-sider-z-index': props.siderZIndex,
+    '--cka-tab-height': `${props.tabHeight}px`,
+    '--cka-tab-z-index': props.tabZIndex
   };
 
   return cssVars;

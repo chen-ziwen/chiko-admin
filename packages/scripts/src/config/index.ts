@@ -5,7 +5,6 @@ import { loadConfig } from 'c12';
 import type { CliOption } from '../types';
 
 const defaultOptions: CliOption = {
-  changelogOptions: {},
   cleanupDirs: [
     '**/dist',
     '**/package-lock.json',

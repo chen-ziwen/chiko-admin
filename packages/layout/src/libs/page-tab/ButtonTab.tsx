@@ -24,7 +24,7 @@ const ButtonTab = ({
       {...tap}
       style={{ ...style }}
       className={classNames(
-        ':soy: relative inline-flex cursor-pointer items-center justify-center gap-12px whitespace-nowrap border-(1px solid) rounded-4px px-12px py-4px',
+        ':cka: relative inline-flex cursor-pointer items-center justify-center gap-12px whitespace-nowrap border-(1px solid) rounded-4px px-12px py-4px',
         [
           styles['button-tab'],
           { [styles['button-tab_dark']]: darkMode },
