@@ -1,7 +1,5 @@
 import LookForward from '@/components/LookForward';
 
-const ThirdChild = () => {
+export default function Two() {
   return <LookForward />;
-};
-
-export default ThirdChild;
+}

@@ -151,61 +151,57 @@ const page = {
     title: 'Multi-level Menu',
     description: 'This is an example page for multi-level menu',
     menuOne: {
-      title: 'Menu One',
+      title: 'Menu 1',
       description: 'This is the first multi-level menu',
       first: {
-        title: 'First Level Menu',
-        description: 'First level menu page',
-        child: {
-          title: 'Second Level Menu',
-          description: 'Second level menu page',
-          home: {
-            title: 'Second Level Home',
-            description: 'Welcome to the second level home page',
-            content: 'This demonstrates the hierarchical structure of multi-level menus'
-          }
+        title: 'Menu 1-1',
+        description: 'Menu 1-1 page',
+        one: {
+          title: 'Menu 1-2',
+          description: 'Menu 1-2 page'
         }
       }
     },
     menuTwo: {
-      title: 'Menu Two',
+      title: 'Menu 2',
       description: 'This is the second multi-level menu',
       first: {
-        title: 'First Level Menu',
-        description: 'First level menu page',
+        title: 'Menu 2-1',
+        description: 'Menu 2-1 page',
         child: {
-          title: 'Second Level Menu',
-          description: 'Second level menu page',
-          home: {
-            title: 'Second Level Home',
-            description: 'Welcome to the second level home page',
-            content: 'This demonstrates the hierarchical structure of multi-level menus'
-          }
+          title: 'Menu 2-2',
+          description: 'Menu 2-2 page'
         }
       }
     },
     navigation: {
-      backToMenuOne: 'Back to Menu One',
-      backToMenuTwo: 'Back to Menu Two',
+      backToMenuOne: 'Back to Menu 1',
+      backToMenuTwo: 'Back to Menu 2',
       backToRoot: 'Back to Root Menu'
     },
     pageContent: 'Page Content',
     currentPath: 'Current Path',
     menuLevel: 'Menu Level',
-    menuOneToFirst: 'Menu One → First Level Menu → Second Level Menu → Second Level Home',
-    menuTwoToFirst: 'Menu Two → First Level Menu → Second Level Menu',
+    menuOneToFirst: 'Menu 1 → Menu 1-1 → Menu 1-2',
+    menuTwoToFirst: 'Menu 2 → Menu 2-1 → Menu 2-2',
     pageTitles: {
-      menuOneChild: 'Menu One Display Page',
-      menuOneChildDesc: 'This is the display page under the first level menu of Menu One',
-      menuTwoChildHome: 'Menu Two Display Page',
-      menuTwoChildHomeDesc: 'This is the display page under the second level menu of Menu Two'
+      menuOneOne: 'Menu 1-1 Display Page',
+      menuOneOneDesc: 'This is the display page under Menu 1-1 of Menu 1',
+      menuOneTwo: 'Menu 1-2 Display Page',
+      menuOneTwoDesc: 'This is the display page under Menu 1-2 of Menu 1',
+      menuTwoOne: 'Menu 2-1 Display Page',
+      menuTwoOneDesc: 'This is the display page under Menu 2-1 of Menu 2',
+      menuTwoChildHome: 'Menu 2-2 Display Page',
+      menuTwoChildHomeDesc: 'This is the display page under Menu 2-2 of Menu 2'
     },
     menuLevels: {
       multiMenu: 'Multi-level Menu',
-      menuOne: 'Menu One',
-      menuTwo: 'Menu Two',
-      firstLevel: 'First Level Menu',
-      secondLevel: 'Second Level Menu',
+      menuOne: 'Menu 1',
+      menuOneFirst: 'Menu 1-1',
+      menuOneSecond: 'Menu 1-2',
+      menuTwo: 'Menu 2',
+      menuTwoFirst: 'Menu 2-1',
+      menuTwoSecond: 'Menu 2-2',
       home: 'Home'
     },
     features: {
@@ -215,8 +211,8 @@ const page = {
       menuHighlight: 'Menu Highlight',
       routeParams: 'Route Parameters',
       menuStructure: 'Menu Structure Description',
-      menuOneDesc: 'Menu One: Contains first level, second level, etc.',
-      menuTwoDesc: 'Menu Two: Contains first level, second level, etc.'
+      menuOneDesc: 'Menu 1: Contains Menu 1-1, Menu 1-2, etc.',
+      menuTwoDesc: 'Menu 2: Contains Menu 2-1, Menu 2-2, etc.'
     },
     statistics: {
       title: 'Page Statistics',
@@ -239,6 +235,38 @@ const page = {
       environment: 'Environment',
       lastUpdate: 'Last Update'
     }
+  },
+  projectIntro: {
+    title: 'Project Introduction',
+    description: 'Learn more about the ChikoAdmin project',
+    basicInfo: 'Basic Project Information',
+    projectName: 'Project Name',
+    version: 'Version',
+    projectDescription: 'Description',
+    license: 'License',
+    author: 'Author',
+    viewAuthorHomepage: 'View Author Homepage',
+    projectUrl: 'Project URL',
+    issueFeedback: 'Issue Feedback',
+    techStack: 'Tech Stack',
+    keywordTags: 'Keyword Tags',
+    mainDependencies: 'Main Dependencies',
+    devDependencies: 'Development Dependencies',
+    quickActions: 'Quick Actions',
+    viewGitHub: 'View GitHub',
+    issueReport: 'Issue Report',
+    giveStar: 'Give a Star',
+    currentVersion: 'Current Version',
+    dependencyCount: 'Dependency Count',
+    devDependencyCount: 'Dev Dependency Count',
+    keywordCount: 'Keyword Count',
+    loadingFailed: 'Loading Failed',
+    cannotLoadProjectInfo: 'Cannot load project information',
+    totalDependencies: 'Total Dependencies',
+    totalDevDependencies: 'Total Dev Dependencies',
+    projectStats: 'Project Statistics',
+    dependencyInfo: 'Dependency Information',
+    techKeywords: 'Tech Keywords'
   },
   manage: {
     common: {

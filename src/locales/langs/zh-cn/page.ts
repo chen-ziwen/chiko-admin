@@ -151,61 +151,57 @@ const page = {
     title: '多级菜单',
     description: '这是一个多级菜单的示例页面',
     menuOne: {
-      title: '菜单一',
+      title: '菜单 1',
       description: '这是第一个多级菜单',
       first: {
-        title: '一级菜单',
-        description: '一级菜单页面',
-        child: {
-          title: '二级菜单',
-          description: '二级菜单页面',
-          home: {
-            title: '二级菜单首页',
-            description: '欢迎来到二级菜单首页',
-            content: '这展示了多级菜单的层次结构'
-          }
+        title: '菜单 1-1',
+        description: '菜单 1-1页面',
+        one: {
+          title: '菜单 1-2',
+          description: '菜单 1-2页面'
         }
       }
     },
     menuTwo: {
-      title: '菜单二',
+      title: '菜单 2',
       description: '这是第二个多级菜单',
       first: {
-        title: '一级菜单',
-        description: '一级菜单页面',
+        title: '菜单 2-1',
+        description: '菜单 2-1页面',
         child: {
-          title: '二级菜单',
-          description: '二级菜单页面',
-          home: {
-            title: '二级菜单首页',
-            description: '欢迎来到二级菜单首页',
-            content: '这展示了多级菜单的层次结构'
-          }
+          title: '菜单 2-2',
+          description: '菜单 2-2页面'
         }
       }
     },
     navigation: {
-      backToMenuOne: '返回菜单一',
-      backToMenuTwo: '返回菜单二',
+      backToMenuOne: '返回菜单 1',
+      backToMenuTwo: '返回菜单 2',
       backToRoot: '返回根菜单'
     },
     pageContent: '页面内容',
     currentPath: '当前路径',
     menuLevel: '菜单层级',
-    menuOneToFirst: '菜单一 → 一级菜单 → 二级菜单 → 二级菜单首页',
-    menuTwoToFirst: '菜单二 → 一级菜单 → 二级菜单',
+    menuOneToFirst: '菜单 1 → 菜单 1-1 → 菜单 1-2',
+    menuTwoToFirst: '菜单 2 → 菜单 2-1 → 菜单 2-2',
     pageTitles: {
-      menuOneChild: '菜单一展示页面',
-      menuOneChildDesc: '这是菜单一的一级菜单下的展示页面',
-      menuTwoChildHome: '菜单二展示页面',
-      menuTwoChildHomeDesc: '这是菜单二的二级菜单下的展示页面'
+      menuOneOne: '菜单 1-1 展示页面',
+      menuOneOneDesc: '这是菜单 1 的菜单 1-1 下的展示页面',
+      menuOneTwo: '菜单 1-2 展示页面',
+      menuOneTwoDesc: '这是菜单 1 的菜单 1-2 下的展示页面',
+      menuTwoOne: '菜单 2-1 展示页面',
+      menuTwoOneDesc: '这是菜单 2 的菜单 2-1 下的展示页面',
+      menuTwoChildHome: '菜单 2-2 展示页面',
+      menuTwoChildHomeDesc: '这是菜单 2 的菜单 2-2 下的展示页面'
     },
     menuLevels: {
       multiMenu: '多级菜单',
-      menuOne: '菜单一',
-      menuTwo: '菜单二',
-      firstLevel: '一级菜单',
-      secondLevel: '二级菜单',
+      menuOne: '菜单 1',
+      menuOneFirst: '菜单 1-1',
+      menuOneSecond: '菜单 1-2',
+      menuTwo: '菜单 2',
+      menuTwoFirst: '菜单 2-1',
+      menuTwoSecond: '菜单 2-2',
       home: '首页'
     },
     features: {
@@ -215,8 +211,8 @@ const page = {
       menuHighlight: '菜单高亮',
       routeParams: '路由参数',
       menuStructure: '菜单结构说明',
-      menuOneDesc: '菜单一：包含一级、二级等',
-      menuTwoDesc: '菜单二：包含一级、二级等'
+      menuOneDesc: '菜单 1：包含菜单 1-1、菜单 1-2 等',
+      menuTwoDesc: '菜单 2：包含菜单 2-1、菜单 2-2 等'
     },
     statistics: {
       title: '页面统计',
@@ -239,6 +235,38 @@ const page = {
       environment: '运行环境',
       lastUpdate: '最后更新'
     }
+  },
+  projectIntro: {
+    title: '项目介绍',
+    description: '了解 ChikoAdmin 项目的详细信息',
+    basicInfo: '项目基本信息',
+    projectName: '项目名称',
+    version: '版本',
+    projectDescription: '描述',
+    license: '许可证',
+    author: '作者',
+    viewAuthorHomepage: '查看作者主页',
+    projectUrl: '项目地址',
+    issueFeedback: '问题反馈',
+    techStack: '技术栈',
+    keywordTags: '关键词标签',
+    mainDependencies: '主要依赖',
+    devDependencies: '开发依赖',
+    quickActions: '快速操作',
+    viewGitHub: '查看 GitHub',
+    issueReport: '问题反馈',
+    giveStar: '给个 Star',
+    currentVersion: '当前版本',
+    dependencyCount: '依赖包数量',
+    devDependencyCount: '开发依赖数量',
+    keywordCount: '关键词数量',
+    loadingFailed: '加载失败',
+    cannotLoadProjectInfo: '无法加载项目信息',
+    totalDependencies: '总依赖数',
+    totalDevDependencies: '总开发依赖数',
+    projectStats: '项目统计',
+    dependencyInfo: '依赖信息',
+    techKeywords: '技术关键词'
   },
   manage: {
     common: {

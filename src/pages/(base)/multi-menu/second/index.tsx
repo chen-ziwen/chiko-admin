@@ -5,7 +5,7 @@ const Second = () => {
 };
 
 export const loader = () => {
-  return redirect('child');
+  return redirect('one');
 };
 
 export default Second;

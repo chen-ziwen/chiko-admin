@@ -1,7 +1,7 @@
 import { m } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
-const FirstChild = () => {
+const SecondChildHome = () => {
   const { t } = useTranslation();
 
   return (
@@ -25,10 +25,10 @@ const FirstChild = () => {
           <ACard>
             <div className="mb-6">
               <h1 className="mb-2 text-2xl text-primary font-bold">
-                {t('page.multiMenu.pageTitles.menuOneChild')}
+                {t('page.multiMenu.pageTitles.menuTwoChildHome')}
               </h1>
               <p className="text-gray-600 dark:text-gray-400">
-                {t('page.multiMenu.pageTitles.menuOneChildDesc')}
+                {t('page.multiMenu.pageTitles.menuTwoChildHomeDesc')}
               </p>
             </div>
           </ACard>
@@ -47,7 +47,7 @@ const FirstChild = () => {
                   {t('page.multiMenu.currentPath')}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  /multi-menu/first/child
+                  /multi-menu/second/one/home
                 </p>
               </ACard>
             </ACol>
@@ -57,7 +57,7 @@ const FirstChild = () => {
                   {t('page.multiMenu.menuLevel')}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  {t('page.multiMenu.menuLevels.multiMenu')} → {t('page.multiMenu.menuLevels.menuOne')} → {t('page.multiMenu.menuLevels.firstLevel')} → {t('page.multiMenu.menuLevels.secondLevel')}
+                  {t('page.multiMenu.menuLevels.multiMenu')} → {t('page.multiMenu.menuLevels.menuTwo')} → {t('page.multiMenu.menuLevels.menuTwoFirst')} → {t('page.multiMenu.menuLevels.menuTwoSecond')}
                 </p>
               </ACard>
             </ACol>
@@ -66,9 +66,11 @@ const FirstChild = () => {
 
 
 
+
+
       </ASpace>
     </m.div>
   );
 };
 
-export default FirstChild;
+export default SecondChildHome;
