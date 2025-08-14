@@ -1,9 +1,3 @@
-/**
- * @handle {
- *   "icon": "lucide:menu"
- * }
- */
-
 import { redirect } from 'react-router-dom';
 
 const Second = () => {

@@ -1,9 +1,3 @@
-/**
- * @handle {
- *   "icon": "lucide:menu"
- * }
- */
-
 import { m } from 'motion/react';
 import { useTranslation } from 'react-i18next';
 
@@ -79,4 +73,4 @@ const SecondChildHome = () => {
   );
 };
 
-export default SecondChildHome; 
+export default SecondChildHome;

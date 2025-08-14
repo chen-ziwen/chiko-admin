@@ -20,6 +20,8 @@ const route = {
   '(base)_error_403': '403',
   '(base)_error_404': '404',
   '(base)_error_500': '500',
+  '(base)_multi-menu_third': 'Menu Three',
+  '(base)_multi-menu_third_child': 'Menu Three Child',
   '(base)_document': 'Document',
   '(base)_document_react': 'React Document',
   '(base)_document_vite': 'Vite Document',

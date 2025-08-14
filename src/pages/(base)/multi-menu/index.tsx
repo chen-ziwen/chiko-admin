@@ -1,6 +1,5 @@
 /**
  * @handle {
- *   "icon": "lucide:menu",
  *   "order": 4
  * }
  */

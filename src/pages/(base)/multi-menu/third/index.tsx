@@ -1,11 +1,11 @@
 import { redirect } from 'react-router-dom';
 
-const Child = () => {
+const Third = () => {
   return null;
 };
 
 export const loader = () => {
-  return redirect('home');
+  return redirect('child');
 };
 
-export default Child;
+export default Third;

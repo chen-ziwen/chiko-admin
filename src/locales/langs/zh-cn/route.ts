@@ -20,6 +20,8 @@ const route = {
   '(base)_error_403': '403',
   '(base)_error_404': '404',
   '(base)_error_500': '500',
+  '(base)_multi-menu_third': '菜单三',
+  '(base)_multi-menu_third_child': '菜单三子菜单',
   '(base)_document': '文档',
   '(base)_document_react': 'React 文档',
   '(base)_document_vite': 'Vite 文档',
