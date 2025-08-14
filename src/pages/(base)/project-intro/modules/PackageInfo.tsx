@@ -1,25 +1,25 @@
 import { useTranslation } from 'react-i18next';
 
+interface Author {
+  name: string;
+  email: string;
+  url: string;
+}
+
+interface PackageInfo {
+  name: string;
+  version: string;
+  description: string;
+  author: Author;
+  license: string;
+  homepage: string;
+  repository: { url: string };
+  bugs: { url: string };
+  keywords: string[];
+}
+
 interface PackageInfoProps {
-  packageInfo: {
-    name: string;
-    version: string;
-    description: string;
-    author: {
-      name: string;
-      email: string;
-      url: string;
-    };
-    license: string;
-    homepage: string;
-    repository: {
-      url: string;
-    };
-    bugs: {
-      url: string;
-    };
-    keywords: string[];
-  };
+  packageInfo: PackageInfo;
 }
 
 const PackageInfo = ({ packageInfo }: PackageInfoProps) => {

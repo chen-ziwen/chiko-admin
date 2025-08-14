@@ -1,9 +1,6 @@
 const route = {
   root: '首页',
   '(base)_home': '首页',
-  '(base)_personal': '个人中心',
-  '(base)_personal_center': '个人中心',
-  '(base)_personal_settings': '个人设置',
   '(base)_system': '系统管理',
   '(base)_system_permission': '权限管理',
   '(base)_system_role': '角色管理',

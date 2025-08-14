@@ -16,7 +16,6 @@ const FirstChild = () => {
         direction="vertical"
         size={24}
       >
-        {/* 页面标题区域 */}
         <m.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +33,6 @@ const FirstChild = () => {
           </ACard>
         </m.div>
 
-        {/* 路由信息展示 */}
         <m.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}

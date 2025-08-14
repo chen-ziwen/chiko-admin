@@ -11,7 +11,6 @@ const QuickActions = ({ homepage, bugsUrl, keywords }: QuickActionsProps) => {
 
   return (
     <div className="space-y-4">
-      {/* 技术栈 */}
       <ACard title={t('page.projectIntro.techStack')} className="card-wrapper">
         <div className="space-y-4">
           <div>
@@ -29,7 +28,6 @@ const QuickActions = ({ homepage, bugsUrl, keywords }: QuickActionsProps) => {
         </div>
       </ACard>
 
-      {/* 快速操作 */}
       <ACard title={t('page.projectIntro.quickActions')} className="card-wrapper">
         <div className="flex flex-col gap-3">
           <AButton

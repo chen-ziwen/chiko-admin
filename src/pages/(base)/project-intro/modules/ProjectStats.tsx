@@ -1,13 +1,27 @@
 import { useTranslation } from 'react-i18next';
 
+interface Author {
+  name: string;
+  email: string;
+  url: string;
+}
+
+interface PackageInfo {
+  name: string;
+  version: string;
+  description: string;
+  author: Author;
+  license: string;
+  homepage: string;
+  repository: { url: string };
+  bugs: { url: string };
+  keywords: string[];
+  dependencies: Record<string, string>;
+  devDependencies: Record<string, string>;
+}
+
 interface ProjectStatsProps {
-  packageInfo: {
-    name: string;
-    version: string;
-    dependencies: Record<string, string>;
-    devDependencies: Record<string, string>;
-    keywords: string[];
-  };
+  packageInfo: PackageInfo;
 }
 
 const ProjectStats = ({ packageInfo }: ProjectStatsProps) => {

@@ -1,9 +1,6 @@
 const route = {
   root: 'Home',
   '(base)_home': 'Home',
-  '(base)_personal': 'Personal',
-  '(base)_personal_center': 'User Center',
-  '(base)_personal_settings': 'Personal Settings',
   '(base)_system': 'System',
   '(base)_system_permission': 'Permission Management',
   '(base)_system_role': 'Role Management',

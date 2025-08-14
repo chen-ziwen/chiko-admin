@@ -16,7 +16,6 @@ const SecondChildHome = () => {
         direction="vertical"
         size={24}
       >
-        {/* 页面标题区域 */}
         <m.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -33,8 +32,6 @@ const SecondChildHome = () => {
             </div>
           </ACard>
         </m.div>
-
-        {/* 路由信息展示 */}
         <m.div
           animate={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 20 }}
@@ -63,11 +60,6 @@ const SecondChildHome = () => {
             </ACol>
           </ARow>
         </m.div>
-
-
-
-
-
       </ASpace>
     </m.div>
   );
