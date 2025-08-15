@@ -3,11 +3,15 @@
 	<h1>ChikoAdmin</h1>
 </div>
 
+<div align="center">
+
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-10.13.1-orange.svg)](https://pnpm.io/)
 [![node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![react](https://img.shields.io/badge/react-19.1.1-blue.svg)](https://react.dev/)
 [![typescript](https://img.shields.io/badge/typescript-5.7.3-blue.svg)](https://www.typescriptlang.org/)
+
+</div>
 
 > [!IMPORTANT]
 > 如果 `ChikoAdmin` 对您有帮助，请给我一个 ⭐️ 支持！您的支持是我持续改进的动力！
@@ -69,7 +73,7 @@ pnpm install
 
 ```
 chiko-admin/
-├── packages/                 # Monorepo 包
+├── packages/                # Monorepo 包
 │   ├── axios/               # HTTP 请求封装
 │   ├── color/               # 颜色工具库
 │   ├── docs/                # 项目文档
