@@ -1,4 +1,4 @@
-# Chiko Admin 文档
+# ChikoAdmin 文档
 
 基于 [Docusaurus](https://docusaurus.io/) 构建的 ChikoAdmin 项目文档网站。
 

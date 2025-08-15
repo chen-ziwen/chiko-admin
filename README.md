@@ -37,7 +37,7 @@
 
 ## 示例图片
 
-目前项目完工，后续会补充上！
+目前项目尚未完工，完成后会补充上！
 
 ## 快速开始
 
@@ -121,13 +121,35 @@ chiko-admin/
 
 项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范。
 
+#### 提交示例
+
+```bash
+feat: 添加用户登录功能
+fix(auth): 修复登录验证失败的问题
+docs: 更新 README 文档
+style: 格式化代码风格
+refactor(utils): 重构工具函数
+perf: 优化页面加载性能
+build: 更新构建配置
+ci: 配置 GitHub Actions
+chore: 更新依赖包版本
+```
+
+#### 提交命令
+
+项目已内置 `cz` 命令，您可以通过执行以下命令来生成符合规范的提交信息：
+
+```bash
+pnpm cz
+```
+
 ## 联系方式
 
 QQ: 2452559902
 
 ## 致谢
 
-- 感谢 **Soybean** 团队多年来的不断维护，让 ChikoAdmin 能够站在巨人的肩膀上。
+- 感谢 `Soybean` 团队多年来的不断维护，让 `ChikoAdmin` 能够站在巨人的肩膀上。
 - 感谢所有为这个项目做出贡献的开发者！
 
 ## 许可证
