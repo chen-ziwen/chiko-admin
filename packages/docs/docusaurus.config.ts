@@ -1,36 +1,23 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-// This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
   title: 'ChikoAdmin',
-  tagline: '基于 React19 的现代化中后台管理模板',
-  favicon: 'img/favicon.ico',
-
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true // Improve compatibility with the upcoming Docusaurus v4
-  },
+  tagline: '基于 React19 的现代化中后台管理模板文档',
+  favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
-  url: 'https://chiko-admin.vercel.app',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
+  url: 'https://admin-docs.chiko.store',
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'chen-ziwen', // Usually your GitHub org/user name.
-  projectName: 'chiko-admin', // Usually your repo name.
+  organizationName: 'chen-ziwen',
+  projectName: 'chiko-admin',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans']
@@ -42,8 +29,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: 'https://github.com/chen-ziwen/chiko-admin/tree/main/packages/docs/'
         },
         blog: false,
@@ -111,10 +96,6 @@ const config: Config = {
             {
               label: 'Issues',
               href: 'https://github.com/chen-ziwen/chiko-admin/issues'
-            },
-            {
-              label: 'Discussions',
-              href: 'https://github.com/chen-ziwen/chiko-admin/discussions'
             }
           ]
         }
@@ -123,9 +104,41 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'json', 'typescript', 'javascript', 'jsx', 'tsx']
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true
+      }
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 4
     }
-  } satisfies Preset.ThemeConfig
+  } satisfies Preset.ThemeConfig,
+
+  // 添加粒子效果脚本
+  scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js',
+      async: true
+    }
+  ],
+
+  // 添加现代化字体
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
+      type: 'text/css'
+    }
+  ]
 };
 
 export default config;
