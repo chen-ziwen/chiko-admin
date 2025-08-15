@@ -3,8 +3,6 @@
 	<h1>ChikoAdmin</h1>
 </div>
 
----
-
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-10.13.1-orange.svg)](https://pnpm.io/)
 [![node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
@@ -16,7 +14,7 @@
 
 ## 项目介绍
 
-ChikoAdmin 是一个现代化的中后台管理系统模板，采用最新的技术栈和最佳实践构建。项目使用 Monorepo 架构，提供了完整的开发工具链和丰富的功能组件。采用 MSW (Mock Service Worker) 提供强大的 Mock 数据方案。
+`ChikoAdmin` 是一个现代化的中后台管理系统模板，采用最新的技术栈和最佳实践构建。项目使用 Monorepo 架构，提供了完整的开发工具链和丰富的功能组件。采用 MSW (Mock Service Worker) 提供强大的 Mock 数据方案。
 
 ### 主要特性
 
@@ -57,7 +55,7 @@ git clone git@github.com:chen-ziwen/chiko-admin.git
 ### 安装依赖
 
 > [!WARNING]
-> 项目采用 pnpm monorepo 管理方式，请勿使用其他包管理工具
+> 项目采用 pnpm monorepo 管理方式，请勿使用其他包管理工具！
 
 ```bash
 # 安装 pnpm (如果未安装)
@@ -85,7 +83,6 @@ chiko-admin/
 │   ├── assets/              # 资源文件
 │   ├── components/          # 公共组件
 │   ├── constants/           # 常量定义
-│   ├── context/             # React Context
 │   ├── features/            # 功能模块
 │   │   ├── animate/         # 动画相关
 │   │   ├── antd/            # Ant Design 配置
