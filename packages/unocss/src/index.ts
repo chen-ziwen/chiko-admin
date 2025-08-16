@@ -1,5 +1,3 @@
-// @unocss-include
-
 import type { Preset } from '@unocss/core';
 import type { Theme } from '@unocss/preset-uno';
 

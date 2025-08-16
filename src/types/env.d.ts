@@ -20,6 +20,7 @@ declare namespace Env {
     readonly VITE_ROUTE_HOME: string;
     readonly VITE_ROUTER_HISTORY_MODE?: RouterHistoryMode;
     readonly VITE_SERVICE_BASE_URL: string;
+    readonly VITE_OTHER_SERVICE_BASE_URL: string;
     readonly VITE_SERVICE_EXPIRED_TOKEN_CODES: string;
     readonly VITE_SERVICE_LOGOUT_CODES: string;
     readonly VITE_SERVICE_MODAL_LOGOUT_CODES: string;
@@ -27,5 +28,8 @@ declare namespace Env {
     readonly VITE_SOURCE_MAP?: CommonType.YesOrNo;
     readonly VITE_STATIC_SUPER_ROLE: string;
     readonly VITE_STORAGE_PREFIX?: string;
+    readonly VITE_MOCK_MODE?: 'msw' | 'real';
+    readonly VITE_HTTP_PROXY?: 'Y' | 'N';
+    readonly VITE_PROXY_LOG?: 'Y' | 'N';
   }
 }
