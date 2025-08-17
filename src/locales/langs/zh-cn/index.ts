@@ -3,6 +3,7 @@ import form from './form';
 import page from './page';
 import route from './route';
 import theme from './theme';
+import request from './request';
 
 const local = {
   common,
@@ -30,14 +31,7 @@ const local = {
     unpin: '取消固定'
   },
   page,
-  request: {
-    logout: '请求失败后登出用户',
-    logoutMsg: '用户状态失效，请重新登录',
-    logoutWithModal: '请求失败后弹出模态框再登出用户',
-    logoutWithModalMsg: '用户状态失效，请重新登录',
-    refreshToken: '请求的token已过期，刷新token',
-    tokenExpired: 'token已过期'
-  },
+  request,
   route,
   system: {
     errorReason: '错误原因',

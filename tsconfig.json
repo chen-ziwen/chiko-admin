@@ -9,7 +9,7 @@
     "useDefineForClassFields": true,
     "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "paths": {
       "@/*": [
         "./src/*"
@@ -22,8 +22,7 @@
     "types": [
       "vite/client",
       "node",
-      "react",
-      "react-dom",
+      "vite-plugin-svg-icons/client",
       "unplugin-icons/types/react",
       "@unocss/vite/client",
       "@better-pages-create/react-router/client-react"
@@ -37,7 +36,6 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "skipLibCheck": true
   },
   "include": [
     "./**/*.ts",

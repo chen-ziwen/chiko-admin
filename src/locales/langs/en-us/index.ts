@@ -1,9 +1,9 @@
 ﻿import common from './common';
 import form from './form';
 import page from './page';
-import request from './request';
 import route from './route';
 import theme from './theme';
+import request from './request';
 
 const local = {
   common,
