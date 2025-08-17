@@ -1,4 +1,4 @@
-import common from './common';
+﻿import common from './common';
 import form from './form';
 import page from './page';
 import route from './route';

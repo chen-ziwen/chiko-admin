@@ -4,10 +4,9 @@
  * }
  */
 
-import { Button, Form, Input, Space } from 'antd';
-
 import { SubmitEnterButton, useFormRules } from '@/features/form';
 import { useRouter } from '@/features/router';
+import { Form } from 'antd';
 
 interface FormModel {
   code: string;
@@ -34,41 +33,41 @@ const ResetPwd = () => {
   return (
     <>
       <h3 className="text-18px text-primary font-medium">{t('page.login.register.title')}</h3>
-      <Form
+      <AForm
         className="pt-24px"
         form={form}
       >
-        <Form.Item
+        <AForm.Item
           name="phone"
           rules={formRules.phone}
         >
-          <Input placeholder={t('page.login.common.phonePlaceholder')} />
-        </Form.Item>
-        <Form.Item
+          <AInput placeholder={t('page.login.common.phonePlaceholder')} />
+        </AForm.Item>
+        <AForm.Item
           name="code"
           rules={formRules.code}
         >
-          <Input placeholder={t('page.login.common.codePlaceholder')} />
-        </Form.Item>
-        <Form.Item
+          <AInput placeholder={t('page.login.common.codePlaceholder')} />
+        </AForm.Item>
+        <AForm.Item
           name="password"
           rules={formRules.pwd}
         >
-          <Input.Password
+          <AInput.Password
             autoComplete="password"
             placeholder={t('page.login.common.passwordPlaceholder')}
           />
-        </Form.Item>
-        <Form.Item
+        </AForm.Item>
+        <AForm.Item
           name="confirmPassword"
           rules={createConfirmPwdRule(form)}
         >
-          <Input.Password
+          <AInput.Password
             autoComplete="confirm-password"
             placeholder={t('page.login.common.confirmPasswordPlaceholder')}
           />
-        </Form.Item>
-        <Space
+        </AForm.Item>
+        <ASpace
           className="w-full"
           direction="vertical"
           size={18}
@@ -83,16 +82,16 @@ const ResetPwd = () => {
             {t('common.confirm')}
           </SubmitEnterButton>
 
-          <Button
+          <AButton
             block
             shape="round"
             size="large"
             onClick={navigateUp}
           >
             {t('page.login.common.back')}
-          </Button>
-        </Space>
-      </Form>
+          </AButton>
+        </ASpace>
+      </AForm>
     </>
   );
 };

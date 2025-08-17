@@ -1,4 +1,4 @@
-const theme = {
+﻿const theme = {
   colourWeakness: 'Colour Weakness',
   configOperation: {
     copyConfig: 'Copy Config',

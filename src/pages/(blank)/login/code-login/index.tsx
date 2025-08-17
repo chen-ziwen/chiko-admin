@@ -4,10 +4,9 @@
  * }
  */
 
-import { Button, Form, Input, Space } from 'antd';
-
 import { SubmitEnterButton, useFormRules } from '@/features/form';
 import { useRouter } from '@/features/router';
+import { Form } from 'antd';
 
 const CodeLogin = () => {
   const [form] = Form.useForm();
@@ -26,44 +25,44 @@ const CodeLogin = () => {
   }
 
   function sendCaptcha() {
-    getCaptcha('17260711111');
+    getCaptcha('18159300000');
   }
 
   return (
     <>
       <h3 className="text-18px text-primary font-medium">{t('page.login.codeLogin.title')}</h3>
-      <Form
+      <AForm
         className="pt-24px"
         form={form}
         onFinish={handleSubmit}
       >
-        <Form.Item
+        <AForm.Item
           name="phone"
           rules={formRules.phone}
         >
-          <Input placeholder={t('page.login.common.phonePlaceholder')} />
-        </Form.Item>
+          <AInput placeholder={t('page.login.common.phonePlaceholder')} />
+        </AForm.Item>
 
-        <Form.Item
+        <AForm.Item
           name="code"
           rules={formRules.code}
         >
           <div className="w-full flex-y-center gap-16px">
-            <Input
+            <AInput
               placeholder={t('page.login.common.codePlaceholder')}
               v-model:value="model.code"
             />
-            <Button
+            <AButton
               disabled={isCounting}
               loading={loading}
               size="large"
               onClick={sendCaptcha}
             >
               {label}
-            </Button>
+            </AButton>
           </div>
-        </Form.Item>
-        <Space
+        </AForm.Item>
+        <ASpace
           className="w-full"
           direction="vertical"
           size={18}
@@ -78,16 +77,16 @@ const CodeLogin = () => {
             {t('common.confirm')}
           </SubmitEnterButton>
 
-          <Button
+          <AButton
             block
             shape="round"
             size="large"
             onClick={navigateUp}
           >
             {t('page.login.common.back')}
-          </Button>
-        </Space>
-      </Form>
+          </AButton>
+        </ASpace>
+      </AForm>
     </>
   );
 };

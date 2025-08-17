@@ -1,4 +1,4 @@
-const route = {
+﻿const route = {
   root: '首页',
   '(base)_home': '首页',
   '(base)_system': '系统管理',
@@ -26,6 +26,8 @@ const route = {
   '(base)_document_router-link': '路由文档 (外链)',
   '(base)_user-center': '个人中心',
   '(base)_project-intro': '项目介绍',
+  '(base)_function': '功能',
+  '(base)_mock': 'Mock',
   '(blank)_login': '登录',
   '(blank)_login_code-login': '验证码登录',
   '(blank)_login_register': ' 注册账号',

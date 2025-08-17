@@ -1,4 +1,4 @@
-const route = {
+﻿const route = {
   root: 'Home',
   '(base)_home': 'Home',
   '(base)_system': 'System',
@@ -26,6 +26,8 @@ const route = {
   '(base)_document_router-link': 'Router Document (external link)',
   '(base)_user-center': 'User Center',
   '(base)_project-intro': 'Project Introduction',
+  '(base)_function': 'Function',
+  '(base)_mock': 'Mock',
   '(blank)_login': 'Login',
   '(blank)_login_code-login': 'Code Login',
   '(blank)_login_register': 'Register Account',

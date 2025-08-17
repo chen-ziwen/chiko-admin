@@ -1,4 +1,17 @@
 import type { RouteObject } from 'react-router-dom';
+import type { TFunction } from 'i18next';
+
+type FlatRoute = {
+  name?: string;
+  path: string;
+};
+
+// 返回仅保留想要的字段
+interface SimpleRoute {
+  children?: SimpleRoute[];
+  key: string;
+  title?: string;
+}
 
 /**
  * 判断是否是路由组
@@ -67,6 +80,7 @@ export function filterRoutes(
     return acc;
   }, [] as RouteObject[]);
 }
+
 /**
  * 过滤缓存路由
  * @param routes - 当前路由数组
@@ -173,6 +187,89 @@ export function filterAuthRoutesByDynamic(routes: Router.AuthRoute[], hasRoutes:
       route: filteredRoute
     };
   }).filter(item => item.route.length >= 1);
+}
+
+/**
+ * 将多级路由递归拍平成一个数组
+ * @param routes 原始路由数组
+ * @param parentPath 父级拼接后的 path，初始可传空字符串或 '/'
+ * @returns 拍平后的一维路由数组
+ */
+export function flattenLeafRoutes(routes: RouteObject[]) {
+  const flat: { name?: string; path: string }[] = [];
+
+  for (const route of routes) {
+    if (route.children && route.children.length > 0) {
+      const childLeafs = flattenLeafRoutes(route.children);
+      flat.push(...childLeafs);
+    } else {
+      if (route.path) {
+        const isHasIndex = Boolean(route.children?.[0]?.index);
+
+        if (isHasIndex || !route.children || route.children?.length < 1) {
+          flat.push({
+            name: route.id,
+            path: route.path
+          });
+        }
+      }
+    }
+  }
+
+  return flat;
+}
+
+
+/**
+ * 过滤并扁平化路由
+ * @param routes - 路由
+ * @param t - 翻译函数
+ * @returns 返回扁平化后的路由数组
+ */
+export function filterAndFlattenRoutes(routes: RouteObject[], t: TFunction): SimpleRoute[] {
+  const result: SimpleRoute[] = [];
+
+  for (const route of routes) {
+    if (
+      route.handle?.constant ||
+      route?.index ||
+      (route.children && route.children[0] && route.children[0].index && route.children[0].handle?.constant)
+    ) {
+      continue;
+    }
+
+    if (isGroup(route.id)) {
+      if (route.children && route.children.length > 0) {
+        const flattenedChildren = filterAndFlattenRoutes(route.children, t);
+        result.push(...flattenedChildren);
+      }
+    } else {
+      const newRoute: SimpleRoute = {
+        key: route.path || '',
+        title: t(`route.${route.id}`)
+      };
+      if (route.children && route.children.length > 0) {
+        newRoute.children = filterAndFlattenRoutes(route.children, t);
+      }
+
+      result.push(newRoute);
+    }
+  }
+
+  return result;
+}
+
+/**
+ * 获取基础路由
+ * @param routes - 路由
+ * @param t - 翻译函数
+ * @returns 返回基础路由数组
+ */
+export function getFlatBaseRoutes(routes: FlatRoute[], t: TFunction) {
+  return routes.map(({ name, path }) => ({
+    label: t(`route.${name}`),
+    value: path
+  }));
 }
 
 

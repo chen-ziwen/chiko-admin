@@ -1,99 +1,196 @@
 /**
  * @handle {
- *   "icon": "material-symbols-light:admin-panel-settings",
- *   "keepAlive": true
+ *   "roles": ["R_SUPER"]
  * }
  */
 
-import React from 'react';
+import { Suspense } from 'react';
 
-const RoleManagement: React.FC = () => {
-  const columns = [
-    {
-      title: '角色名称',
-      dataIndex: 'name',
-      key: 'name'
-    },
-    {
-      title: '角色标识',
-      dataIndex: 'code',
-      key: 'code'
-    },
-    {
-      title: '描述',
-      dataIndex: 'description',
-      key: 'description'
-    },
-    {
-      title: '状态',
-      dataIndex: 'status',
-      key: 'status',
-      render: (status: string) => <ATag color={status === '启用' ? 'green' : 'red'}>{status}</ATag>
-    },
-    {
-      title: '创建时间',
-      dataIndex: 'createTime',
-      key: 'createTime'
-    },
-    {
-      title: '操作',
-      key: 'action',
-      render: () => (
-        <ASpace size="middle">
-          <AButton type="link">编辑</AButton>
-          <AButton type="link">权限设置</AButton>
-          <AButton
-            danger
-            type="link"
-          >
-            删除
-          </AButton>
-        </ASpace>
-      )
-    }
-  ];
+import { enableStatusRecord } from '@/constants/business';
+import { ATG_MAP } from '@/constants/common';
+import { TableHeaderOperation, useTable, useTableOperate, useTableScroll } from '@/features/table';
+import { fetchGetRoleList } from '@/services/api';
 
-  const data = [
-    {
-      key: '1',
-      name: '超级管理员',
-      code: 'SUPER_ADMIN',
-      description: '系统最高权限角色',
-      status: '启用',
-      createTime: '2025-03-20 10:00:00'
+import RoleSearch from './modules/RoleSearch';
+
+const RoleOperateDrawer = lazy(() => import('./modules/RoleOperateDrawer'));
+
+const Role = () => {
+  const { t } = useTranslation();
+
+  const isMobile = useMobile();
+
+  const nav = useNavigate();
+
+  const { scrollConfig, tableWrapperRef } = useTableScroll();
+
+  const { columnChecks, data, run, searchProps, setColumnChecks, tableProps } = useTable({
+    apiFn: fetchGetRoleList,
+    apiParams: {
+      current: 1,
+      roleCode: undefined,
+      roleName: undefined,
+      size: 10,
+      status: undefined
     },
-    {
-      key: '2',
-      name: '普通用户',
-      code: 'NORMAL_USER',
-      description: '普通用户角色',
-      status: '启用',
-      createTime: '2025-03-20 10:00:00'
-    },
-    {
-      key: '3',
-      name: '访客',
-      code: 'VISITOR',
-      description: '访客角色',
-      status: '禁用',
-      createTime: '2025-03-20 10:00:00'
+    columns: () => [
+      {
+        align: 'center',
+        dataIndex: 'index',
+        key: 'index',
+        title: t('common.index'),
+        width: 64
+      },
+      {
+        align: 'center',
+        dataIndex: 'roleName',
+        key: 'roleName',
+        minWidth: 120,
+        title: t('page.system.role.roleName')
+      },
+      {
+        align: 'center',
+        dataIndex: 'roleCode',
+        key: 'roleCode',
+        minWidth: 120,
+        title: t('page.system.role.roleCode')
+      },
+      {
+        dataIndex: 'roleDesc',
+        key: 'roleDesc',
+        minWidth: 120,
+        title: t('page.system.role.roleDesc')
+      },
+      {
+        align: 'center',
+        dataIndex: 'status',
+        key: 'status',
+        render: (_, record) => {
+          if (record.status === null) {
+            return null;
+          }
+          const label = t(enableStatusRecord[record.status]);
+          return <ATag color={ATG_MAP[record.status]}>{label}</ATag>;
+        },
+        title: t('page.system.role.roleStatus'),
+        width: 100
+      },
+      {
+        align: 'center',
+        key: 'operate',
+        render: (_, record) => (
+          <div className="flex-center gap-8px">
+            <AButton
+              ghost
+              size="small"
+              type="primary"
+              onClick={() => edit(record.id)}
+            >
+              {t('common.edit')}
+            </AButton>
+            <AButton
+              size="small"
+              onClick={() => nav(`/system/role/${record.id}/${record.roleName}/${record.status}`)}
+            >
+              详情
+            </AButton>
+            <APopconfirm
+              title={t('common.confirmDelete')}
+              onConfirm={() => handleDelete(record.id)}
+            >
+              <AButton
+                danger
+                size="small"
+              >
+                {t('common.delete')}
+              </AButton>
+            </APopconfirm>
+          </div>
+        ),
+        title: t('common.operate'),
+        width: 195
+      }
+    ]
+  });
+
+  const {
+    checkedRowKeys,
+    editingData,
+    generalPopupOperation,
+    handleAdd,
+    handleEdit,
+    onBatchDeleted,
+    onDeleted,
+    rowSelection
+  } = useTableOperate(data, run, async (res, type) => {
+    if (type === 'add') {
+      console.log(res);
+    } else {
+      console.log(res);
     }
-  ];
+  });
+
+  async function handleBatchDelete() {
+    console.log(checkedRowKeys);
+    onBatchDeleted();
+  }
+
+  function handleDelete(id: number) {
+    console.log(id);
+    onDeleted();
+  }
+
+  function edit(id: number) {
+    handleEdit(id);
+  }
 
   return (
-    <ACard>
-      <div style={{ marginBottom: 16 }}>
-        <ASpace>
-          <AButton type="primary">新增角色</AButton>
-          <AButton>批量删除</AButton>
-        </ASpace>
-      </div>
-      <ATable
-        columns={columns}
-        dataSource={data}
+    <div className="h-full min-h-500px flex-col-stretch gap-16px overflow-hidden lt-sm:overflow-auto">
+      <ACollapse
+        bordered={false}
+        className="card-wrapper"
+        defaultActiveKey={isMobile ? undefined : '1'}
+        items={[
+          {
+            children: <RoleSearch {...searchProps} />,
+            key: '1',
+            label: t('common.search')
+          }
+        ]}
       />
-    </ACard>
+      <ACard
+        className="flex-col-stretch card-wrapper sm:flex-1-hidden"
+        ref={tableWrapperRef}
+        title={t('page.system.role.title')}
+        variant="borderless"
+        extra={
+          <TableHeaderOperation
+            add={handleAdd}
+            columns={columnChecks}
+            disabledDelete={checkedRowKeys.length === 0}
+            loading={tableProps.loading}
+            refresh={run}
+            setColumnChecks={setColumnChecks}
+            onDelete={handleBatchDelete}
+          />
+        }
+      >
+        <ATable
+          rowSelection={rowSelection}
+          scroll={scrollConfig}
+          size="small"
+          {...tableProps}
+        />
+
+        <Suspense>
+          <RoleOperateDrawer
+            {...generalPopupOperation}
+            rowId={editingData?.id || -1}
+          />
+        </Suspense>
+      </ACard>
+    </div>
   );
 };
 
-export default RoleManagement;
+export default Role;

@@ -24,3 +24,6 @@ tsconfig.tsbuildinfo
 *.sln
 *.sw?
 .vercel
+
+# AI
+.clinerules

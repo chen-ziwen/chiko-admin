@@ -4,10 +4,9 @@
  * }
  */
 
-import { Button, Form, Input, Space } from 'antd';
-
 import { SubmitEnterButton, useFormRules } from '@/features/form';
 import { useRouter } from '@/features/router';
+import { Form } from 'antd';
 
 interface FormModel {
   code: string;
@@ -29,56 +28,55 @@ const Register = () => {
 
   async function handleSubmit() {
     await form.validateFields();
-    // request to reset password
     window.$message?.success(t('page.login.common.validateSuccess'));
   }
 
   function sendCaptcha() {
-    getCaptcha('17260711111');
+    getCaptcha('18159300000');
   }
 
   return (
     <>
       <h3 className="text-18px text-primary font-medium">{t('page.login.register.title')}</h3>
-      <Form
+      <AForm
         className="pt-24px"
         form={form}
       >
-        <Form.Item
+        <AForm.Item
           name="phone"
           rules={formRules.phone}
         >
-          <Input placeholder={t('page.login.common.phonePlaceholder')} />
-        </Form.Item>
-        <Form.Item
+          <AInput placeholder={t('page.login.common.phonePlaceholder')} />
+        </AForm.Item>
+        <AForm.Item
           name="code"
           rules={formRules.code}
         >
           <div className="w-full flex-y-center gap-16px">
-            <Input placeholder={t('page.login.common.codePlaceholder')} />
-            <Button
+            <AInput placeholder={t('page.login.common.codePlaceholder')} />
+            <AButton
               disabled={isCounting}
               loading={loading}
               size="large"
               onClick={sendCaptcha}
             >
               {label}
-            </Button>
+            </AButton>
           </div>
-        </Form.Item>
-        <Form.Item
+        </AForm.Item>
+        <AForm.Item
           name="password"
           rules={formRules.pwd}
         >
-          <Input placeholder={t('page.login.common.passwordPlaceholder')} />
-        </Form.Item>
-        <Form.Item
+          <AInput placeholder={t('page.login.common.passwordPlaceholder')} />
+        </AForm.Item>
+        <AForm.Item
           name="confirmPassword"
           rules={createConfirmPwdRule(form)}
         >
-          <Input placeholder={t('page.login.common.confirmPasswordPlaceholder')} />
-        </Form.Item>
-        <Space
+          <AInput placeholder={t('page.login.common.confirmPasswordPlaceholder')} />
+        </AForm.Item>
+        <ASpace
           className="w-full"
           direction="vertical"
           size={18}
@@ -93,16 +91,16 @@ const Register = () => {
             {t('common.confirm')}
           </SubmitEnterButton>
 
-          <Button
+          <AButton
             block
             shape="round"
             size="large"
             onClick={navigateUp}
           >
             {t('page.login.common.back')}
-          </Button>
-        </Space>
-      </Form>
+          </AButton>
+        </ASpace>
+      </AForm>
     </>
   );
 };

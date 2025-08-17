@@ -1,4 +1,4 @@
-const common = {
+﻿const common = {
   action: '操作',
   add: '新增',
   addSuccess: '添加成功',

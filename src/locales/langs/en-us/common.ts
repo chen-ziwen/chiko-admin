@@ -1,4 +1,4 @@
-const common = {
+﻿const common = {
   action: 'Action',
   add: 'Add',
   addSuccess: 'Add Success',

@@ -38,10 +38,11 @@
   "i18n-ally.localesPaths": [
     "src/locales/langs"
   ],
+  "i18n-ally.sourceLanguage": "zh-cn",
+  "i18n-ally.namespace": true,
   "prettier.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "unocss.root": [
     "./"
-  ],
-  "i18n-ally.sourceLanguage": "zh-cn"
+  ]
 }

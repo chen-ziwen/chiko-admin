@@ -1,7 +1,7 @@
 /**
  * @handle {
  *  "icon": "lucide:folder-open-dot",
- *  "order": 3
+ *  "order": 2
  * }
  */
 

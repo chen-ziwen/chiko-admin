@@ -1,4 +1,4 @@
-const theme = {
+﻿const theme = {
   colourWeakness: '色弱模式',
   configOperation: {
     copyConfig: '复制配置',

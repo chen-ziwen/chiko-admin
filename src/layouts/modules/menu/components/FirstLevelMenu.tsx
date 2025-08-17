@@ -15,10 +15,8 @@ interface Props {
 }
 
 interface MixMenuItemProps {
-  /** Active menu item */
   active: boolean;
   inverted?: boolean;
-  /** Menu item label */
   menu: App.Global.Menu;
   onClick?: () => void;
   setActiveFirstLevelMenuKey: (key: string) => void;

@@ -7,12 +7,12 @@
 
 import { replace } from 'react-router-dom';
 
-const System = () => {
+const Manage = () => {
   return null;
 };
 
 export const loader = () => {
-  return replace('permission');
+  return replace('user');
 };
 
-export default System;
+export default Manage;

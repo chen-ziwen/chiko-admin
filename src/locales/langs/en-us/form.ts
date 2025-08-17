@@ -1,4 +1,4 @@
-const form = {
+﻿const form = {
   code: {
     invalid: 'Verification code format is incorrect',
     required: 'Please enter verification code'

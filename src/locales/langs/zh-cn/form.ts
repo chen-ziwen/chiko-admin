@@ -1,4 +1,4 @@
-const form = {
+﻿const form = {
   code: {
     invalid: '验证码格式不正确',
     required: '请输入验证码'
