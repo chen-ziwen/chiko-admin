@@ -118,25 +118,11 @@ chiko-admin/
 
 ## 贡献指南
 
-欢迎提交 Issue 和 Pull Request！
+我们热烈欢迎并感谢所有形式的贡献。如果您有任何想法或建议，欢迎通过提交 [pull requests](https://github.com/chen-ziwen/chiko-admin/pulls) 或创建 GitHub [issue](https://github.com/chen-ziwen/chiko-admin/issues/new) 来分享。
 
 ### 提交规范
 
 项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范。
-
-#### 提交示例
-
-```bash
-feat: 添加用户登录功能
-fix(auth): 修复登录验证失败的问题
-docs: 更新 README 文档
-style: 格式化代码风格
-refactor(utils): 重构工具函数
-perf: 优化页面加载性能
-build: 更新构建配置
-ci: 配置 GitHub Actions
-chore: 更新依赖包版本
-```
 
 #### 提交命令
 

@@ -14,19 +14,19 @@ import pkg from '~/package.json';
 
 const ProjectIntro = () => {
   return (
-    <div className="w-full pb-24px">
+    <div className="w-full pb-6">
       <ASpace
         className="w-full"
         direction="vertical"
-        size={24}
+        size="middle"
       >
         <ProjectStats packageInfo={pkg} />
 
-        <ARow gutter={[24, 24]}>
-          <ACol xl={16} lg={24} span={24}>
+        <ARow gutter={[16, 16]}>
+          <ACol xs={24} sm={24} md={16} lg={16} xl={16} xxl={16}>
             <PackageInfo packageInfo={pkg} />
           </ACol>
-          <ACol xl={8} lg={24} span={24}>
+          <ACol xs={24} sm={24} md={8} lg={8} xl={8} xxl={8}>
             <QuickActions
               homepage={pkg.homepage}
               bugsUrl={pkg.bugs.url}

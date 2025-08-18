@@ -154,7 +154,6 @@ const LineChart = () => {
       return opts;
     });
   }
-  // init
 
   useMount(() => {
     init();

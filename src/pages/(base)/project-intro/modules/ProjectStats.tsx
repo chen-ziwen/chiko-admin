@@ -58,7 +58,7 @@ const ProjectStats = ({ packageInfo }: ProjectStatsProps) => {
     <ACard title={t('page.projectIntro.projectStats')} className="card-wrapper">
       <ARow gutter={[16, 16]}>
         {stats.map((stat, index) => (
-          <ACol key={index} xl={6} lg={12} md={12} span={24}>
+          <ACol key={index} xs={24} sm={12} md={12} lg={12} xl={6} span={24}>
             <div className="flex items-center border border-gray-200 rounded-lg bg-gray-50 p-4 transition-colors dark:border-[#404040] dark:bg-[#2a2a2a] hover:bg-gray-100 dark:hover:bg-[#3a3a3a]">
               <div className={`p-3 rounded-lg bg-white dark:bg-[#1c1c1c] shadow-sm ${stat.color}`}>
                 <SvgIcon icon={stat.icon} className="text-xl" />

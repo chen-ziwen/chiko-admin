@@ -52,7 +52,7 @@ const DependenciesGroup = ({ dependencies, devDependencies }: DependenciesType) 
       <ARow gutter={[24, 24]}>
         {depends.map((item) => {
           const colors = colorMap[item.color as keyof typeof colorMap];
-          
+
           return (
             <ACol key={item.color} xl={12} lg={24} span={24}>
               <div className="space-y-3">
@@ -61,11 +61,11 @@ const DependenciesGroup = ({ dependencies, devDependencies }: DependenciesType) 
                   <h3 className="text-lg font-medium">{item.label}</h3>
                 </div>
                 {Object.entries(item.list).slice(0, 10).map(([name, version]) => (
-                  <div 
-                    key={name} 
+                  <div
+                    key={name}
                     className={`flex items-center justify-between border border-l-4 ${colors.border} rounded-lg ${colors.bg} p-3 transition-colors dark:border-[#404040] dark:bg-[#2a2a2a] ${colors.hover} ${colors.darkHover}`}
                   >
-                    <span className="mr-2 truncate text-sm text-gray-700 font-medium dark:text-gray-300">
+                    <span className="mr-2 min-w-0 flex-1 truncate text-sm text-gray-600 font-medium dark:text-gray-400">
                       {name}
                     </span>
                     <ATag color={item.color} className="flex-shrink-0 text-xs">
