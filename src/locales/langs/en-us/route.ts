@@ -13,7 +13,7 @@
   '(base)_multi-menu_first_two': 'Menu 1-2',
   '(base)_multi-menu_second': 'Menu 2',
   '(base)_multi-menu_second_one': 'Menu 2-1',
-  '(base)_multi-menu_second_one_home': 'Menu 2-2',
+  '(base)_multi-menu_second_one_home': 'Menu 2-1-1',
   '(base)_error': 'Error Page',
   '(base)_error_403': '403',
   '(base)_error_404': '404',

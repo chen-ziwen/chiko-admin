@@ -117,8 +117,8 @@
         title: '菜单 2-1',
         description: '菜单 2-1页面',
         child: {
-          title: '菜单 2-2',
-          description: '菜单 2-2页面'
+          title: '菜单 2-1-1',
+          description: '菜单 2-1-1页面'
         }
       }
     },
@@ -131,16 +131,16 @@
     currentPath: '当前路径',
     menuLevel: '菜单层级',
     menuOneToFirst: '菜单 1 → 菜单 1-1 → 菜单 1-2',
-    menuTwoToFirst: '菜单 2 → 菜单 2-1 → 菜单 2-2',
+    menuTwoToFirst: '菜单 2 → 菜单 2-1 → 菜单 2-1-1',
     pageTitles: {
-      menuOneOne: '菜单 1-1 展示页面',
-      menuOneOneDesc: '这是菜单 1 的菜单 1-1 下的展示页面',
-      menuOneTwo: '菜单 1-2 展示页面',
-      menuOneTwoDesc: '这是菜单 1 的菜单 1-2 下的展示页面',
-      menuTwoOne: '菜单 2-1 展示页面',
-      menuTwoOneDesc: '这是菜单 2 的菜单 2-1 下的展示页面',
-      menuTwoChildHome: '菜单 2-2 展示页面',
-      menuTwoChildHomeDesc: '这是菜单 2 的菜单 2-2 下的展示页面'
+      menuOneOne: '菜单 1-1 页面',
+      menuOneOneDesc: '菜单 1-1 功能展示页面',
+      menuOneTwo: '菜单 1-2 页面',
+      menuOneTwoDesc: '菜单 1-2 功能展示页面',
+      menuTwoOne: '菜单 2-1 页面',
+      menuTwoOneDesc: '菜单 2-1 功能展示页面',
+      menuTwoChildHome: '菜单 2-1-1 页面',
+      menuTwoChildHomeDesc: '菜单 2-1-1 功能展示页面'
     },
     menuLevels: {
       multiMenu: '多级菜单',
@@ -149,7 +149,7 @@
       menuOneSecond: '菜单 1-2',
       menuTwo: '菜单 2',
       menuTwoFirst: '菜单 2-1',
-      menuTwoSecond: '菜单 2-2',
+      menuTwoSecond: '菜单 2-1-1',
       home: '首页'
     },
     features: {
@@ -160,7 +160,7 @@
       routeParams: '路由参数',
       menuStructure: '菜单结构说明',
       menuOneDesc: '菜单 1：包含菜单 1-1、菜单 1-2 等',
-      menuTwoDesc: '菜单 2：包含菜单 2-1、菜单 2-2 等'
+      menuTwoDesc: '菜单 2：包含菜单 2-1、菜单 2-1-1 等'
     },
     statistics: {
       title: '页面统计',

@@ -13,7 +13,7 @@
   '(base)_multi-menu_first_two': '菜单 1-2',
   '(base)_multi-menu_second': '菜单 2',
   '(base)_multi-menu_second_one': '菜单 2-1',
-  '(base)_multi-menu_second_one_home': '菜单 2-2',
+  '(base)_multi-menu_second_one_home': '菜单 2-1-1',
   '(base)_error': '错误页',
   '(base)_error_403': '403',
   '(base)_error_404': '404',

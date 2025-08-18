@@ -117,8 +117,8 @@
         title: 'Menu 2-1',
         description: 'Menu 2-1 page',
         child: {
-          title: 'Menu 2-2',
-          description: 'Menu 2-2 page'
+          title: 'Menu 2-1-1',
+          description: 'Menu 2-1-1 page'
         }
       }
     },
@@ -131,16 +131,16 @@
     currentPath: 'Current Path',
     menuLevel: 'Menu Level',
     menuOneToFirst: 'Menu 1 → Menu 1-1 → Menu 1-2',
-    menuTwoToFirst: 'Menu 2 → Menu 2-1 → Menu 2-2',
+    menuTwoToFirst: 'Menu 2 → Menu 2-1 → Menu 2-1-1',
     pageTitles: {
-      menuOneOne: 'Menu 1-1 Display Page',
-      menuOneOneDesc: 'This is the display page under Menu 1-1 of Menu 1',
-      menuOneTwo: 'Menu 1-2 Display Page',
-      menuOneTwoDesc: 'This is the display page under Menu 1-2 of Menu 1',
-      menuTwoOne: 'Menu 2-1 Display Page',
-      menuTwoOneDesc: 'This is the display page under Menu 2-1 of Menu 2',
-      menuTwoChildHome: 'Menu 2-2 Display Page',
-      menuTwoChildHomeDesc: 'This is the display page under Menu 2-2 of Menu 2'
+      menuOneOne: 'Menu 1-1 Page',
+      menuOneOneDesc: 'Menu 1-1 feature demonstration page',
+      menuOneTwo: 'Menu 1-2 Page',
+      menuOneTwoDesc: 'Menu 1-2 feature demonstration page',
+      menuTwoOne: 'Menu 2-1 Page',
+      menuTwoOneDesc: 'Menu 2-1 feature demonstration page',
+      menuTwoChildHome: 'Menu 2-1-1 Page',
+      menuTwoChildHomeDesc: 'Menu 2-1-1 feature demonstration page'
     },
     menuLevels: {
       multiMenu: 'Multi-level Menu',
@@ -149,7 +149,7 @@
       menuOneSecond: 'Menu 1-2',
       menuTwo: 'Menu 2',
       menuTwoFirst: 'Menu 2-1',
-      menuTwoSecond: 'Menu 2-2',
+      menuTwoSecond: 'Menu 2-1-1',
       home: 'Home'
     },
     features: {
@@ -160,7 +160,7 @@
       routeParams: 'Route Parameters',
       menuStructure: 'Menu Structure Description',
       menuOneDesc: 'Menu 1: Contains Menu 1-1, Menu 1-2, etc.',
-      menuTwoDesc: 'Menu 2: Contains Menu 2-1, Menu 2-2, etc.'
+      menuTwoDesc: 'Menu 2: Contains Menu 2-1, Menu 2-1-1, etc.'
     },
     statistics: {
       title: 'Page Statistics',
