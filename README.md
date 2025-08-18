@@ -34,70 +34,6 @@ ChikoAdmin 是一个现代化的中后台管理系统模板，采用最新的技
 - 主题定制: 支持主题色和布局模式自定义
 - Monorepo: 模块化架构，易于维护和扩展
 
-## 使用说明
-
-### 请求配置模式
-
-项目支持两种请求配置模式，可以根据开发需求灵活切换：
-
-#### 1. MSW Mock 模式
-
-**适用场景**：开发阶段，需要快速原型设计和测试
-**特点**：
-- 无需真实后端服务
-- 请求被 MSW 拦截，返回模拟数据
-- 支持动态修改响应数据
-- 开发体验更好
-
-**配置方式**：
-```bash
-VITE_MOCK_MODE=msw
-VITE_HTTP_PROXY=N
-```
-
-#### 2. 真实接口代理模式
-
-**适用场景**：需要连接真实后端服务
-**特点**：
-- 通过 Vite 代理转发请求到真实后端
-- 支持多个后端服务
-- 自动处理跨域问题
-- 生产环境直接使用真实接口
-
-**配置方式**：
-```bash
-VITE_MOCK_MODE=real
-VITE_HTTP_PROXY=Y
-VITE_PROXY_LOG=Y
-```
-
-### 代理配置说明
-
-代理配置支持多个后端服务，通过 `VITE_OTHER_SERVICE_BASE_URL` 环境变量配置：
-
-```json
-{
-  "demo": "http://localhost:5211",
-  "auth": "http://localhost:5212",
-  "upload": "http://localhost:5213"
-}
-```
-
-**代理规则**：
-- 主服务：`/proxy-default/*` → `VITE_SERVICE_BASE_URL/*`
-- 其他服务：`/proxy-demo/*` → `http://localhost:5211/*`
-- 其他服务：`/proxy-auth/*` → `http://localhost:5212/*`
-
-**使用示例**：
-```typescript
-// 主服务请求
-const response = await request('/api/users');
-
-// 其他服务请求
-const demoResponse = await request('/proxy-demo/api/data');
-const authResponse = await request('/proxy-auth/api/login');
-```
-
 ## 预览
 
 - [项目预览](https://admin.chiko.store)
@@ -117,37 +53,6 @@ const authResponse = await request('/proxy-auth/api/login');
 ### 环境变量配置
 
 项目支持两种模式：MSW Mock 模式和真实接口代理模式。
-
-#### MSW Mock 模式（推荐开发阶段）
-
-```bash
-# .env.development
-VITE_MOCK_MODE=msw
-VITE_HTTP_PROXY=N
-VITE_SERVICE_BASE_URL=http://localhost:3000
-VITE_OTHER_SERVICE_BASE_URL={"demo":"http://localhost:5211"}
-```
-
-#### 真实接口代理模式
-
-```bash
-# .env.development
-VITE_MOCK_MODE=real
-VITE_HTTP_PROXY=Y
-VITE_PROXY_LOG=Y
-VITE_SERVICE_BASE_URL=http://localhost:3000
-VITE_OTHER_SERVICE_BASE_URL={"demo":"http://localhost:5211"}
-```
-
-#### 生产环境配置
-
-```bash
-# .env.production
-VITE_MOCK_MODE=real
-VITE_HTTP_PROXY=N
-VITE_SERVICE_BASE_URL=https://api.yourdomain.com
-VITE_OTHER_SERVICE_BASE_URL={"demo":"https://demo-api.yourdomain.com"}
-```
 
 ### 克隆
 
@@ -195,6 +100,7 @@ chiko-admin/
 │   │   ├── menu/            # 菜单管理
 │   │   ├── router/          # 路由管理
 │   │   ├── tab/             # 标签页管理
+│   │   ├── table/           # 表格管理
 │   │   └── theme/           # 主题管理
 │   ├── hooks/               # 业务 Hooks
 │   ├── layouts/             # 布局组件

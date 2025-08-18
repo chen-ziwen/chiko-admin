@@ -69,14 +69,14 @@ export const authHandlers = [
         refreshToken: user.refreshToken
       };
       return HttpResponse.json({
-        code: '0000',
+        code: 200,
         message: '登录成功',
         data: loginToken
       });
     }
 
     return HttpResponse.json({
-      code: '1001',
+      code: 401,
       message: '用户名或密码错误'
     });
   }),
@@ -97,13 +97,13 @@ export const authHandlers = [
 
     if (!token || !userInfo) {
       return HttpResponse.json({
-        code: '1002',
+        code: 401,
         message: '未提供认证令牌或无效令牌'
       });
     }
 
     return HttpResponse.json({
-      code: '0000',
+      code: 200,
       message: '获取用户信息成功',
       data: userInfo
     });
@@ -115,7 +115,7 @@ export const authHandlers = [
 
     if (!refreshToken) {
       return HttpResponse.json({
-        code: '1003',
+        code: 400,
         message: '刷新令牌不能为空'
       });
     }
@@ -123,7 +123,7 @@ export const authHandlers = [
     const user = Object.values(mockUsers).find(u => u.refreshToken === refreshToken);
     if (!user) {
       return HttpResponse.json({
-        code: '1004',
+        code: 401,
         message: '无效的刷新令牌'
       });
     }
@@ -136,7 +136,7 @@ export const authHandlers = [
     };
 
     return HttpResponse.json({
-      code: '0000',
+      code: 200,
       message: '刷新令牌成功',
       data: newTokens
     });

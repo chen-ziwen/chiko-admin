@@ -33,7 +33,7 @@ export const routeHandlers = [
     }
 
     return HttpResponse.json({
-      code: '0000',
+      code: 200,
       message: '获取用户路由成功',
       data: {
         home: '/home',
@@ -59,7 +59,7 @@ export const routeHandlers = [
     const isExist = flatUserRoutes.includes(routeName);
 
     return HttpResponse.json({
-      code: '0000',
+      code: 200,
       message: '检查路由存在性成功',
       data: isExist
     });

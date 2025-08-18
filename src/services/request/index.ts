@@ -1,4 +1,4 @@
-import { BACKEND_ERROR_CODE,createFlatRequest,createRequest } from '@chiko-admin/axios';
+import { BACKEND_ERROR_CODE, createFlatRequest, createRequest } from '@chiko-admin/axios';
 
 import { globalConfig } from '@/config';
 
@@ -36,14 +36,14 @@ export const request = createFlatRequest<App.Service.Response, RequestInstanceSt
 
 // 其他服务请求 (当一个前端项目需要多个后端服务配合使用时, 可以创建多个请求实例)
 export const demoRequest = createRequest<App.Service.DemoResponse>(
-  { 
+  {
     baseURL: globalConfig.serviceOtherBaseURL.demo
   },
   {
     isBackendSuccess(response) {
       return response.data.status === '200';
     },
-    async onBackendFail(_response) {},
+    async onBackendFail(_response) { },
     onError(error) {
       let message = error.message;
 
