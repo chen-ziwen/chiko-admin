@@ -8,8 +8,6 @@
 [![license](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![pnpm](https://img.shields.io/badge/pnpm-10.13.1-orange.svg)](https://pnpm.io/)
 [![node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
-[![react](https://img.shields.io/badge/react-19.1.1-blue.svg)](https://react.dev/)
-[![typescript](https://img.shields.io/badge/typescript-5.7.3-blue.svg)](https://www.typescriptlang.org/)
 
 </div>
 
@@ -18,7 +16,7 @@
 
 ## 项目介绍
 
-ChikoAdmin 是一个现代化的中后台管理系统模板，采用最新的技术栈和最佳实践构建。项目使用 Monorepo 架构，提供了完整的开发工具链和丰富的功能组件。采用 MSW (Mock Service Worker) 提供强大的 Mock 数据方案。
+`ChikoAdmin` 是一个现代化的中后台管理系统模板，采用最新的技术栈和最佳实践构建。项目使用 Monorepo 架构，提供了完整的开发工具链和丰富的功能组件。采用 MSW (Mock Service Worker) 提供强大的 Mock 数据方案。
 
 ### 主要特性
 
@@ -49,10 +47,6 @@ ChikoAdmin 是一个现代化的中后台管理系统模板，采用最新的技
 
 - Node.js >= 18.0.0
 - pnpm >= 8.0.0
-
-### 环境变量配置
-
-项目支持两种模式：MSW Mock 模式和真实接口代理模式。
 
 ### 克隆
 
