@@ -329,7 +329,6 @@ export const userHandlers = [
 export const roleHandlers = [
   // 获取所有角色
   http.get('/system/role/all', () => {
-    // 返回简化的角色数据用于选择
     const allRoles = mockFullRoles.map(role => ({
       id: role.id,
       roleCode: role.roleCode,

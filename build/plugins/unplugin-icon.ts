@@ -7,12 +7,9 @@ import type { PluginOption } from 'vite';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 export function setupUnPluginIcon(viteEnv: Env.ImportMeta) {
-  // 设置默认值，确保即使环境变量缺失也能正常工作
-  const VITE_ICON_PREFIX = viteEnv.VITE_ICON_PREFIX || 'icon';
-  const VITE_ICON_LOCAL_PREFIX = viteEnv.VITE_ICON_LOCAL_PREFIX || 'icon-local';
+  const { VITE_ICON_LOCAL_PREFIX, VITE_ICON_PREFIX } = viteEnv;
 
   const localIconPath = path.join(process.cwd(), 'src/assets/svg-icon');
-  /** The name of the local icon collection */
   const collectionName = VITE_ICON_LOCAL_PREFIX.replace(`${VITE_ICON_PREFIX}-`, '');
 
   const plugins: PluginOption[] = [
