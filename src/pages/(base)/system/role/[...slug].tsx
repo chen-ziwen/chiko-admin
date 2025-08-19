@@ -1,6 +1,6 @@
 /**
  * @handle {
- *  "hideInMenu": true
+ *   "hideInMenu": true
  * }
  */
 

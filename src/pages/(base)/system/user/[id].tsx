@@ -1,6 +1,7 @@
 /**
  * @handle {
- *  "hideInMenu": true
+ *   "activeMenu": "/system/user",
+ *   "hideInMenu": true
  * }
  */
 
@@ -78,7 +79,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     if (response.error === null) {
       return response.data ?? null;
     }
-    
+
     console.error('Failed to fetch user detail:', response.error);
     return null;
   } catch (error) {

@@ -1,7 +1,8 @@
 /**
  * @handle {
  *   "icon": "line-md:cog-loop",
- *   "order": 998
+ *   "order": 998,
+ *   "roles": ["R_ADMIN"]
  * }
  */
 

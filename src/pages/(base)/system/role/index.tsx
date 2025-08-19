@@ -1,5 +1,6 @@
 /**
  * @handle {
+ *   "order": 2,
  *   "roles": ["R_SUPER"]
  * }
  */

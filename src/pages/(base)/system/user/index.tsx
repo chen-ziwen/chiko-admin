@@ -1,5 +1,7 @@
 /**
  * @handle {
+ *   "keepAlive": true,
+ *   "order": 1,
  *   "roles": ["R_ADMIN"]
  * }
  */
@@ -184,7 +186,7 @@ const UserManage = () => {
   function edit(id: number) {
     handleEdit(id);
   }
-  
+
   return (
     <div className="h-full min-h-500px flex-col-stretch gap-16px overflow-hidden lt-sm:overflow-auto">
       <ACollapse
