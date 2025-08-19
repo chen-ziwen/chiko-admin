@@ -5,7 +5,7 @@ import { request } from '../request';
 /**
  * 获取用户列表
  */
-export function fetchGetUserList(params: Api.SystemManage.UserSearchParams) {
+export function fetchGetUserList(params?: Api.SystemManage.UserSearchParams) {
   console.log('🔶 API: 发送获取用户列表请求', params);
   
   return request<Api.SystemManage.UserList>({

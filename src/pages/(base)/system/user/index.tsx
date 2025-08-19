@@ -11,7 +11,7 @@ import { Suspense, lazy } from 'react';
 import { enableStatusRecord, userGenderRecord } from '@/constants/business';
 import { ATG_MAP } from '@/constants/common';
 import { TableHeaderOperation, useTable, useTableOperate, useTableScroll } from '@/features/table';
-import { fetchBatchDeleteUser, fetchDeleteUser, fetchGetUserList } from '@/services/api';
+import { fetchGetUserList } from '@/services/api';
 
 import UserSearch from './modules/UserSearch';
 
@@ -153,34 +153,24 @@ const UserManage = () => {
   const { checkedRowKeys, generalPopupOperation, handleAdd, handleEdit, onBatchDeleted, onDeleted, rowSelection } =
     useTableOperate(data, run, async (res, type) => {
       if (type === 'add') {
+        // 调用新增接口
         console.log(res);
       } else {
+        // 调用编辑接口
         console.log(res);
       }
     });
 
   async function handleBatchDelete() {
-    try {
-      await fetchBatchDeleteUser(checkedRowKeys as number[]);
-      window.$message?.success?.(t('common.batchDeleteSuccess'));
-      onBatchDeleted();
-      run();
-    } catch (error) {
-      console.error('批量删除失败:', error);
-      window.$message?.error?.(t('common.batchDeleteFailed'));
-    }
+    // 调用批量删除接口
+    console.log(checkedRowKeys);
+    onBatchDeleted();
   }
 
   async function handleDelete(id: number) {
-    try {
-      await fetchDeleteUser(id);
-      window.$message?.success?.(t('common.deleteSuccess'));
-      onDeleted();
-      run();
-    } catch (error) {
-      console.error('删除失败:', error);
-      window.$message?.error?.(t('common.deleteFailed'));
-    }
+    // 调用删除接口
+    console.log(id);
+    onDeleted();
   }
 
   function edit(id: number) {

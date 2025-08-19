@@ -8,7 +8,7 @@
 
 import { replace } from 'react-router-dom';
 
-const Manage = () => {
+const System = () => {
   return null;
 };
 
@@ -16,4 +16,4 @@ export const loader = () => {
   return replace('user');
 };
 
-export default Manage;
+export default System;
