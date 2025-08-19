@@ -149,7 +149,7 @@ declare global {
   const useDrag: typeof import('ahooks')['useDrag']
   const useDrop: typeof import('ahooks')['useDrop']
   const useDynamicList: typeof import('ahooks')['useDynamicList']
-  const useEcharts: typeof import('../hooks/business/useEcharts')['default']
+  const useEcharts: typeof import('../hooks/business/useEcharts')['useEcharts']
   const useEffect: typeof import('react')['useEffect']
   const useEventEmitter: typeof import('ahooks')['useEventEmitter']
   const useEventListener: typeof import('ahooks')['useEventListener']
@@ -242,6 +242,9 @@ declare global {
   // @ts-ignore
   export type { FC, PropsWithChildren } from 'react'
   import('react')
+  // @ts-ignore
+  export type { ECOption } from '../hooks/business/useEcharts'
+  import('../hooks/business/useEcharts')
   // @ts-ignore
   export type { ThemeName } from '../hooks/business/usePreferredColorScheme'
   import('../hooks/business/usePreferredColorScheme')

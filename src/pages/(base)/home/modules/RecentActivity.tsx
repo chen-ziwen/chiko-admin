@@ -92,8 +92,6 @@ const RecentActivity = () => {
       }}
     >
       <div className="relative h-full">
-        <div className="absolute h-40 w-40 rounded-full from-primary/5 to-transparent bg-gradient-to-br -right-10 -top-10" />
-        <div className="absolute h-40 w-40 rounded-full from-primary/5 to-transparent bg-gradient-to-tr -bottom-12 -left-12" />
 
         <AList
           className="recent-activity-list relative h-full overflow-auto scrollbar-none"

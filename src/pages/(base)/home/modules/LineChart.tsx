@@ -1,6 +1,5 @@
 import { useLang } from '@/features/lang';
 
-
 const LineChart = () => {
   const { t } = useTranslation();
 
@@ -8,13 +7,19 @@ const LineChart = () => {
 
   const { domRef, updateOptions } = useEcharts(() => ({
     grid: {
-      bottom: '3%',
+      bottom: '8%',
       containLabel: true,
-      left: '3%',
-      right: '4%'
+      left: '5%',
+      right: '5%',
+      top: '15%'
     },
     legend: {
-      data: [t('page.home.salesData'), t('page.home.userGrowth')]
+      data: [t('page.home.salesData'), t('page.home.userGrowth')],
+      textStyle: {
+        color: '#666',
+        fontSize: 12
+      },
+      top: '5%'
     },
     series: [
       {
@@ -22,11 +27,11 @@ const LineChart = () => {
           color: {
             colorStops: [
               {
-                color: '#597ef7',
-                offset: 0.25
+                color: 'rgba(64, 158, 255, 0.8)',
+                offset: 0
               },
               {
-                color: '#fff',
+                color: 'rgba(64, 158, 255, 0.1)',
                 offset: 1
               }
             ],
@@ -37,26 +42,49 @@ const LineChart = () => {
             y2: 1
           }
         },
-        color: '#597ef7',
+        color: '#409eff',
         data: [] as number[],
         emphasis: {
-          focus: 'series'
+          focus: 'series',
+          itemStyle: {
+            borderColor: '#409eff',
+            borderWidth: 2
+          }
         },
         name: t('page.home.salesData'),
         smooth: true,
-        stack: 'Total',
-        type: 'line'
+        type: 'line',
+        lineStyle: {
+          width: 3,
+          shadowColor: 'rgba(64, 158, 255, 0.3)',
+          shadowBlur: 10
+        },
+        symbol: 'circle',
+        symbolSize: 8
       },
       {
-        areaStyle: {
+        color: '#4ecdc4',
+        data: [],
+        emphasis: {
+          focus: 'series',
+          itemStyle: {
+            borderColor: '#4ecdc4',
+            borderWidth: 2
+          }
+        },
+        name: t('page.home.userGrowth'),
+        type: 'bar',
+        barWidth: '40%',
+        itemStyle: {
+          borderRadius: [4, 4, 0, 0],
           color: {
             colorStops: [
               {
-                color: '#36cfc9',
-                offset: 0.25
+                color: '#4ecdc4',
+                offset: 0
               },
               {
-                color: '#fff',
+                color: '#45b7aa',
                 offset: 1
               }
             ],
@@ -66,34 +94,92 @@ const LineChart = () => {
             y: 0,
             y2: 1
           }
-        },
-        color: '#36cfc9',
-        data: [],
-        emphasis: {
-          focus: 'series'
-        },
-        name: t('page.home.userGrowth'),
-        smooth: true,
-        stack: 'Total',
-        type: 'line'
+        }
       }
     ],
     tooltip: {
       axisPointer: {
         label: {
-          backgroundColor: '#6a7985'
+          backgroundColor: '#409eff',
+          color: '#fff'
         },
-        type: 'cross'
+        type: 'shadow'
       },
-      trigger: 'axis'
+      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      borderColor: '#409eff',
+      borderWidth: 1,
+      textStyle: {
+        color: '#333'
+      },
+      trigger: 'axis',
+      confine: true,
+      position (point, params, dom, rect, size) {
+        // 获取容器尺寸
+        const containerWidth = size.viewSize[0];
+        const containerHeight = size.viewSize[1];
+
+        // 获取tooltip尺寸
+        const tooltipWidth = size.contentSize[0];
+        const tooltipHeight = size.contentSize[1];
+
+        // 计算最佳位置
+        let x = point[0];
+        let y = point[1];
+
+        // 水平位置调整
+        if (x + tooltipWidth > containerWidth) {
+          x = x - tooltipWidth;
+        }
+        if (x < 0) {
+          x = 10;
+        }
+
+        // 垂直位置调整
+        if (y + tooltipHeight > containerHeight) {
+          y = y - tooltipHeight;
+        }
+        if (y < 0) {
+          y = 10;
+        }
+
+        return [x, y];
+      }
     },
     xAxis: {
-      boundaryGap: false,
+      boundaryGap: true,
       data: [] as string[],
-      type: 'category'
+      type: 'category',
+      axisLine: {
+        lineStyle: {
+          color: '#ddd'
+        }
+      },
+      axisLabel: {
+        color: '#666',
+        fontSize: 11
+      },
+      axisTick: {
+        show: false
+      }
     },
     yAxis: {
-      type: 'value'
+      type: 'value',
+      splitLine: {
+        lineStyle: {
+          color: '#f0f0f0',
+          type: 'dashed'
+        }
+      },
+      axisLine: {
+        show: false
+      },
+      axisLabel: {
+        color: '#666',
+        fontSize: 11
+      },
+      axisTick: {
+        show: false
+      }
     }
   }));
 
@@ -102,25 +188,10 @@ const LineChart = () => {
       setTimeout(resolve, 1000);
     });
 
-    updateOptions((opts: echarts.EChartsOption) => {
-      if (!opts.xAxis || !opts.series) {
-        return opts;
-      }
-
-      const xAxis = Array.isArray(opts.xAxis) ? opts.xAxis[0] : opts.xAxis;
-      const series = Array.isArray(opts.series) ? opts.series : [opts.series];
-
-      if (xAxis.type === 'category') {
-        (xAxis as any).data = ['01月', '02月', '03月', '04月', '05月', '06月', '07月', '08月', '09月', '10月'];
-      }
-
-      if (series[0]) {
-        (series[0] as any).data = [3200, 4500, 5800, 7200, 8500, 7800, 6500, 9200, 8700, 9800];
-      }
-
-      if (series[1]) {
-        (series[1] as any).data = [2100, 3200, 4500, 6000, 7200, 6800, 7500, 8200, 8900, 9500];
-      }
+    updateOptions(opts => {
+      opts.xAxis.data = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+      opts.series[0].data = [2800, 4200, 5500, 6800, 8200, 7500, 6200, 8800, 9200, 10500, 9800, 11200];
+      opts.series[1].data = [1800, 2800, 4200, 5800, 7200, 6500, 5800, 7500, 8200, 9500, 8800, 10200];
 
       return opts;
     });
@@ -131,25 +202,11 @@ const LineChart = () => {
   }
 
   function updateLocale() {
-    updateOptions((opts: echarts.EChartsOption, factory: () => echarts.EChartsOption) => {
+    updateOptions((opts,factory) => {
       const originOpts = factory();
-
-      if (!opts.legend || !opts.series || !originOpts.legend || !originOpts.series) {
-        return opts;
-      }
-
-      const legend = Array.isArray(opts.legend) ? opts.legend[0] : opts.legend;
-      const originLegend = Array.isArray(originOpts.legend) ? originOpts.legend[0] : originOpts.legend;
-      const series = Array.isArray(opts.series) ? opts.series : [opts.series];
-      const originSeries = Array.isArray(originOpts.series) ? originOpts.series : [originOpts.series];
-
-      (legend as any).data = (originLegend as any).data;
-      if (series[0] && originSeries[0]) {
-        (series[0] as any).name = (originSeries[0] as any).name;
-      }
-      if (series[1] && originSeries[1]) {
-        (series[1] as any).name = (originSeries[1] as any).name;
-      }
+      opts.legend.data = originOpts.legend.data;
+      opts.series[0].name = originOpts.series[0].name;
+      opts.series[1].name = originOpts.series[1].name;
 
       return opts;
     });

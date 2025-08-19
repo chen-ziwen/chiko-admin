@@ -29,6 +29,8 @@
     marketing: 'Marketing',
     operations: 'Operations',
     finance: 'Finance',
+    design: 'Design',
+    customerService: 'Customer Service',
     dashboardOverview: 'Dashboard Overview',
     refresh: 'Refresh',
     today: 'Today',

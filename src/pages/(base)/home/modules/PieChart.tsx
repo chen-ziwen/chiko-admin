@@ -7,42 +7,67 @@ const PieChart = () => {
 
   const { domRef, updateOptions } = useEcharts(() => ({
     legend: {
-      bottom: '1%',
+      bottom: '8%',
       itemStyle: {
         borderWidth: 0
       },
-      left: 'center'
+      left: 'center',
+      textStyle: {
+        color: '#666',
+        fontSize: 12
+      }
     },
     series: [
       {
         avoidLabelOverlap: false,
-        color: ['#1890ff', '#52c41a', '#fa8c16', '#f5222d'],
+        color: ['#ff6b6b', '#4ecdc4', '#45b7aa', '#96ceb4', '#feca57', '#ff9ff3'],
         data: [] as { name: string; value: number }[],
         emphasis: {
           label: {
-            fontSize: '12',
+            fontSize: 14,
+            fontWeight: 'bold',
             show: true
+          },
+          itemStyle: {
+            shadowBlur: 10,
+            shadowColor: 'rgba(0, 0, 0, 0.3)',
+            shadowOffsetX: 0,
+            shadowOffsetY: 2
           }
         },
         itemStyle: {
           borderColor: '#fff',
-          borderRadius: 10,
-          borderWidth: 1
+          borderRadius: 8,
+          borderWidth: 2
         },
         label: {
-          position: 'center',
-          show: false
+          position: 'inside',
+          show: false,
+          color: '#fff',
+          fontSize: 11,
+          formatter: '{c}%'
         },
         labelLine: {
           show: false
         },
         name: t('page.home.productDistribution'),
-        radius: ['45%', '75%'],
-        type: 'pie'
+        radius: ['20%', '65%'],
+        roseType: 'area',
+        type: 'pie',
+        center: ['50%', '40%'],
+        minAngle: 8
       }
     ],
     tooltip: {
-      trigger: 'item'
+      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      borderColor: '#4ecdc4',
+      borderWidth: 1,
+      textStyle: {
+        color: '#333'
+      },
+      trigger: 'item',
+      formatter: '{a} <br/>{b}: {c}%',
+      confine: true
     }
   }));
 
@@ -52,19 +77,14 @@ const PieChart = () => {
     });
 
     updateOptions(opts => {
-      if (!opts.series) {
-        return opts;
-      }
-
-      const series = Array.isArray(opts.series) ? opts.series : [opts.series];
-      if (series[0]) {
-        (series[0] as any).data = [
-          { name: t('page.home.technology'), value: 35 },
-          { name: t('page.home.marketing'), value: 25 },
-          { name: t('page.home.operations'), value: 20 },
-          { name: t('page.home.finance'), value: 20 }
-        ];
-      }
+      opts.series[0].data = [
+        { name: t('page.home.technology'), value: 28 },
+        { name: t('page.home.marketing'), value: 22 },
+        { name: t('page.home.operations'), value: 18 },
+        { name: t('page.home.finance'), value: 16 },
+        { name: t('page.home.design'), value: 10 },
+        { name: t('page.home.customerService'), value: 6 }
+      ];
 
       return opts;
     });
@@ -74,23 +94,16 @@ const PieChart = () => {
     updateOptions((opts, factory) => {
       const originOpts = factory();
 
-      if (!opts.series || !originOpts.series) {
-        return opts;
-      }
+      opts.series[0].name = originOpts.series[0].name;
 
-      const series = Array.isArray(opts.series) ? opts.series : [opts.series];
-      const originSeries = Array.isArray(originOpts.series) ? originOpts.series : [originOpts.series];
-
-      if (series[0] && originSeries[0]) {
-        (series[0] as any).name = (originSeries[0] as any).name;
-
-        (series[0] as any).data = [
-          { name: t('page.home.technology'), value: 35 },
-          { name: t('page.home.marketing'), value: 25 },
-          { name: t('page.home.operations'), value: 20 },
-          { name: t('page.home.finance'), value: 20 }
-        ];
-      }
+      opts.series[0].data = [
+        { name: t('page.home.technology'), value: 28 },
+        { name: t('page.home.marketing'), value: 22 },
+        { name: t('page.home.operations'), value: 18 },
+        { name: t('page.home.finance'), value: 16 },
+        { name: t('page.home.design'), value: 10 },
+        { name: t('page.home.customerService'), value: 6 }
+      ];
 
       return opts;
     });

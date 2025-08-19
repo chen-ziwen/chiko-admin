@@ -75,10 +75,10 @@ export default function Mock() {
           前端工程师可以自己编写 MSW 接口：
         </p>
         <ul className="mb-16px list-disc pl-20px">
-          <li>在 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-gray-700">src/mocks/handlers/</code> 目录下创建处理器文件</li>
-          <li>使用 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-gray-700">http.get()</code>、<code className="rounded bg-gray-100 px-4px py-2px dark:bg-gray-700">http.post()</code> 等方法定义接口</li>
-          <li>使用 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-gray-700">HttpResponse.json()</code> 返回模拟数据</li>
-          <li>在 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-gray-700">src/mocks/handlers/index.ts</code> 中导出你的处理器</li>
+          <li>在 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-[#3a3a3a]">src/mocks/handlers/</code> 目录下创建处理器文件</li>
+          <li>使用 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-[#3a3a3a]">http.get()</code>、<code className="rounded bg-gray-100 px-4px py-2px dark:bg-[#3a3a3a]">http.post()</code> 等方法定义接口</li>
+          <li>使用 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-[#3a3a3a]">HttpResponse.json()</code> 返回模拟数据</li>
+          <li>在 <code className="rounded bg-gray-100 px-4px py-2px dark:bg-[#3a3a3a]">src/mocks/handlers/index.ts</code> 中导出你的处理器</li>
         </ul>
         <p>
           这样就可以让前端自己写模拟接口，独立于后端进行开发了。
@@ -105,7 +105,7 @@ export default function Mock() {
         onOk={() => setModalOpen(false)}
         width={600}
       >
-        <pre className="max-h-400px overflow-x-auto rounded bg-gray-100 p-12px text-14px dark:bg-gray-700">
+        <pre className="max-h-400px overflow-x-auto rounded bg-gray-100 p-12px text-14px dark:bg-[#3a3a3a]">
           {modalContent}
         </pre>
       </AModal>

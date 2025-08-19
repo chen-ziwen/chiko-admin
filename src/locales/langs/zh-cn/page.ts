@@ -29,6 +29,8 @@
     marketing: '市场部门',
     operations: '运营部门',
     finance: '财务部门',
+    design: '设计部门',
+    customerService: '客服部门',
     dashboardOverview: '仪表盘概览',
     refresh: '刷新',
     today: '今日',
