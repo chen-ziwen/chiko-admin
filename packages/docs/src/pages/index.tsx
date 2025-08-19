@@ -23,7 +23,7 @@ function HomepageHeader() {
             }
           },
           color: {
-            value: '#ffffff'
+            value: '#3b82f6'
           },
           shape: {
             type: 'circle',
@@ -55,8 +55,8 @@ function HomepageHeader() {
           line_linked: {
             enable: true,
             distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
+            color: '#3b82f6',
+            opacity: 0.3,
             width: 1
           },
           move: {
@@ -133,10 +133,10 @@ function HomepageHeader() {
           <div className={styles.heroLogo}>
             <img src="/img/logo.svg" alt="ChikoAdmin Logo" className={styles.logoImg} />
           </div>
-          <Heading as="h1" className="hero__title">
+          <Heading as="h1" className="hero__title" style={{ color: '#3b82f6' }}>
             {siteConfig.title}
           </Heading>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <p className="hero__subtitle" style={{ color: '#64748b' }}>{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
               className={clsx('button button--secondary button--lg', styles.quickStartBtn)}
@@ -146,7 +146,7 @@ function HomepageHeader() {
             <Link
               className={clsx('button button--lg button--primary', styles.githubBtn)}
               to="https://github.com/chen-ziwen/chiko-admin">
-              GitHub 仓库 🚀
+              GitHub
             </Link>
           </div>
         </div>
@@ -166,7 +166,7 @@ export default function Home() {
         <section className={styles.techStack}>
           <div className="container">
             <Heading as="h2" className={styles.sectionTitle}>
-              技术栈
+              🛠️ 技术栈
             </Heading>
             <div className={styles.techGrid}>
               <div className={styles.techItem}>

@@ -23,6 +23,8 @@
   '(base)_document_react': 'React 文档',
   '(base)_document_vite': 'Vite 文档',
   '(base)_document_router-link': '路由文档 (外链)',
+  '(base)_document_admin-docs': '项目文档',
+  '(base)_document_admin-docs-link': '项目文档 (外链)',
   '(base)_user-center': '个人中心',
   '(base)_project-intro': '项目介绍',
   '(base)_function': '功能',

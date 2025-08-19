@@ -1,8 +1,8 @@
 /**
  * @handle {
- *   "icon": "logos:vitejs",
- *   "url": "https://cn.vitejs.dev/",
- *   "order": 5
+ *   "icon": "streamline-sharp-color:zoom-document-flat",
+ *   "url": "https://admin-docs.chiko.store",
+ *   "order": 1
  * }
  */
 

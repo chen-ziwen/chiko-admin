@@ -3,17 +3,14 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'ChikoAdmin',
+  title: 'ChikoAdminDocs',
   tagline: '基于 React19 的现代化中后台管理模板文档',
   favicon: 'img/favicon.svg',
-
-  // Set the production url of your site here
   url: 'https://admin-docs.chiko.store',
   baseUrl: '/',
 
-  // GitHub pages deployment config.
   organizationName: 'chen-ziwen',
-  projectName: 'chiko-admin',
+  projectName: 'chiko-admin-docs',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -40,10 +37,9 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'ChikoAdmin',
+      title: 'ChikoAdminDocs',
       logo: {
         alt: 'ChikoAdmin Logo',
         src: 'img/logo.svg'
@@ -63,7 +59,7 @@ const config: Config = {
       ]
     },
     footer: {
-      style: 'dark',
+      style: 'light',
       links: [
         {
           title: '文档',

@@ -92,7 +92,6 @@ const RecentActivity = () => {
       }}
     >
       <div className="relative h-full">
-
         <AList
           className="recent-activity-list relative h-full overflow-auto scrollbar-none"
           dataSource={activities}

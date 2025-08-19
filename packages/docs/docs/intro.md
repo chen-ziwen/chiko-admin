@@ -4,15 +4,16 @@ sidebar_position: 1
 
 # ChikoAdmin 介绍
 
-ChikoAdmin 是一个基于 React19、Vite、TypeScript、Ant Design 和 UnoCSS 的现代化中后台管理模板。它提供了丰富的功能和优雅的代码结构，帮助你快速构建企业级管理系统。
+ChikoAdmin 是一个基于 React19 的现代化中后台管理模板，采用最新的技术栈和最佳实践，帮助你快速构建企业级管理系统。
 
 ## 主要特性
 
 - **现代化技术栈**: React19 + Vite + TypeScript + Ant Design
-- **优雅的代码结构**: 基于功能模块化的目录结构
-- **丰富的功能组件**: 路由、菜单、主题、权限等核心功能
-- **开发体验优化**: 热更新、类型检查、代码规范
-- **部署友好**: 支持 Vercel、GitHub Pages 等平台部署
+- **模块化架构**: 基于功能模块化的目录结构，易于维护和扩展
+- **主题定制**: 支持亮色/暗色主题切换，丰富的主题配置选项
+- **权限管理**: 完整的权限控制系统，支持角色和菜单权限
+- **响应式设计**: 完美适配桌面端和移动端
+- **开发体验**: 热更新、类型检查、代码规范，提升开发效率
 
 ## 技术栈
 
@@ -42,32 +43,35 @@ chiko-admin/
 │   ├── hooks/            # 自定义 Hooks
 │   ├── utils/            # 工具库
 │   └── layout/           # 布局组件
-├── build/                # 构建配置
 └── public/               # 静态资源
 ```
 
 ## 快速开始
 
-1. **克隆项目**
-   ```bash
-   git clone https://github.com/chen-ziwen/chiko-admin.git
-   cd chiko-admin
-   ```
+### 1. 克隆项目
 
-2. **安装依赖**
-   ```bash
-   pnpm install
-   ```
+```bash
+git clone https://github.com/chen-ziwen/chiko-admin.git
+cd chiko-admin
+```
 
-3. **启动开发服务器**
-   ```bash
-   pnpm dev
-   ```
+### 2. 安装依赖
 
-4. **构建生产版本**
-   ```bash
-   pnpm build
-   ```
+```bash
+pnpm install
+```
+
+### 3. 启动开发服务器
+
+```bash
+pnpm dev
+```
+
+### 4. 构建生产版本
+
+```bash
+pnpm build
+```
 
 ## 在线预览
 

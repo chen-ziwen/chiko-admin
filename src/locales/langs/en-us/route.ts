@@ -23,6 +23,8 @@
   '(base)_document_react': 'React Document',
   '(base)_document_vite': 'Vite Document',
   '(base)_document_router-link': 'Router Document (external link)',
+  '(base)_document_admin-docs': 'Project Docs',
+  '(base)_document_admin-docs-link': 'Project Docs (external link)',
   '(base)_user-center': 'User Center',
   '(base)_project-intro': 'Project Introduction',
   '(base)_function': 'Function',

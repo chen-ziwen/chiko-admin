@@ -2,7 +2,7 @@
  * @handle {
  *   "icon": "logos:react",
  *   "url": "https://react.dev/",
- *   "order": 2
+ *   "order": 4
  * }
  */
 
