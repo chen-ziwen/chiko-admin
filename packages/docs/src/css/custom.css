@@ -1,14 +1,5 @@
 /* 基础变量 */
 :root {
-  /* 主色调 - 现代蓝色 */
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-darkest: #1e40af;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #dbeafe;
-
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.1);
 
@@ -19,6 +10,31 @@
   /* 间距 */
   --ifm-spacing-horizontal: 1.5rem;
   --ifm-spacing-vertical: 2rem;
+
+  /* 滚动行为 */
+  scroll-behavior: smooth;
+
+  /* 盒模型 */
+  box-sizing: border-box;
+
+  /* 字体 */  
+  font-family: var(--ifm-font-family-base);
+  line-height: 1.7;
+
+  /* 抗锯齿 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 亮色主题 */
+[data-theme='light'] {
+  --ifm-color-primary: #3b82f6;
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #dbeafe;
 }
 
 /* 暗色主题 */
@@ -27,24 +43,8 @@
   --ifm-color-primary-dark: #3b82f6;
   --ifm-color-primary-darker: #2563eb;
   --ifm-color-primary-darkest: #1d4ed8;
-  --ifm-color-primary-light: #93c5fd;
+  --ifm-color-primary-light: #034692;
   --ifm-color-primary-lighter: #bfdbfe;
   --ifm-color-primary-lightest: #dbeafe;
   --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.2);
-}
-
-/* 全局样式 */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--ifm-font-family-base);
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
