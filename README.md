@@ -38,8 +38,17 @@
 - [文档地址](https://admin-docs.chiko.store)
 
 ## 示例图片
-
-目前项目尚未完工，完成后会补充上！
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0f0a08f8-2856-48e5-af9e-6de0d5c1a34f" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/236a58ed-47cc-4ed6-a877-a410562d6293" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/121ac4ab-6a41-4cd2-a9ab-5bbb3075a4ea" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bea93de4-cae1-40ba-9679-c44668ae6d13" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/be2ec9e3-9b23-4ff2-ae19-bfbb55b10d31" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8e3b84a6-5c78-498f-a440-bbcb99179aa8" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b141053e-a5f5-44ee-acc6-4f876f7f52d6" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/75eeddec-fead-44fa-9fa2-d69d0ab5bd3e" />
+<img width="324" height="691" alt="image" src="https://github.com/user-attachments/assets/10bbcb9a-061d-41f6-9af3-454e03531184" />
+<img width="321" height="692" alt="image" src="https://github.com/user-attachments/assets/16b0c801-c5db-4ce7-987d-d1e51f4f517f" />
+<img width="322" height="693" alt="image" src="https://github.com/user-attachments/assets/fd7ea71c-784c-4578-a3a2-e7b7eefae499" />
 
 ## 快速开始
 
@@ -124,7 +133,7 @@ chiko-admin/
 
 项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范。
 
-#### 提交命令
+### 提交命令
 
 项目已内置 `cz` 命令，您可以通过执行以下命令来生成符合规范的提交信息：
 
