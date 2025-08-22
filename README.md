@@ -22,7 +22,7 @@
 
 - 现代化技术栈: React 19 + TypeScript + Vite + Ant Design
 - 优雅的 UI 设计: 基于 Ant Design 5.x，支持暗色模式
-- 约定式路由: 基于文件系统的自动路由生成
+- 约定式路由: 基于文件系统的自动路由生成。更多细节请查看 [Better Pages Create](https://github.com/chen-ziwen/better-pages-create)
 - 响应式布局: 完美适配桌面端和移动端
 - 国际化支持: 内置中英文语言切换
 - 权限管理: 完整的路由权限和菜单权限控制
