@@ -36,6 +36,19 @@ const config: Config = {
     ]
   ],
 
+  // 搜索插件配置
+  plugins: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['en', 'zh'],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true
+      }
+    ]
+  ],
+
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
@@ -52,6 +65,10 @@ const config: Config = {
           label: '文档'
         },
         {
+          type: 'search',
+          position: 'left'
+        },
+        {
           href: 'https://github.com/chen-ziwen/chiko-admin',
           label: 'GitHub',
           position: 'right'
@@ -66,7 +83,7 @@ const config: Config = {
           items: [
             {
               label: '快速开始',
-              to: '/docs/intro'
+              to: '/docs/guide/getting-started'
             },
             {
               label: '路由配置',

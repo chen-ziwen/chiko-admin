@@ -3,14 +3,7 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     'intro',
-    {
-      type: 'category',
-      label: '快速开始',
-      items: [
-        'guide/installation',
-        'guide/getting-started'
-      ]
-    },
+    'guide/getting-started',
     {
       type: 'category',
       label: '核心功能',

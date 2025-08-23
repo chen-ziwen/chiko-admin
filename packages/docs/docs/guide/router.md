@@ -6,7 +6,8 @@ sidebar_position: 1
 
 ChikoAdmin 使用 [Better Pages Create](https://github.com/chen-ziwen/better-pages-create) 进行基于文件系统的路由管理。该插件基于 React Router v7，支持约定式路由、动态路由、嵌套布局等功能。
 
-> 📖 **详细文档**: 如需了解 Better Pages Create 的完整功能和配置，请访问 [Better Pages Create 官方文档](https://github.com/chen-ziwen/better-pages-create)
+> 该文档只介绍 `ChikoAdmin` 项目使用到的功能以及一些内置配置。
+> 如需了解 Better Pages Create 的完整功能和配置，请访问 [Better Pages Create 官方文档](https://github.com/chen-ziwen/better-pages-create)。
 
 ## 路由结构
 
@@ -115,83 +116,41 @@ interface RouteMeta {
   query?: { key: string; value: string }[] | null;
 }
 ```
-
-### 元信息配置说明
-
-#### 基础配置项
-
-| 属性              | 类型      | 说明                             |
-| ----------------- | --------- | -------------------------------- |
-| `title`           | `string`  | 路由标题，用于文档标题和菜单显示 |
-| `i18nKey`         | `string`  | 国际化键值，如果设置将用于i18n   |
-| `keepAlive`       | `boolean` | 是否缓存该路由                   |
-| `constant`        | `boolean` | 是否为常量路由，无需登录         |
-| `order`           | `number`  | 路由排序顺序                     |
-| `href`            | `string`  | 路由的外部链接                   |
-| `multiTab`        | `boolean` | 是否允许多标签页                 |
-| `fixedIndexInTab` | `number`  | 固定标签页的顺序                 |
-| `query`           | `array`   | 路由查询参数                     |
-
-#### ChikoAdmin 扩展配置项
-
-| 属性         | 类型       | 说明                     |
-| ------------ | ---------- | ------------------------ |
-| `roles`      | `string[]` | 路由的角色列表           |
-| `icon`       | `string`   | Iconify 图标             |
-| `localIcon`  | `string`   | 本地图标                 |
-| `hideInMenu` | `boolean`  | 是否在菜单中隐藏该路由   |
-| `activeMenu` | `string`   | 进入该路由时激活的菜单键 |
-
 ### 注意事项
 
-#### 图标获取
 `icon` 图标值可以从 [Iconify](https://icones.js.org/) 获取，支持所有 Iconify 图标库。
 
-#### 隐藏菜单项
-如果在 pages 中创建了一个路由页面，需要在其他地方调用但不在菜单中显示，那么需要设置 `hideInMenu: true`。
 
-**示例：**
+### 配置示例
+
+#### 基础路由配置
+
 ```tsx
-// src/pages/_error/403/index.tsx
-import React from 'react';
-
+// src/pages/(base)/home/index.tsx
 /**
  * @handle {
- *   "constant": true
+ *   "title": "首页",
+ *   "icon": "lucide:laptop-minimal",
+ *   "keepAlive": true,
+ *   "order": 1
  * }
  */
-export default function Error403() {
-  return <div>403 错误页面</div>;
+export default function HomePage() {
+  return <div>首页内容</div>;
 }
 ```
 
-#### 激活其他菜单
-当进入一个不在菜单中的页面时，可以通过 `activeMenu` 指定要激活的菜单项：
-
-```tsx
-// src/pages/(base)/system/user/[id]/index.tsx
-/**
- * @handle {
- *   "activeMenu": "/system/user",
- *   "hideInMenu": true
- * }
- */
-const UserDetail = () => {
-  // 用户详情页面
-};
-```
-
-## 配置示例
-
-### 基础路由配置
+#### 权限路由配置
 
 ```tsx
 // src/pages/(base)/system/index.tsx
 /**
  * @handle {
+ *   "title": "系统管理",
+ *   "icon": "mdi:cog",
  *   "keepAlive": true,
- *   "order": 1,
- *   "roles": ["R_ADMIN"]
+ *   "roles": ["R_ADMIN"],
+ *   "order": 1
  * }
  */
 export default function SystemPage() {
@@ -199,25 +158,10 @@ export default function SystemPage() {
 }
 ```
 
-### 权限路由配置
+#### 外部链接路由
 
 ```tsx
-// src/pages/(base)/system/user/index.tsx
-/**
- * @handle {
- *   "keepAlive": true,
- *   "order": 1,
- *   "roles": ["R_ADMIN"]
- * }
- */
-const UserManage = () => {
-  // 用户管理页面
-};
-```
-
-### 外部链接路由
-
-```tsx
+// src/pages/(base)/external/index.tsx
 /**
  * @handle {
  *   "title": "外部链接",
@@ -225,49 +169,9 @@ const UserManage = () => {
  *   "icon": "mdi:external-link"
  * }
  */
-const ExternalPage = () => <div>外部页面</div>;
-```
-
-### 多标签页路由
-
-```tsx
-/**
- * @handle {
- *   "title": "多标签页",
- *   "multiTab": true,
- *   "icon": "mdi:tab-plus"
- * }
- */
-const MultiTabPage = () => <div>多标签页</div>;
-```
-
-### 固定标签页路由
-
-```tsx
-/**
- * @handle {
- *   "title": "固定标签页",
- *   "fixedIndexInTab": 1,
- *   "icon": "mdi:pin"
- * }
- */
-const FixedTabPage = () => <div>固定标签页</div>;
-```
-
-### 带查询参数的路由
-
-```tsx
-/**
- * @handle {
- *   "title": "查询页面",
- *   "query": [
- *     { "key": "type", "value": "list" },
- *     { "key": "status", "value": "active" }
- *   ],
- *   "icon": "mdi:filter"
- * }
- */
-const QueryPage = () => <div>查询页面</div>;
+export default function ExternalPage() {
+  return <div>外部页面</div>;
+}
 ```
 
 ## 动态路由
@@ -325,35 +229,108 @@ reactRouter.goHome();
 
 ## 路由守卫
 
-项目支持路由守卫功能，可以在路由跳转前进行权限检查：
+项目通过 `createRouteGuard` 函数实现路由权限控制，在 `RootLayout` 组件中进行路由跳转前的权限检查。
+
+### createRouteGuard 函数
 
 ```tsx
-// src/features/router/initRouter.ts
-import { createBrowserRouter } from 'react-router-dom';
+// src/pages/layout.tsx
+function createRouteGuard(
+  to: Router.Route, 
+  roles: string[], 
+  isSuper: boolean, 
+  previousRoute: Router.Route | null
+) {
+  const loginRoute = '/login';
+  const isLogin = Boolean(localStg.get('token'));
+  const notFoundRoute = 'notFound';
+  const isNotFoundRoute = to.id === notFoundRoute;
 
-export function initRouter() {
-  const router = createBrowserRouter(routes, {
-    basename: import.meta.env.VITE_BASE_URL,
-    patchRoutesOnNavigation: async ({ patch, path }) => {
-      // 动态路由权限控制
-      if (getIsNeedPatch(path)) {
-        isAlreadyPatch = true;
-        await initAuthRoutes(patch);
-      }
+  // 未登录状态处理
+  if (!isLogin) {
+    if (to.handle.constant && !isNotFoundRoute) {
+      return null; // 常量路由允许访问
     }
-  });
-
-  // 权限路由初始化
-  if (getIsLogin(store.getState()) && !isAlreadyPatch) {
-    initAuthRoutes(router.patchRoutes);
-    isAlreadyPatch = true;
+    // 重定向到登录页，并记录原路径
+    const query = to.fullPath;
+    return `${loginRoute}?redirect=${query}`;
   }
 
-  return {
-    router,
-    resetRoutes
-  };
+  const rootRoute = '/';
+  const noAuthorizationRoute = '/403';
+  const needLogin = !to.handle.constant;
+  const routeRoles = to.handle.roles || [];
+
+  // 检查用户角色权限
+  const hasRole = roles.some(role => routeRoles.includes(role));
+  const hasAuth = isSuper || !routeRoles.length || hasRole;
+
+  // 已登录用户访问登录页，重定向到首页
+  if (to.fullPath.includes('login') && to.pathname !== '/login-out' && isLogin) {
+    return rootRoute;
+  }
+
+  // 404 路由处理
+  if (to.id === 'notFound') {
+    const exist = matchRoutes(allRoutes[0].children || [], to.pathname);
+    if (exist && exist.length > 1) {
+      return noAuthorizationRoute;
+    }
+    return null;
+  }
+
+  // 常量路由不需要登录验证
+  if (!needLogin) {
+    return handleRouteSwitch(to, previousRoute);
+  }
+
+  // 权限不足时重定向到 403 页面
+  if (!hasAuth && import.meta.env.VITE_AUTH_ROUTE_MODE === 'static') {
+    return noAuthorizationRoute;
+  }
+
+  return handleRouteSwitch(to, previousRoute);
 }
+```
+
+### 权限检查逻辑
+
+1. **登录状态检查**: 检查用户是否已登录（通过 token 判断）
+2. **常量路由**: `constant: true` 的路由无需登录即可访问
+3. **角色权限**: 检查用户角色是否匹配路由的 `roles` 配置
+4. **超级管理员**: 超级管理员拥有所有路由的访问权限
+5. **权限模式**: 根据 `VITE_AUTH_ROUTE_MODE` 环境变量决定权限控制模式
+
+### 路由重定向
+
+- **未登录**: 重定向到登录页，并记录原路径用于登录后跳转
+- **权限不足**: 重定向到 403 无权限页面
+- **已登录访问登录页**: 重定向到首页
+- **外部链接**: 通过 `handleRouteSwitch` 处理外部链接跳转
+
+### 使用方式
+
+路由守卫在 `RootLayout` 组件中自动执行，每次路由变化时都会调用：
+
+```tsx
+const RootLayout = () => {
+  const route = useRoute();
+  const { roles } = useAppSelector(selectUserInfo);
+  const isSuper = useAppSelector(isStaticSuper);
+  
+  // 路由变化时执行权限检查
+  if (routeId.current !== route.id) {
+    routeId.current = route.id;
+    location.current = createRouteGuard(route, roles, isSuper, previousRoute);
+  }
+  
+  // 根据权限检查结果决定是否重定向
+  return location.current ? (
+    <Navigate to={location.current} />
+  ) : (
+    <Outlet context={previousRoute} />
+  );
+};
 ```
 
 ## 常见问题
