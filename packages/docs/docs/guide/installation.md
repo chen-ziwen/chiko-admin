@@ -17,7 +17,8 @@ sidebar_position: 2
 
 ### 包管理器
 
-推荐使用 pnpm，但也支持 npm 和 yarn：
+> [!WARNING]
+> 项目采用 pnpm monorepo 管理方式，请勿使用其他包管理工具！
 
 ```bash
 # 安装 pnpm
@@ -79,79 +80,84 @@ pnpm dev
 ### 基础配置 (.env)
 
 ```bash
-# 项目名称
+# ===== 基础信息 =====
+# 项目名称，会显示在浏览器标题栏
 VITE_APP_TITLE=ChikoAdmin
 
-# 基础路径
+# 项目部署的基础路径，如果部署在子目录需要修改
 VITE_BASE_URL=/
 
-# 存储前缀
+# ===== 存储配置 =====
+# 本地存储的键名前缀，避免与其他项目冲突
 VITE_STORAGE_PREFIX=Chiko-Admin_
 
-# 图标前缀
+# ===== 图标配置 =====
+# 在线图标的前缀标识
 VITE_ICON_PREFIX=icon
 
-# 本地图标前缀
+# 本地图标的前缀标识
 VITE_ICON_LOCAL_PREFIX=icon-local
 
-# 路由首页
+# ===== 路由配置 =====
+# 登录后的默认首页路径
 VITE_ROUTE_HOME=/home
 
-# 权限路由模式
+# 权限路由模式：static(静态) 或 dynamic(动态)
 VITE_AUTH_ROUTE_MODE=static
 
-# 默认菜单图标
+# 默认的菜单图标
 VITE_MENU_ICON=mdi:menu
 
-# 路由历史模式
+# 路由历史模式：history(HTML5) 或 hash(#)
 VITE_ROUTER_HISTORY_MODE=history
 
-# 服务成功状态码
+# ===== 接口配置 =====
+# 接口请求成功时的状态码
 VITE_SERVICE_SUCCESS_CODE=200
 
-# 服务登出状态码
+# 需要自动登出的状态码（多个用逗号分隔）
 VITE_SERVICE_LOGOUT_CODES=8888,8889
 
-# 服务模态框登出状态码
+# 需要显示登出提示框的状态码
 VITE_SERVICE_MODAL_LOGOUT_CODES=7777,7778
 
-# 服务 token 过期状态码
+# Token 过期时的状态码
 VITE_SERVICE_EXPIRED_TOKEN_CODES=9999,9998,3333
 
-# 静态超级角色
+# ===== 权限配置 =====
+# 超级管理员角色标识，拥有所有权限
 VITE_STATIC_SUPER_ROLE=R_SUPER
 
-# 源码映射
+# ===== 开发配置 =====
+# 是否生成源码映射文件：Y(是) 或 N(否)
 VITE_SOURCE_MAP=N
 
-# 自动检测更新
+# 是否自动检测更新：Y(是) 或 N(否)
 VITE_AUTOMATICALLY_DETECT_UPDATE=Y
 
-# Mock 服务模式
+# Mock 服务模式：msw(使用) 或 real(真实接口)
 VITE_MOCK_MODE=msw
 ```
 
 ### 生产环境配置 (.env.prod)
 
 ```bash
-# 生产环境配置
-
-# 生产环境应使用真实的后端服务地址
+# ===== 生产环境配置 =====
+# 生产环境的后端服务地址，必须使用真实的 HTTPS 地址
 VITE_SERVICE_BASE_URL=https://api.chiko.com
 
-# Mock 服务模式：生产环境使用真实接口
+# Mock 服务模式：生产环境必须使用真实接口
 VITE_MOCK_MODE=real
 ```
 
 ### 测试环境配置 (.env.test)
 
 ```bash
-# 测试环境配置
-
-# 测试环境服务地址
+# ===== 测试环境配置 =====
+# 测试环境的后端服务地址
 VITE_SERVICE_BASE_URL=https://test-api.chiko.com
 
-# Mock 服务模式
+# Mock 服务模式：测试环境可以使用 Mock 数据
 VITE_MOCK_MODE=msw
 ```
 
@@ -269,7 +275,7 @@ A:
 A: 推荐使用 nvm 管理 Node.js 版本：
 ```bash
 # 安装 nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+npm install -g nvm
 
 # 安装 Node.js 18
 nvm install 18
