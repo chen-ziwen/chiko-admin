@@ -42,7 +42,7 @@ const config: Config = {
       '@easyops-cn/docusaurus-search-local',
       {
         hashed: true,
-        language: ['en', 'zh'],
+        language: [ 'zh'],
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true
       }
@@ -75,6 +75,8 @@ const config: Config = {
         }
       ]
     },
+    
+
     footer: {
       style: 'light',
       links: [
@@ -86,16 +88,16 @@ const config: Config = {
               to: '/docs/guide/getting-started'
             },
             {
-              label: '路由配置',
-              to: '/docs/guide/router'
-            },
-            {
-              label: '菜单配置',
-              to: '/docs/guide/menu'
-            },
-            {
               label: '主题配置',
-              to: '/docs/guide/theme'
+              to: '/docs/guide/theme/basics'
+            },
+            {
+              label: '路由系统',
+              to: '/docs/guide/router/basics'
+            },
+            {
+              label: '国际化',
+              to: '/docs/guide/i18n/basics'
             }
           ]
         },
