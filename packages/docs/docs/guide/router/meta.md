@@ -257,8 +257,8 @@ export default function HomePage() {
 
 ## 注意事项
 
-**图标来源**: `icon` 属性使用 [Iconify](https://icones.js.org/) 图标
-**本地图标**: `localIcon` 对应 `src/assets/svg-icon/` 目录下的文件
-**角色权限**: `roles` 为空数组时表示无需权限
-**菜单隐藏**: 使用 `hideInMenu: true` 隐藏菜单项
-**标签页固定**: 首页会自动固定，其他页面需要手动设置 
+- **图标来源**: `icon` 属性使用 [Iconify](https://icones.js.org/) 图标
+- **本地图标**: `localIcon` 对应 `src/assets/svg-icon/` 目录下的文件
+- **角色权限**: `roles` 为空数组时表示无需权限
+- **菜单隐藏**: 使用 `hideInMenu: true` 隐藏菜单项
+- **标签页固定**: 首页会自动固定，其他页面需要手动设置 
