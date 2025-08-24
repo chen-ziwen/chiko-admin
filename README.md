@@ -11,7 +11,7 @@
 
 </div>
 
-> [!IMPORTANT] 感谢支持！
+> [!IMPORTANT]
 > 如果 `ChikoAdmin` 对您有帮助，请给我一个 ⭐️ 支持！您的支持是我持续改进的动力！
 
 ## 项目介绍
@@ -66,7 +66,7 @@ git clone git@github.com:chen-ziwen/chiko-admin.git
 
 ### 安装依赖
 
-> [!WARNING] 警告
+> [!WARNING]
 > 项目采用 pnpm monorepo 管理方式，请勿使用其他包管理工具！
 
 ```bash
