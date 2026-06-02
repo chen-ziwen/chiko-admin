@@ -34,8 +34,8 @@
 
 ## 预览
 
-- [项目预览](https://admin.chiko.store)
-- [文档地址](https://admin-docs.chiko.store)
+- [项目预览](https://chiko-admin.vercel.app)
+- [文档地址](https://chiko-admin-docs.vercel.app)
 
 ## 示例图片
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0f0a08f8-2856-48e5-af9e-6de0d5c1a34f" />
