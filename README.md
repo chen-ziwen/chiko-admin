@@ -1,3 +1,5 @@
+
+
 <div align="center">
 	<img src="./public/logo.svg" width="160" />
 	<h1>ChikoAdmin</h1>
@@ -56,7 +58,7 @@
 ### 环境要求
 
 - Node.js >= 18.0.0
-- pnpm >= 8.0.0
+- pnpm >= 10.13.1
 
 ### 克隆
 
